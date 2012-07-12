@@ -1,0 +1,14 @@
+*.iml
+.DS_Store
+.classpath
+.idea
+.metadata
+.project
+.settings/
+artifacts.jar
+bin
+derby.log
+logs.zip
+release.properties
+target/
+thumbs.db
