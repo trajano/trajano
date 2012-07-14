@@ -17,3 +17,78 @@ About this project
 
 	The organisational POM version numbering scheme is a single numeric
 	number.  This is similar to the way Apache does their POM versioning.
+
+Services used
+
+	For {{{./issue-tracking.html}issue tracking}}, github is used.
+
+	The following on-line services are used for {{{./distribution-management.html}distribution management}}.
+
+	* github is used as the {{{./source-repository.html}source repository}}.
+	
+	* github is used to host the project site via
+	  {{{http://stephenc.github.com/wagon-gitsite/}wagon-gitsite}}.
+
+	* SourceForge is used as the Maven repository storing the deployed
+	  artifacts.  They provide a freely available Wagon compatible endpoint
+	  that we can deploy to.
+	
+	[]
+	  
+	The services above should not be used in a real enterprise as they are
+	public and the extensions used are not guaranteed to be developed
+	regularly.  They are used only as a means to an end to allow for
+	public publishing.
+	
+	An actual enterprise should be using proper hosting of repositories
+	within it's own walls.
+
+Using the repositories
+
+	In order to use the repositories, a {{{http://maven.apache.org/settings.html#Repositories}settings.xml}}
+	file must be present and have the repositories defined. For example:
+	
++-------------------------------+
+<?xml version="1.0"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+        http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <profiles>
+    <profile>
+      <id>trajano</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+         <repository>
+            <id>trajano</id>
+            <name>Trajano Maven Repository @ Sourceforge</name>
+            <releases>
+               <enabled>true</enabled>
+            </releases>
+            <snapshots>
+               <enabled>false</enabled>
+            </snapshots>
+            <url>https://sourceforge.net/projects/ttl/files/m2-repo/</url>
+         </repository>
+         <repository>
+            <id>trajano-snapshot</id>
+            <name>Trajano Maven Snapshot Repository @ Sourceforge</name>
+            <releases>
+               <enabled>true</enabled>
+            </releases>
+            <snapshots>
+               <enabled>false</enabled>
+            </snapshots>
+            <url>https://sourceforge.net/projects/ttl/files/m2-snapshot/</url>
+         </repository>
+      </repositories>
+    </profile>
+  </profiles>
+</settings>
++-------------------------------+
+
+	It is better to put the repositories in the settings.xml as it prevents
+	having to put in the repositories section in the pom.xml files for each
+	project.
