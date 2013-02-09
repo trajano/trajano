@@ -2,12 +2,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<!-- Normally in an organization this would be the top project POM and 
+			not have a parent project. This is added in order to reduce configuration 
+			needed to access to the Sonatype OSS repository. -->
+		<groupId>org.sonatype.oss</groupId>
+		<artifactId>oss-parent</artifactId>
+		<version>7</version>
+	</parent>
 	<groupId>net.trajano</groupId>
 	<artifactId>trajano</artifactId>
 	<version>2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Trajano</name>
-	<url>http://trajano.github.com/trajano/</url>
+	<url>http://trajano.webatu.com/</url>
 	<description>
 	Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.
 	</description>
@@ -47,27 +55,29 @@
 		<tag>HEAD</tag>
 	</scm>
 	<distributionManagement>
-		<repository>
-			<id>trajano-sourceforge</id>
-			<name>FRS Area</name>
-			<url>sftp://web.sourceforge.net/home/frs/project/t/tt/ttl/m2-repo</url>
-		</repository>
-		<snapshotRepository>
-			<id>trajano-sourceforge-snapshot</id>
-			<name>FRS Area Snapshot</name>
-			<uniqueVersion>true</uniqueVersion>
-			<url>sftp://web.sourceforge.net/home/frs/project/t/tt/ttl/m2-snapshot</url>
-		</snapshotRepository>
 		<site>
-			<id>github-site</id>
-			<name>github Site</name>
-			<url>gitsite:git@github.com/trajano/${project.artifactId}.git</url>
+			<id>000webhost</id>
+			<name>000webhost</name>
+			<url>ftp://ftp.trajano.webatu.com/public_html/</url>
 		</site>
 	</distributionManagement>
 	<prerequisites>
 		<maven>3.0.0</maven>
 	</prerequisites>
 	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-site-plugin</artifactId>
+				<inherited>false</inherited>
+				<executions>
+					<execution>
+						<goals>
+							<goal>attach-descriptor</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
@@ -76,7 +86,7 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-assembly-plugin</artifactId>
-					<version>2.3</version>
+					<version>2.4</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-clean-plugin</artifactId>
@@ -84,44 +94,43 @@
 				</plugin>
 				<plugin>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>2.4</version>
+					<version>2.5</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-deploy-plugin</artifactId>
 					<version>2.7</version>
 				</plugin>
 				<plugin>
+					<artifactId>maven-enforcer-plugin</artifactId>
+					<version>1.2</version>
+				</plugin>
+				<plugin>
 					<artifactId>maven-install-plugin</artifactId>
-					<version>2.3.1</version>
+					<version>2.4</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>2.3.2</version>
+					<version>2.4</version>
 				</plugin>
 				<plugin>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.1</version>
+					<version>3.2</version>
+					<dependencies>
+						<dependency>
+							<groupId>org.apache.maven.wagon</groupId>
+							<artifactId>wagon-ftp</artifactId>
+							<version>2.3</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 			</plugins>
 		</pluginManagement>
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.2</version>
-			</extension>
-			<extension>
-				<groupId>com.github.stephenc.wagon</groupId>
-				<artifactId>wagon-gitsite</artifactId>
-				<version>0.4.1</version>
-			</extension>
-		</extensions>
 	</build>
 	<reporting>
 		<plugins>
 			<plugin>
 				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<version>2.4</version>
+				<version>2.6</version>
 				<configuration>
 					<dependencyDetailsEnabled>false</dependencyDetailsEnabled>
 					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
@@ -148,7 +157,7 @@
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>versions-maven-plugin</artifactId>
-				<version>1.3.1</version>
+				<version>2.0</version>
 				<reportSets>
 					<reportSet>
 						<reports>
