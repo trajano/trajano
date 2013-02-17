@@ -14,7 +14,7 @@
 	<version>3-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Trajano</name>
-	<url>http://trajano.webatu.com/</url>
+	<url>http://site.trajano.net/</url>
 	<description>
 	Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.
 	</description>
@@ -55,9 +55,9 @@
 	</scm>
 	<distributionManagement>
 		<site>
-			<id>000webhost</id>
-			<name>000webhost</name>
-			<url>ftp://ftp.trajano.webatu.com/public_html/</url>
+			<id>site.trajano.net</id>
+			<name>Trajano Maven Site Deployment</name>
+			<url>ftp://ftp.site.trajano.net/public_html/</url>
 		</site>
 	</distributionManagement>
 	<prerequisites>
