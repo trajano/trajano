@@ -24,6 +24,7 @@
 	<body>
 		<menu name="Organisational projects">
 			<item href="http://site.trajano.net/coding-standards" name="Coding standards"/>
+			<item href="http://site.trajano.net/trajano-project" name="Trajano project"/>
 		</menu>
 		<menu ref="reports" inherit="top" />
 	</body>
