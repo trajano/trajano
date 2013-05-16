@@ -18,6 +18,10 @@ About this project
 	The organisational POM version numbering scheme is a single numeric
 	number.  This is similar to the way Apache does their POM versioning.
 
+Sub-projects
+
+	* {{{http://site.trajano.net/coding-standards/}Coding Standards}}
+
 Services used
 
 	For {{{./issue-tracking.html}issue tracking}}, github is used.
