@@ -22,7 +22,7 @@
 	</poweredBy>
 	<googleAnalyticsAccountId>UA-32387215-1</googleAnalyticsAccountId>
 	<body>
-		<menu name="Organisational projects">
+		<menu name="organizational projects">
 			<item href="http://site.trajano.net/coding-standards" name="Coding standards"/>
 			<item href="http://site.trajano.net/trajano-project" name="Trajano project"/>
 		</menu>

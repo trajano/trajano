@@ -8,10 +8,10 @@ enterprise architecture, systems design and development.  It is founded by
 About this project
 ------------------
 
-This project provides the [Trajano][] organisational POM.  In this project, 
+This project provides the [Trajano][] organizational POM.  In this project, 
 the overall reports and core plug-ins are specified along with branding details.
 
-The organisational POM version numbering scheme is a single numeric number.  
+The organizational POM version numbering scheme is a single numeric number.  
 This is similar to the way Apache does their POM versioning.
 
 Services used
