@@ -24,8 +24,9 @@
 	<body>
 		<menu name="Organizational projects">
 			<item href="http://site.trajano.net/coding-standards" name="Coding standards" />
-			<item href="http://site.trajano.net/trajano-project" name="Trajano project" />
-		</menu>
+			<item href="http://site.trajano.net/commons-testing" name="Commons testing" />
+			<item href="http://site.trajano.net/java-archetype" name="Java archetype" />
+					</menu>
 		<menu ref="reports" inherit="top" />
 	</body>
 	<custom>
