@@ -36,7 +36,7 @@
 	</licenses>
 	<inceptionYear>2012</inceptionYear>
 	<issueManagement>
-		<system>github</system>
+		<system>GitHub</system>
 		<url>https://github.com/trajano/${project.artifactId}/issues</url>
 	</issueManagement>
 	<developers>
