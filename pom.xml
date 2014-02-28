@@ -15,7 +15,7 @@
 	<version>6-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Trajano</name>
-	<url>http://site.trajano.net/</url>
+	<url>http://site.trajano.net/${project.artifactId}/</url>
 	<description>
 	Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.
 	</description>
@@ -39,6 +39,10 @@
 		<system>GitHub</system>
 		<url>https://github.com/trajano/${project.artifactId}/issues</url>
 	</issueManagement>
+	<ciManagement>
+		<system>Drone</system>
+		<url>http://drone.io/github.com/trajano/${project.artifactId}</url>
+	</ciManagement>
 	<developers>
 		<developer>
 			<id>trajano</id>
@@ -60,9 +64,9 @@
 	</scm>
 	<distributionManagement>
 		<site>
-			<id>site.trajano.net</id>
-			<name>Trajano Maven Site Deployment</name>
-			<url>ftp://ftp.site.trajano.net/public_html/</url>
+			<id>gh-pages</id>
+			<name>Trajano Github Pages</name>
+			<url>git:ssh://git@github.com/trajano/${project.artifactId}.git?gh-pages#</url>
 		</site>
 	</distributionManagement>
 	<prerequisites>
@@ -126,9 +130,9 @@
 							<version>1.5</version>
 						</dependency>
 						<dependency>
-							<groupId>org.apache.maven.wagon</groupId>
-							<artifactId>wagon-ftp</artifactId>
-							<version>2.5</version>
+							<groupId>net.trajano.wagon</groupId>
+							<artifactId>wagon-git</artifactId>
+							<version>1.0.0-SNAPSHOT</version>
 						</dependency>
 						<dependency>
 							<groupId>lt.velykis.maven.skins</groupId>
@@ -193,6 +197,7 @@
 							<report>issue-tracking</report>
 							<report>license</report>
 							<report>scm</report>
+							<report>cim</report>
 						</reports>
 					</reportSet>
 				</reportSets>
