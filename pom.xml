@@ -8,7 +8,7 @@
     </parent>
     <groupId>net.trajano</groupId>
     <artifactId>trajano</artifactId>
-    <version>7</version>
+    <version>8-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Trajano</name>
     <description>
@@ -31,7 +31,7 @@
         <developer>
             <id>trajano</id>
             <name>Archimedes Trajano</name>
-            <organization/>
+            <organization />
             <organizationUrl>http://www.trajano.net/</organizationUrl>
             <url>http://www.trajano.net/</url>
             <roles>
@@ -46,7 +46,7 @@
     <scm>
         <connection>scm:git:https://github.com/trajano/${project.artifactId}</connection>
         <developerConnection>scm:git:ssh://git@github.com/trajano/${project.artifactId}.git</developerConnection>
-        <tag>trajano-7</tag>
+        <tag>HEAD</tag>
         <url>https://github.com/trajano/${project.artifactId}</url>
     </scm>
     <issueManagement>
@@ -154,7 +154,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore/>
+                                        <ignore />
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
