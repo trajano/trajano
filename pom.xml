@@ -8,7 +8,7 @@
     </parent>
     <groupId>net.trajano</groupId>
     <artifactId>trajano</artifactId>
-    <version>7-SNAPSHOT</version>
+    <version>7</version>
     <packaging>pom</packaging>
     <name>Trajano</name>
     <description>
@@ -46,7 +46,7 @@
     <scm>
         <connection>scm:git:https://github.com/trajano/${project.artifactId}</connection>
         <developerConnection>scm:git:ssh://git@github.com/trajano/${project.artifactId}.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>trajano-7</tag>
         <url>https://github.com/trajano/${project.artifactId}</url>
     </scm>
     <issueManagement>
@@ -135,7 +135,7 @@
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>cleanpom-maven-plugin</artifactId>
-                    <version>1.0.0-SNAPSHOT</version>
+                    <version>1.0.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
