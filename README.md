@@ -30,8 +30,9 @@ The following on-line services are used for [distribution management][].
 * [GitHub Pages][] is used to host the project site via [Wagon Git][].
 
 * [Sonatype OSS][] is used as the repository as it provides a freely available 
-  Nexus server and provides [detailed instructions for promoting up to Maven Central][2].
-	
+  Nexus server and provides [detailed instructions for promoting up to 
+  Maven Central][2].
+
 The services above should not be used in a real enterprise as they are public 
 and the extensions used are not guaranteed to be developed regularly.  They 
 are used only as a means to an end to allow for public publishing.
@@ -39,6 +40,32 @@ are used only as a means to an end to allow for public publishing.
 An actual enterprise should be using proper hosting for the services within 
 its own walls.
 
+Using SNAPSHOT releases
+-----------------------
+
+The [Sonatype OSS][] is used to host the SNAPSHOT releases.  To use the 
+SNAPSHOT releases, add the following `<profile>` in the `.m2/settings.xml`
+file.
+
+    <profile>
+        <id>trajano</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+                <id>sonatype</id>
+                <name>Sonatype Maven OSS Repository</name>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <url>https://oss.sonatype.org/content/groups/public</url>
+            </repository>
+        </repositories>
+    </profile>
 
 [Trajano]: http://www.trajano.net/
 [Distribution Management]: ./distribution-management.html
@@ -52,4 +79,4 @@ its own walls.
 [Wagon Git]: http://site.trajano.net/wagon-git/
 [Sonatype OSS]: http://oss.sonatype.org/
 [1]: http://www.linkedin.com/in/trajano
-[2]: http://docs.sonatype.org/display/Repository/Sonatype+OSS+Maven+Repository+Usage+Guide
+[2]: http://central.sonatype.org/pages/ossrh-guide.html
