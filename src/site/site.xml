@@ -23,6 +23,10 @@
 			<item href="http://site.trajano.net/java-archetype/" name="Java archetype" />
 			<item href="http://www.trajano.net/open-source-projects/" name="Other projects" />
 		</links>
+		<menu name="Overview">
+			<item href="index.html" name="About" />
+			<item href="services.html" name="Services used" />
+		</menu>
 		<menu ref="reports" inherit="top" />
 	</body>
 </project>
