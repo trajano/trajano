@@ -69,35 +69,11 @@
 <p><a class="externalLink" href="http://www.trajano.net/">Trajano</a> is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture, systems design and development. It is founded by <a class="externalLink" href="http://www.linkedin.com/in/trajano">Archimedes Trajano</a>.</p>
 <div class="section">
 <h2>About this project<a name="About_this_project"></a></h2>
-<p>This project provides the <a class="externalLink" href="http://www.trajano.net/">Trajano</a> organizational POM. In this project, the overall reports and core plug-ins are specified along with branding details.</p>
+<p>This project provides the <a class="externalLink" href="http://www.trajano.net/">Trajano</a> organizational POM. In this project, the <a href="./services.html">services used</a>, <a href="./project-reports.html">overall reports</a> and <a href="./plugins.html">core plug-ins</a> are specified along with branding details.</p>
 <p>The organizational POM version numbering scheme is a single numeric number. This is similar to the way <a class="externalLink" href="http://apache.org/">Apache</a> does their POM versioning.</p></div>
 <div class="section">
-<h2>Services used<a name="Services_used"></a></h2>
-<p>In terms of managing projects and artifacts, the following tools are used:</p>
-
-<ul>
-  
-<li>
-<p><a class="externalLink" href="http://github.com/">GitHub</a> is used for <a href="./issue-tracking.html">issue tracking</a> as they already provide the  <a href="./source-repository.html">source repository</a>. However, <a class="externalLink" href="http://www.redmine.org/">Redmine</a> with <a class="externalLink" href="http://www.redminebacklogs.net/">Redmine Backlogs</a> is  used internally within the organization.</p></li>
-  
-<li>
-<p><a class="externalLink" href="http://drone.io/">Drone</a> is used for <a href="./integration.html">continuous integration</a> builds as it integrates  well with <a class="externalLink" href="http://github.com/">GitHub</a>. However, <a class="externalLink" href="http://jenkins-ci.org/">Jenkins</a> is used internally within the  organization.</p></li>
-</ul>
-<p>The following on-line services are used for <a href="./distribution-management.html">distribution management</a>.</p>
-
-<ul>
-  
-<li>
-<p><a class="externalLink" href="http://pages.github.com/">GitHub Pages</a> is used to host the project site via <a class="externalLink" href="http://site.trajano.net/wagon-git/">Wagon Git</a>.</p></li>
-  
-<li>
-<p><a class="externalLink" href="http://oss.sonatype.org/">Sonatype OSS</a> is used as the repository as it provides a freely available  Nexus server and provides <a class="externalLink" href="http://central.sonatype.org/pages/ossrh-guide.html">detailed instructions for promoting up to  Maven Central</a>.</p></li>
-</ul>
-<p>The services above should not be used in a real enterprise as they are public and the extensions used are not guaranteed to be developed regularly. They are used only as a means to an end to allow for public publishing.</p>
-<p>An actual enterprise should be using proper hosting for the services within its own walls.</p></div>
-<div class="section">
 <h2>Using SNAPSHOT releases<a name="Using_SNAPSHOT_releases"></a></h2>
-<p>The <a class="externalLink" href="http://oss.sonatype.org/">Sonatype OSS</a> is used to host the SNAPSHOT releases. To use the SNAPSHOT releases, add the following <tt>&lt;profile&gt;</tt> in the <tt>.m2/settings.xml</tt> file.</p>
+<p>The [Sonatype OSS][] is used to host the SNAPSHOT releases. To use the SNAPSHOT releases, add the following <tt>&lt;profile&gt;</tt> in the <tt>.m2/settings.xml</tt> file.</p>
 
 <div class="source">
 <pre>&lt;profile&gt;
