@@ -107,6 +107,11 @@
                     <version>3.3</version>
                     <dependencies>
                         <dependency>
+                            <groupId>net.trajano.maven.doxia</groupId>
+                            <artifactId>doxia-integration-tools</artifactId>
+                            <version>2.0.0</version>
+                        </dependency>
+                        <dependency>
                             <groupId>net.trajano.wagon</groupId>
                             <artifactId>wagon-git</artifactId>
                             <version>1.0.0</version>
