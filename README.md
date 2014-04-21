@@ -43,7 +43,6 @@ file.
     </profile>
 
 [Trajano]: http://www.trajano.net/
-[Continuous Integration]: ./integration.html
 [Apache]: http://apache.org/
 [Sonatype OSS]: http://oss.sonatype.org/
 [1]: http://www.linkedin.com/in/trajano

@@ -35,6 +35,7 @@ its own walls.
 [Redmine]: http://www.redmine.org/
 [Redmine Backlogs]: http://www.redminebacklogs.net/
 [Distribution Management]: ./distribution-management.html
+[Continuous Integration]: ./integration.html
 [Issue Tracking]: ./issue-tracking.html
 [Source Repository]: ./source-repository.html
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
