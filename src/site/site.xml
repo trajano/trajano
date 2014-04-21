@@ -25,7 +25,8 @@
 		</links>
 		<menu name="Overview">
 			<item href="index.html" name="About" />
-			<item href="services.html" name="Services used" />
+			<item href="sib.html" name="Standards Information Base" />
+			<item href="snapshot.html" name="Using SNAPSHOTs" />
 		</menu>
 		<menu ref="reports" inherit="top" />
 	</body>

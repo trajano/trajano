@@ -1,5 +1,15 @@
-Services used
-=============
+Standards Information Base (SIB)
+================================
+
+The [Standards Information Base or SIB][Standards Information Base] is a
+database of facts and guidance about information systems standards.  It
+details the components used to implement a [technical reference model][].
+To keep things simple, the SIB is used to list the technologies being used
+by the organization for the purpose of delivery.
+
+Since it is a delivery organization, versions are not specific to allow
+flexibility to move to newer versions without going through governance.
+Enterprises normally would define specifically supported versions.
 
 In terms of managing projects and artifacts, the following tools are used:
 
@@ -10,6 +20,8 @@ In terms of managing projects and artifacts, the following tools are used:
 * [Drone][] is used for [continuous integration][] builds as it integrates
   well with [GitHub][].  However, [Jenkins] is used internally within the
   organization.
+  
+* [SonarQube][] is also used as a quality management platform internally. 
 
 The following on-line services are used for [distribution management][].
 	
@@ -19,6 +31,8 @@ The following on-line services are used for [distribution management][].
   Nexus server and provides [detailed instructions for promoting up to 
   Maven Central][2].
 
+### Note
+
 The services above should not be used in a real enterprise as they are public 
 and the extensions used are not guaranteed to be developed regularly.  They 
 are used only as a means to an end to allow for public publishing.
@@ -26,12 +40,15 @@ are used only as a means to an end to allow for public publishing.
 An actual enterprise should be using proper hosting for the services within 
 its own walls.
 
+[Standards Information Base]: http://www.opengroup.org/public/arch/p3/sib/sib_intro.htm
+[Technical Reference Model]: http://pubs.opengroup.org/architecture/togaf8-doc/arch/chap19.html
 [Drone]: http://drone.io/
 [GitHub]: http://github.com/
 [GitHub Pages]: http://pages.github.com/
 [Jenkins]: http://jenkins-ci.org/
 [Wagon Git]: http://site.trajano.net/wagon-git/
 [Sonatype OSS]: http://oss.sonatype.org/
+[SonarQube]: http://www.sonarqube.org/
 [Redmine]: http://www.redmine.org/
 [Redmine Backlogs]: http://www.redminebacklogs.net/
 [Distribution Management]: ./distribution-management.html
