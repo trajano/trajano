@@ -30,7 +30,7 @@
         <developer>
             <id>trajano</id>
             <name>Archimedes Trajano</name>
-            <organization />
+            <organization>Trajano</organization>
             <organizationUrl>http://www.trajano.net/</organizationUrl>
             <url>http://www.trajano.net/</url>
             <roles>
@@ -60,13 +60,21 @@
         <site>
             <id>gh-pages</id>
             <name>Trajano Github Pages</name>
-            <url>git:ssh://git@github.com/trajano/${project.artifactId}.git?gh-pages#</url>
+            <url>github:http://site.trajano.net/${project.artifactId}</url>
         </site>
     </distributionManagement>
     <properties>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     </properties>
+    <dependencies>
+        <dependency>
+            <groupId>net.trajano.maven.skins</groupId>
+            <artifactId>twentyfourteen-maven-skin</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
     <build>
         <pluginManagement>
             <plugins>
@@ -99,6 +107,10 @@
                     <version>2.5.1</version>
                 </plugin>
                 <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                    <version>2.7</version>
+                </plugin>
+                <plugin>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5</version>
                 </plugin>
@@ -114,7 +126,7 @@
                         <dependency>
                             <groupId>net.trajano.wagon</groupId>
                             <artifactId>wagon-git</artifactId>
-                            <version>1.0.0</version>
+                            <version>2.0.0</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
@@ -134,7 +146,12 @@
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>cleanpom-maven-plugin</artifactId>
-                    <version>1.0.0</version>
+                    <version>1.0.2-SNAPSHOT</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>versions-maven-plugin</artifactId>
+                    <version>2.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.eclipse.m2e</groupId>
@@ -153,7 +170,7 @@
                                         </goals>
                                     </pluginExecutionFilter>
                                     <action>
-                                        <ignore />
+                                        <ignore/>
                                     </action>
                                 </pluginExecution>
                             </pluginExecutions>
@@ -191,16 +208,10 @@
         <plugins>
             <plugin>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.7</version>
-                <configuration>
-                    <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
-                    <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>versions-maven-plugin</artifactId>
-                <version>2.0</version>
                 <reportSets>
                     <reportSet>
                         <reports>
