@@ -4,7 +4,7 @@
     <parent>
         <groupId>org.sonatype.oss</groupId>
         <artifactId>oss-parent</artifactId>
-        <version>7</version>
+        <version>9</version>
     </parent>
     <groupId>net.trajano</groupId>
     <artifactId>trajano</artifactId>
@@ -14,7 +14,7 @@
     <description>
 	Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.
 	</description>
-    <url>http://site.trajano.net/${project.artifactId}/</url>
+    <url>http://site.trajano.net/trajano/</url>
     <inceptionYear>2012</inceptionYear>
     <organization>
         <name>Trajano</name>
@@ -43,24 +43,24 @@
         <maven>3.0.0</maven>
     </prerequisites>
     <scm>
-        <connection>scm:git:https://github.com/trajano/${project.artifactId}</connection>
-        <developerConnection>scm:git:ssh://git@github.com/trajano/${project.artifactId}.git</developerConnection>
+        <connection>scm:git:https://github.com/trajano/trajano</connection>
+        <developerConnection>scm:git:ssh://git@github.com/trajano/trajano.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/trajano/${project.artifactId}</url>
+        <url>https://github.com/trajano/trajano</url>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/trajano/${project.artifactId}/issues</url>
+        <url>https://github.com/trajano/trajano/issues</url>
     </issueManagement>
     <ciManagement>
         <system>Drone</system>
-        <url>http://drone.io/github.com/trajano/${project.artifactId}</url>
+        <url>http://drone.io/github.com/trajano/trajano</url>
     </ciManagement>
     <distributionManagement>
         <site>
             <id>gh-pages</id>
             <name>Trajano Github Pages</name>
-            <url>github:http://site.trajano.net/${project.artifactId}</url>
+            <url>github:http://site.trajano.net/trajano/</url>
         </site>
     </distributionManagement>
     <properties>
@@ -109,6 +109,28 @@
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
                     <version>2.7</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.trajano.maven.doxia</groupId>
+                            <artifactId>doxia-integration-tools</artifactId>
+                            <version>2.0.1-SNAPSHOT</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.apache.maven.doxia</groupId>
+                            <artifactId>doxia-integration-tools</artifactId>
+                            <version>1.5</version>
+                            <exclusions>
+                                <exclusion>
+                                    <groupId>org.apache.maven.doxia</groupId>
+                                    <artifactId>doxia-integration-tools</artifactId>
+                                </exclusion>
+                            </exclusions>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <dependencyDetailsEnabled>false</dependencyDetailsEnabled>
+                        <dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
@@ -121,7 +143,7 @@
                         <dependency>
                             <groupId>net.trajano.maven.doxia</groupId>
                             <artifactId>doxia-integration-tools</artifactId>
-                            <version>2.0.0</version>
+                            <version>2.0.1-SNAPSHOT</version>
                         </dependency>
                         <dependency>
                             <groupId>net.trajano.wagon</groupId>
@@ -139,9 +161,6 @@
                             <version>1.7</version>
                         </dependency>
                     </dependencies>
-                    <configuration>
-                        <relativizeDecorationLinks>false</relativizeDecorationLinks>
-                    </configuration>
                 </plugin>
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
