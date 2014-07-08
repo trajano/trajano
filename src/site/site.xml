@@ -27,6 +27,7 @@
 			<item href="index.html" name="About" />
 			<item href="sib.html" name="Standards Information Base" />
 			<item href="snapshot.html" name="Using SNAPSHOTs" />
+			<item href="license-choice.html" name="License Choice" />
 		</menu>
 		<menu ref="reports" inherit="top" />
 	</body>

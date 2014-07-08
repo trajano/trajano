@@ -9,7 +9,10 @@ founded by [Archimedes Trajano][1].
 
 This project provides the [Trajano][] organizational POM.  In this project, 
 the [services used][2], [overall reports][4] and [core plug-ins][3] are 
-specified along with branding details.
+specified along with branding details.  In a way this codifies the
+[Standards Information Base][2] for the organization.
+
+### Versioning
 
 The organizational POM version numbering scheme is a single numeric number. This
 is similar to the way [Apache][] does their POM versioning.
@@ -17,7 +20,8 @@ is similar to the way [Apache][] does their POM versioning.
 [Trajano]: http://www.trajano.net/
 [Apache]: http://apache.org/
 [Sonatype OSS]: http://oss.sonatype.org/
-[1]: http://www.linkedin.com/in/trajano
+[1]: http://www.trajano.net/archimedes-trajano-resume/
 [2]: ./sib.html
 [3]: ./plugins.html
 [4]: ./project-reports.html
+
