@@ -3,7 +3,7 @@ Trajano
 
 [Trajano][] is an IT Consulting/Contracting delivery organization specialising
 in end-to-end enterprise architecture, systems design and development.  It is 
-founded by [Archimedes Trajano][1].
+founded by [Archimedes Trajano][1] [[LinkedIn][]] [[StackOverflow][]].
 	
 ### About this project
 
@@ -20,6 +20,8 @@ is similar to the way [Apache][] does their POM versioning.
 [Trajano]: http://www.trajano.net/
 [Apache]: http://apache.org/
 [Sonatype OSS]: http://oss.sonatype.org/
+[LinkedIn]: http://ca.linkedin.com/in/trajano
+[StackOverflow]: http://stackoverflow.com/users/242042/archimedes-trajano
 [1]: http://www.trajano.net/archimedes-trajano-resume/
 [2]: ./sib.html
 [3]: ./plugins.html
