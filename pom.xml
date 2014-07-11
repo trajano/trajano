@@ -8,7 +8,7 @@
     </parent>
     <groupId>net.trajano</groupId>
     <artifactId>trajano</artifactId>
-    <version>10-SNAPSHOT</version>
+    <version>10</version>
     <packaging>pom</packaging>
     <name>Trajano</name>
     <description>
@@ -45,7 +45,7 @@
     <scm>
         <connection>scm:git:https://github.com/trajano/trajano</connection>
         <developerConnection>scm:git:ssh://git@github.com/trajano/trajano.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>trajano-10</tag>
         <url>https://github.com/trajano/trajano</url>
     </scm>
     <issueManagement>
@@ -140,7 +140,7 @@
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>cleanpom-maven-plugin</artifactId>
-                    <version>1.0.3-SNAPSHOT</version>
+                    <version>1.0.3</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
