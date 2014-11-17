@@ -15,7 +15,9 @@ specified along with branding details.  In a way this codifies the
 ### Versioning
 
 The organizational POM version numbering scheme is a single numeric number. This
-is similar to the way [Apache][] does their POM versioning.
+is similar to the way [Apache][] does their POM versioning.  The only exception
+is when there is a build issue, but the core plugin versions and configurations
+have not changed and it had already been released to central.
 
 [Trajano]: http://www.trajano.net/
 [Apache]: http://apache.org/
