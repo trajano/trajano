@@ -10,7 +10,7 @@ recognized open source license.  See [FAQ for Eclipse Public License][1] for
 further answers.
 
 However, some projects that are derived from other opensource projects will
-retain their respective license. e.g. [Twentyfourteen Maven Skin][2].
+retain their respective license. e.g. [Twentyfourteen Maven Skin][2] uses GPL.
 
 [Trajano]: http://www.trajano.net/
 [1]: https://www.eclipse.org/legal/eplfaq.php
