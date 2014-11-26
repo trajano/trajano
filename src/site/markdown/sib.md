@@ -11,15 +11,17 @@ Since it is a delivery organization, versions are not specific to allow
 flexibility to move to newer versions without going through governance.
 Enterprises normally would define specifically supported versions.
 
+### Project and artifact management
+
 In terms of managing projects and artifacts, the following tools are used:
 
 * [GitHub][] is used for [issue tracking][] as they already provide the
   [source repository][].  However, [Redmine][] with [Redmine Backlogs][] is 
   used internally within the organization.
 
-* [Drone][] is used for [continuous integration][] builds as it integrates
-  well with [GitHub][].  However, [Jenkins] is used internally within the
-  organization.
+* [Jenkins][] is used for [continuous integration][] builds,  Some public
+  projects are also configured to use [Drone][] as a secondary
+  [continuous integration][] build tool.
   
 * [SonarQube][] is also used as a quality management platform internally. 
 
@@ -30,6 +32,16 @@ The following on-line services are used for [distribution management][].
 * [Sonatype OSS][] is used as the repository as it provides a freely available 
   Nexus server and provides [detailed instructions for promoting up to 
   Maven Central][2].
+
+### Authentication and authorization
+
+There is only one way to access organization resources from the Internet
+and that is through an SSL Client Side Certificates.  These certificates
+must be validated by a trusted certificate authority and the e-mail must
+be registered with the internal directory.
+
+For security reasons, client certificates are not generated nor stored by the
+organization.
 
 ### Note
 
