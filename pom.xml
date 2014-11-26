@@ -58,8 +58,8 @@
         <url>https://github.com/trajano/trajano/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>Drone</system>
-        <url>http://drone.io/github.com/trajano/trajano</url>
+        <system>Jenkins</system>
+        <url>http://i.trajano.net/jenkins/job/trajano</url>
     </ciManagement>
     <distributionManagement>
         <repository>
