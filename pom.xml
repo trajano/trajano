@@ -79,6 +79,7 @@
         </site>
     </distributionManagement>
     <properties>
+        <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     </properties>
@@ -140,10 +141,20 @@
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-jgit</artifactId>
+                            <version>1.9.2</version>
+                        </dependency>
+                    </dependencies>
                     <configuration>
                         <goals>deploy site-deploy nexus-staging:release</goals>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <releaseProfiles>sonatype-release-profile</releaseProfiles>
+                        <providerImplementations>
+                            <git>jgit</git>
+                        </providerImplementations>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -283,7 +294,7 @@
                                                 </goals>
                                             </pluginExecutionFilter>
                                             <action>
-                                                <ignore />
+                                                <ignore/>
                                             </action>
                                         </pluginExecution>
                                     </pluginExecutions>
