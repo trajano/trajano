@@ -22,14 +22,22 @@ In terms of managing projects and artifacts, the following tools are used:
 * [Jenkins][] is used for [continuous integration][] builds,  Some public
   projects are also configured to use [Drone][] as a secondary
   [continuous integration][] build tool.
-  
-* [SonarQube][] is also used as a quality management platform internally. 
+
+### Quality management
+
+* [SonarQube][] is also used as a quality management platform internally.
+
+* [PMD][], [Checkstyle][] and [FindBugs][] configured with [organization
+  coding standards][1] are defined as part of the build process to allow
+  preliminary checks on the local workstations if needed.
+
+### Distribution management
 
 The following on-line services are used for [distribution management][].
 	
 * [GitHub Pages][] is used to host the project site via [Wagon Git][].
 
-* [Sonatype OSS][] is used as the repository as it provides a freely available 
+* [Sonatype OSS][] is used as the repository as it provides a freely available
   Nexus server and provides [detailed instructions for promoting up to 
   Maven Central][2].
 
@@ -67,4 +75,8 @@ its own walls.
 [Continuous Integration]: ./integration.html
 [Issue Tracking]: ./issue-tracking.html
 [Source Repository]: ./source-repository.html
+[1]: http://site.trajano.net/coding-standards
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
+[PMD]: http://pmd.sourceforge.net/
+[FindBugs]: http://findbugs.sourceforge.net/
+[Checkstyle]: http://checkstyle.sourceforge.net/
