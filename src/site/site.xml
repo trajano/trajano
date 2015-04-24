@@ -5,7 +5,7 @@
 	<skin>
 		<groupId>net.trajano.maven.skins</groupId>
 		<artifactId>twentyfourteen-maven-skin</artifactId>
-		<version>1.0.2</version>
+		<version>1.0.3</version>
 	</skin>
 	<bannerLeft>
 		<src>http://www.trajano.net/wp-content/uploads/2014/01/logo-blog-twentyfourteen1.png</src>

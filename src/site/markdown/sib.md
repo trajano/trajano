@@ -62,7 +62,7 @@ its own walls.
 
 [Standards Information Base]: http://www.opengroup.org/public/arch/p3/sib/sib_intro.htm
 [Technical Reference Model]: http://pubs.opengroup.org/architecture/togaf8-doc/arch/chap19.html
-[Drone]: http://drone.io/
+[Drone]: https://drone.io/
 [GitHub]: http://github.com/
 [GitHub Pages]: http://pages.github.com/
 [Jenkins]: http://jenkins-ci.org/
