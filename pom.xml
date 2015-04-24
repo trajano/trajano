@@ -224,6 +224,11 @@
                 <artifactId>wagon-git</artifactId>
                 <version>2.0.3</version>
             </extension>
+            <extension>
+                <groupId>net.trajano</groupId>
+                <artifactId>coding-standards</artifactId>
+                <version>2.0.2-SNAPSHOT</version>
+            </extension>
         </extensions>
     </build>
     <reporting>
