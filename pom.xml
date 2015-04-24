@@ -79,6 +79,7 @@
         </site>
     </distributionManagement>
     <properties>
+        <coding.standards.version>2.0.2-SNAPSHOT</coding.standards.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
@@ -101,6 +102,21 @@
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>2.5.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>2.15</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.trajano</groupId>
+                            <artifactId>coding-standards</artifactId>
+                            <version>${coding.standards.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <configLocation>config/checkstyle-configuration.xml</configLocation>
+                        <headerLocation>LICENSE</headerLocation>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -129,6 +145,20 @@
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>2.10.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>3.4</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.trajano</groupId>
+                            <artifactId>coding-standards</artifactId>
+                            <version>${coding.standards.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <ruleset>/config/pmd-rules.xml</ruleset>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -223,11 +253,6 @@
                 <groupId>net.trajano.wagon</groupId>
                 <artifactId>wagon-git</artifactId>
                 <version>2.0.3</version>
-            </extension>
-            <extension>
-                <groupId>net.trajano</groupId>
-                <artifactId>coding-standards</artifactId>
-                <version>2.0.2-SNAPSHOT</version>
             </extension>
         </extensions>
     </build>
