@@ -214,6 +214,21 @@
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>findbugs-maven-plugin</artifactId>
+                    <version>3.0.1</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.trajano</groupId>
+                            <artifactId>coding-standards</artifactId>
+                            <version>${coding.standards.version}</version>
+                        </dependency>
+                    </dependencies>
+                    <configuration>
+                        <excludeFilterFile>config/findbugs-exclude-filter.xml</excludeFilterFile>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.1</version>
                 </plugin>
