@@ -27,9 +27,9 @@ In terms of managing projects and artifacts, the following tools are used:
 
 * [SonarQube][] is also used as a quality management platform internally.
 
-* [PMD][], [Checkstyle][] and [FindBugs][] configured with [organization
-  coding standards][1] are defined as part of the build process to allow
-  preliminary checks on the local workstations if needed.
+* [PMD][], [Checkstyle][] and [FindBugs][] configured with 
+  [organization coding standards][1] are defined as part of the build 
+  process to allow preliminary checks on the local workstations if needed.
 
 ### Distribution management
 
@@ -38,8 +38,8 @@ The following on-line services are used for [distribution management][].
 * [GitHub Pages][] is used to host the project site via [Wagon Git][].
 
 * [Sonatype OSS][] is used as the repository as it provides a freely available
-  Nexus server and provides [detailed instructions for promoting up to 
-  Maven Central][2].
+  Nexus server and provides
+  [detailed instructions for promoting up to Maven Central][2].
 
 ### Authentication and authorization
 
