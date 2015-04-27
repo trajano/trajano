@@ -14,9 +14,10 @@ one level behind the current one.
 | [net.trajano:coding-standards][3]                      | resource jar | Defines the coding standards used by the organization projects.              |
 | [net.trajano.mojo:cleanpom-maven-plugin][5]            | maven plugin | Cleans up pom.xml and other XML files for a project.                         |
 | [net.trajano.mojo:m2e-codestyle-maven-plugin][6]       | maven plugin | Configures the code style settings for Eclipse M2E                           |
+| [net.trajano.wagon:wagon-git][7]                       | wagon        | Allows publication to github pages                                           |
 
 [2]: http://site.trajano.net/twentyfourteen-maven-skin/
 [3]: http://site.trajano.net/coding-standards/
 [5]: http://site.trajano.net/cleanpom-maven-plugin/
 [6]: http://site.trajano.net/m2e-codestyle-maven-plugin/
-
+[7]: http://site.trajano.net/wagon-git/
