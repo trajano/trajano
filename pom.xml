@@ -79,20 +79,14 @@
         </site>
     </distributionManagement>
     <properties>
-        <coding.standards.version>2.0.2-SNAPSHOT</coding.standards.version>
+        <coding-standards.version>2.0.2-SNAPSHOT</coding-standards.version>
+        <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
+        <maven-scm-provider-jgit.version>1.9.4</maven-scm-provider-jgit.version>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <surefire.version>2.18.1</surefire.version>
     </properties>
-    <dependencies>
-        <dependency>
-            <groupId>net.trajano.maven.skins</groupId>
-            <artifactId>twentyfourteen-maven-skin</artifactId>
-            <version>1.0.3</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
     <build>
         <pluginManagement>
             <plugins>
@@ -118,6 +112,14 @@
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>2.6.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.3</version>
+                    <configuration>
+                        <source>${jdk.version}</source>
+                        <target>${jdk.version}</target>
+                    </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-dependency-plugin</artifactId>
@@ -217,12 +219,13 @@
                         <dependency>
                             <groupId>net.trajano</groupId>
                             <artifactId>coding-standards</artifactId>
-                            <version>${coding.standards.version}</version>
+                            <version>${coding-standards.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
                         <linkXref>true</linkXref>
                         <sourceEncoding>utf-8</sourceEncoding>
+                        <targetJdk>${jdk.version}</targetJdk>
                         <rulesets>
                             <ruleset>config/pmd-rules.xml</ruleset>
                         </rulesets>
@@ -248,17 +251,27 @@
                         <dependency>
                             <groupId>org.apache.maven.scm</groupId>
                             <artifactId>maven-scm-provider-jgit</artifactId>
-                            <version>1.9.4</version>
+                            <version>${maven-scm-provider-jgit.version}</version>
                         </dependency>
                     </dependencies>
                     <configuration>
-                        <goals>deploy site-deploy nexus-staging:release</goals>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                         <releaseProfiles>sonatype-release-profile</releaseProfiles>
                         <providerImplementations>
                             <git>jgit</git>
                         </providerImplementations>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-scm-plugin</artifactId>
+                    <version>1.9.4</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.scm</groupId>
+                            <artifactId>maven-scm-provider-jgit</artifactId>
+                            <version>${maven-scm-provider-jgit.version}</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
@@ -321,6 +334,11 @@
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>taglist-maven-plugin</artifactId>
+                    <version>2.4</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
                     <artifactId>versions-maven-plugin</artifactId>
                     <version>2.1</version>
                 </plugin>
@@ -335,11 +353,6 @@
                             </goals>
                         </execution>
                     </executions>
-                </plugin>
-                <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>1.6.5</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -404,6 +417,10 @@
                         </reports>
                     </reportSet>
                 </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>taglist-maven-plugin</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -473,11 +490,26 @@
         </profile>
         <profile>
             <id>sonatype-release-profile</id>
+            <dependencies>
+                <dependency>
+                    <groupId>net.trajano.maven.skins</groupId>
+                    <artifactId>twentyfourteen-maven-skin</artifactId>
+                    <version>1.0.3</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
             <build>
                 <plugins>
                     <plugin>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <goals>deploy site-deploy nexus-staging:release</goals>
+                        </configuration>
+                    </plugin>
+                    <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.5</version>
                         <extensions>true</extensions>
                         <configuration>
                             <serverId>sonatype-nexus</serverId>
