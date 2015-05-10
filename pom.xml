@@ -79,7 +79,7 @@
         </site>
     </distributionManagement>
     <properties>
-        <coding-standards.version>2.0.2-SNAPSHOT</coding-standards.version>
+        <coding-standards.version>2.1.0</coding-standards.version>
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <maven-scm-provider-jgit.version>1.9.4</maven-scm-provider-jgit.version>
@@ -322,6 +322,12 @@
                     <version>2.0.0-SNAPSHOT</version>
                     <configuration>
                         <codeStyleBaseUrl>codestyle/</codeStyleBaseUrl>
+                        <javaCleanupProfileXmlUrl>codestyle/eclipse/java-cleanup.xml</javaCleanupProfileXmlUrl>
+                        <javaFormatterProfileXmlUrl>codestyle/eclipse/java-code-formatter.xml</javaFormatterProfileXmlUrl>
+                        <javaTemplatesXmlUrl>codestyle/eclipse/java-templates.xml</javaTemplatesXmlUrl>
+                        <javaScriptCleanupProfileXmlUrl>codestyle/eclipse/javascript-cleanup.xml</javaScriptCleanupProfileXmlUrl>
+                        <javaScriptFormatterProfileXmlUrl>codestyle/eclipse/javascript-code-formatter.xml</javaScriptFormatterProfileXmlUrl>
+                        <javaScriptTemplatesXmlUrl>codestyle/eclipse/javascript-templates.xml</javaScriptTemplatesXmlUrl>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -405,7 +411,6 @@
                             <report>dependency-info</report>
                             <report>dependency-management</report>
                             <report>distribution-management</report>
-                            <report>help</report>
                             <report>issue-tracking</report>
                             <report>license</report>
                             <report>modules</report>
