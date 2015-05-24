@@ -25,7 +25,7 @@ In terms of managing projects and artifacts, the following tools are used:
 
 ### Quality management
 
-* [SonarQube][] is also used as a quality management platform internally.
+* [SonarQube][] is also used as a [quality management][3] platform internally.
 
 * [PMD][], [Checkstyle][] and [FindBugs][] configured with 
   [organization coding standards][1] are defined as part of the build 
@@ -77,6 +77,7 @@ its own walls.
 [Source Repository]: ./source-repository.html
 [1]: http://site.trajano.net/coding-standards
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
+[3]: ./code-quality.html
 [PMD]: http://pmd.sourceforge.net/
 [FindBugs]: http://findbugs.sourceforge.net/
 [Checkstyle]: http://checkstyle.sourceforge.net/
