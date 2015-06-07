@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Trajano &#x2013; Dependency Convergence</title>
+    <title>Trajano &#x2013; Java project reporting configuration</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -64,37 +64,61 @@
 	  <div id="content" class="site-content" role="main">
 	    <article class="page type-page status-publish hentry">
 	      <div class="entry-content">
-                <div class="section">
-<h2><a name="Dependency_Convergence"></a>Dependency Convergence</h2>
-<table border="0" class="bodyTable"><caption>
-  <b>Legend:</b>
-</caption>
-<tr class="a">
-<td><img alt="error" src="images/icon_error_sml.gif" /></td>
-<td>At least one dependency has a differing version of the dependency or has SNAPSHOT dependencies.</td></tr></table><br />
-<table border="0" class="bodyTable"><caption>
-  <b>Statistics:</b>
-</caption>
-<tr class="b">
-<th>Number of dependencies (NOD):</th>
-<td>1</td></tr>
-<tr class="a">
-<th>Number of unique artifacts (NOA):</th>
-<td>1</td></tr>
-<tr class="b">
-<th>Number of version-conflicting artifacts (NOC):</th>
-<td>0</td></tr>
-<tr class="a">
-<th>Number of SNAPSHOT artifacts (NOS):</th>
-<td>0</td></tr>
-<tr class="b">
-<th>Convergence (NOD/NOA):</th>
-<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100 %</b></td></tr>
-<tr class="a">
-<th>Ready for release (100 % convergence and no SNAPSHOTS):</th>
-<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>Success</b></td></tr></table></div>
+                <h1>Java project reporting configuration</h1>
+<p>As of version 12 of the organizational POM. A large number of <a href="./plugin-management.html">plugins</a> have been configured to reduce the configuration needed for other projects when doing reporting.</p>
+<p>Java project <tt>pom.xml</tt> files would have the following section added to provide the expected reports for each project. It is ordered in that API documentation comes first followed by quality checks and finishing with the cross reference.</p>
+
+<div class="source">
+<div class="source">
+<pre>&lt;reporting&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-javadoc-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-checkstyle-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-pmd-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+            &lt;artifactId&gt;findbugs-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-surefire-report-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.jacoco&lt;/groupId&gt;
+            &lt;artifactId&gt;jacoco-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+        &lt;plugin&gt;
+            &lt;artifactId&gt;maven-jxr-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/reporting&gt;
+</pre></div></div>
+<p>At present there is no automated &#x201c;upgrade&#x201d; capability to synchronize <tt>pom.xml</tt> files. Therefore, this needs to be done manually.</p>
 <div class="section">
-<h3><a name="Dependencies_used_in_this_project"></a>Dependencies used in this project</h3></div>
+<div class="section">
+<h3><a name="Maven_plugin_projects"></a>Maven plugin projects</h3>
+<p>For Maven plugin projects, add the following plugin first. </p>
+
+<div class="source">
+<div class="source">
+<pre>&lt;plugin&gt;
+    &lt;artifactId&gt;maven-plugin-plugin&lt;/artifactId&gt;
+&lt;/plugin&gt;
+</pre></div></div>
+<p>This will enable the plugin reports which can be added to <tt>site.xml</tt> using the following</p>
+
+<div class="source">
+<div class="source">
+<pre>&lt;menu name=&quot;Overview&quot;&gt;
+    &lt;item href=&quot;index.html&quot; name=&quot;About&quot; /&gt;
+    &lt;item href=&quot;plugin-info.html&quot; name=&quot;Plugin Documentation&quot; /&gt;
+&lt;/menu&gt;
+</pre></div></div></div></div>
 	      </div>
 	    </article>
 	  </div>
@@ -129,54 +153,16 @@
                           <a href="license-choice.html" title="License choice">License choice</a>
             </li>
                       <li class="none">
-                          <a href="java-reporting.html" title="Java project reporting">Java project reporting</a>
-            </li>
+            <strong>Java project reporting</strong>
+          </li>
           </ul>
         </aside>
       <aside class="widget">
                  <h1 class="widget-title">Project Documentation</h1>
                   <ul>
-                                                                                                                                                                                                                                                                                        <li class="expanded">
+                                                                                                                                                                                                                                                                              <li class="collapsed">
                           <a href="project-info.html" title="Project Information">Project Information</a>
-                    <ul>
-                          <li class="none">
-                          <a href="integration.html" title="Continuous Integration">Continuous Integration</a>
-            </li>
-                          <li class="none">
-                          <a href="dependencies.html" title="Dependencies">Dependencies</a>
-            </li>
-                          <li class="none">
-            <strong>Dependency Convergence</strong>
-          </li>
-                          <li class="none">
-                          <a href="dependency-info.html" title="Dependency Information">Dependency Information</a>
-            </li>
-                          <li class="none">
-                          <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
-            </li>
-                          <li class="none">
-                          <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
-            </li>
-                          <li class="none">
-                          <a href="license.html" title="Project License">Project License</a>
-            </li>
-                          <li class="none">
-                          <a href="plugin-management.html" title="Plugin Management">Plugin Management</a>
-            </li>
-                          <li class="none">
-                          <a href="plugins.html" title="Project Plugins">Project Plugins</a>
-            </li>
-                          <li class="none">
-                          <a href="team-list.html" title="Project Team">Project Team</a>
-            </li>
-                          <li class="none">
-                          <a href="source-repository.html" title="Source Repository">Source Repository</a>
-            </li>
-                          <li class="none">
-                          <a href="project-summary.html" title="Project Summary">Project Summary</a>
-            </li>
-              </ul>
-        </li>
+                  </li>
                                                                                                             <li class="collapsed">
                           <a href="project-reports.html" title="Project Reports">Project Reports</a>
                   </li>

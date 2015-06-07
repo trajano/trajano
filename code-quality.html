@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Trajano &#x2013; Dependency Convergence</title>
+    <title>Trajano &#x2013; Code Quality</title>
     <style type="text/css" media="all">
       @import url("./css/maven-base.css");
       @import url("./css/maven-theme.css");
@@ -64,37 +64,35 @@
 	  <div id="content" class="site-content" role="main">
 	    <article class="page type-page status-publish hentry">
 	      <div class="entry-content">
-                <div class="section">
-<h2><a name="Dependency_Convergence"></a>Dependency Convergence</h2>
-<table border="0" class="bodyTable"><caption>
-  <b>Legend:</b>
-</caption>
-<tr class="a">
-<td><img alt="error" src="images/icon_error_sml.gif" /></td>
-<td>At least one dependency has a differing version of the dependency or has SNAPSHOT dependencies.</td></tr></table><br />
-<table border="0" class="bodyTable"><caption>
-  <b>Statistics:</b>
-</caption>
-<tr class="b">
-<th>Number of dependencies (NOD):</th>
-<td>1</td></tr>
-<tr class="a">
-<th>Number of unique artifacts (NOA):</th>
-<td>1</td></tr>
-<tr class="b">
-<th>Number of version-conflicting artifacts (NOC):</th>
-<td>0</td></tr>
-<tr class="a">
-<th>Number of SNAPSHOT artifacts (NOS):</th>
-<td>0</td></tr>
-<tr class="b">
-<th>Convergence (NOD/NOA):</th>
-<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>100 %</b></td></tr>
-<tr class="a">
-<th>Ready for release (100 % convergence and no SNAPSHOTS):</th>
-<td><img alt="success" src="images/icon_success_sml.gif" />&#160;<b>Success</b></td></tr></table></div>
+                <h1>Code Quality</h1>
+<p>Although there are <a class="externalLink" href="http://site.trajano.net/coding-standards/">coding standards</a> put in place which include <a class="externalLink" href="http://site.trajano.net/coding-standards/checkstyle.html">CheckStyle</a>, <a class="externalLink" href="http://site.trajano.net/coding-standards/pmd.html">PMD</a>, and <a class="externalLink" href="http://site.trajano.net/coding-standards/findbugs.html">FindBugs</a> rules, these rules are not used with their respective Maven plugins and the <a class="externalLink" href="https://github.com/m2e-code-quality/m2e-code-quality">M2E code quality plugin</a>. <b>The code quality is validated using <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a> instead of Maven or M2E.</b></p>
+<p>The main reason for this choice is <i>purely technical</i> for the most part.</p>
+
+<ul>
+  
+<li>There were inconsistency and difficulty of getting Maven to generate the  site correctly with the proper rules loaded and the exceptions of ignoring  generated sources getting applied correctly.</li>
+  
+<li>It has issues running on M2E environment and the exclusion configurations  do not always load up correctly.</li>
+  
+<li>In certain instances, we get build loops on M2E.</li>
+  
+<li>Using <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a> allows the enterprise to manage the quality rules  separately from the project.</li>
+</ul>
+<p>For the non-technical reason, the Maven core plugins had changed their defect reporting policy making it difficult to report and have defects with their plugins addressed. Although this is relatively the same policy that <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a> also has, there are less technical problems to deal with on <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a>. The enterprise policy may change this later, however as of this time <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a> is chosen.</p>
 <div class="section">
-<h3><a name="Dependencies_used_in_this_project"></a>Dependencies used in this project</h3></div>
+<div class="section">
+<h3><a name="Issues_with_the_approach"></a>Issues with the approach</h3>
+<p>The problem with this approach is the lack of local and build-time testing as it now requires access to a <a class="externalLink" href="http://www.sonarqube.org/">SonarQube</a> server to perform the tests rather than the IDE.</p>
+<p>However, the reality of enterprise projects is technical debt is a norm and keeping that debt at zero may cause the business to miss the market.</p>
+<p>In addition, the most of the bad practices are mitigated by:</p>
+
+<ul>
+  
+<li>using <a class="externalLink" href="http://site.trajano.net/m2e-codestyle-maven-plugin/">m2e-codestyle-maven-plugin</a> which will configure the IDE to  perform the necessary coding cleanups.</li>
+  
+<li>The Eclipse JDT already provides several <a class="externalLink" href="http://help.eclipse.org/luna/index.jsp?topic=/org.eclipse.jdt.doc.user/reference/preferences/java/compiler/ref-preferences-errors-warnings.htm">errors/warnings</a> for marking  potential coding problems on the IDE.</li>
+</ul>
+<p>Thereby reducing the need to have the extra analysis being performed by the IDE itself.</p></div></div>
 	      </div>
 	    </article>
 	  </div>
@@ -136,47 +134,9 @@
       <aside class="widget">
                  <h1 class="widget-title">Project Documentation</h1>
                   <ul>
-                                                                                                                                                                                                                                                                                        <li class="expanded">
+                                                                                                                                                                                                                                                                              <li class="collapsed">
                           <a href="project-info.html" title="Project Information">Project Information</a>
-                    <ul>
-                          <li class="none">
-                          <a href="integration.html" title="Continuous Integration">Continuous Integration</a>
-            </li>
-                          <li class="none">
-                          <a href="dependencies.html" title="Dependencies">Dependencies</a>
-            </li>
-                          <li class="none">
-            <strong>Dependency Convergence</strong>
-          </li>
-                          <li class="none">
-                          <a href="dependency-info.html" title="Dependency Information">Dependency Information</a>
-            </li>
-                          <li class="none">
-                          <a href="distribution-management.html" title="Distribution Management">Distribution Management</a>
-            </li>
-                          <li class="none">
-                          <a href="issue-tracking.html" title="Issue Tracking">Issue Tracking</a>
-            </li>
-                          <li class="none">
-                          <a href="license.html" title="Project License">Project License</a>
-            </li>
-                          <li class="none">
-                          <a href="plugin-management.html" title="Plugin Management">Plugin Management</a>
-            </li>
-                          <li class="none">
-                          <a href="plugins.html" title="Project Plugins">Project Plugins</a>
-            </li>
-                          <li class="none">
-                          <a href="team-list.html" title="Project Team">Project Team</a>
-            </li>
-                          <li class="none">
-                          <a href="source-repository.html" title="Source Repository">Source Repository</a>
-            </li>
-                          <li class="none">
-                          <a href="project-summary.html" title="Project Summary">Project Summary</a>
-            </li>
-              </ul>
-        </li>
+                  </li>
                                                                                                             <li class="collapsed">
                           <a href="project-reports.html" title="Project Reports">Project Reports</a>
                   </li>
