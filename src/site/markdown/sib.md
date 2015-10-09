@@ -19,9 +19,11 @@ In terms of managing projects and artifacts, the following tools are used:
   [source repository][].  However, [Redmine][] with [Redmine Backlogs][] is 
   used internally within the organization.
 
-* [Jenkins][] is used for [continuous integration][] builds,  Some public
-  projects are also configured to use [Drone][] as a secondary
-  [continuous integration][] build tool.
+* [Jenkins][] is used for [continuous integration][] builds.  Some of the
+  [Trajano open source projects][4] are also configured to use [Travis][] 
+  as a secondary [continuous integration][] build tool.
+
+* [Slack][] is used a the organization team chat tool.
 
 ### Quality management
 
@@ -68,6 +70,7 @@ its own walls.
 [Jenkins]: http://jenkins-ci.org/
 [Wagon Git]: http://site.trajano.net/wagon-git/
 [Sonatype OSS]: http://oss.sonatype.org/
+[Travis]: https://travis-ci.org/
 [SonarQube]: http://www.sonarqube.org/
 [Redmine]: http://www.redmine.org/
 [Redmine Backlogs]: http://www.redminebacklogs.net/
@@ -78,6 +81,8 @@ its own walls.
 [1]: http://site.trajano.net/coding-standards
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
 [3]: ./code-quality.html
+[4]: https://travis-ci.org/trajano
+[Slack]: https://trajano.slack.com/
 [PMD]: http://pmd.sourceforge.net/
 [FindBugs]: http://findbugs.sourceforge.net/
 [Checkstyle]: http://checkstyle.sourceforge.net/
