@@ -16,7 +16,7 @@ Enterprises normally would define specifically supported versions.
 In terms of managing projects and artifacts, the following tools are used:
 
 * [GitHub][] is used for [issue tracking][] as they already provide the
-  [source repository][].  However, [Redmine][] with [Redmine Backlogs][] is 
+  [source repository][].  However, [Trac][] with [Agilo][] is 
   used internally within the organization.
 
 * [Jenkins][] is used for [continuous integration][] builds.  Some of the
@@ -27,7 +27,7 @@ In terms of managing projects and artifacts, the following tools are used:
 
 ### Quality management
 
-* [SonarQube][] is also used as a [quality management][3] platform internally.
+* [SonarQube][] is also used as a [quality management][3] platform internally.  [SonarQube.com][] is used for [Trajano open source projects][4]. 
 
 * [PMD][], [Checkstyle][] and [FindBugs][] configured with 
   [organization coding standards][1] are defined as part of the build 
@@ -64,7 +64,6 @@ its own walls.
 
 [Standards Information Base]: http://www.opengroup.org/public/arch/p3/sib/sib_intro.htm
 [Technical Reference Model]: http://pubs.opengroup.org/architecture/togaf8-doc/arch/chap19.html
-[Drone]: https://drone.io/
 [GitHub]: http://github.com/
 [GitHub Pages]: http://pages.github.com/
 [Jenkins]: http://jenkins-ci.org/
@@ -72,8 +71,9 @@ its own walls.
 [Sonatype OSS]: http://oss.sonatype.org/
 [Travis]: https://travis-ci.org/
 [SonarQube]: http://www.sonarqube.org/
-[Redmine]: http://www.redmine.org/
-[Redmine Backlogs]: http://www.redminebacklogs.net/
+[SonarQube.com]: https://www.sonarqube.com/
+[Trac]: https://trac.edgewall.org/
+[Agilo]: http://www.redminebacklogs.net/
 [Distribution Management]: ./distribution-management.html
 [Continuous Integration]: ./integration.html
 [Issue Tracking]: ./issue-tracking.html

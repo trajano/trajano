@@ -35,7 +35,6 @@ have not changed and it had already been released to central.
 [2]: ./sib.html
 [3]: ./plugins.html
 [4]: ./project-reports.html
-[5]: ./plugin-management.html
 [6]: http://site.trajano.net/coding-standards
 [PMD]: http://maven.apache.org/plugins/maven-pmd-plugin/
 [Checkstyle]: https://maven.apache.org/plugins/maven-checkstyle-plugin/

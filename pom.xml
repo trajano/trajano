@@ -79,13 +79,13 @@
         </site>
     </distributionManagement>
     <properties>
-        <coding-standards.version>2.1.0</coding-standards.version>
+        <coding-standards.version>2.1.1</coding-standards.version>
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
-        <maven-scm-provider-jgit.version>1.9.4</maven-scm-provider-jgit.version>
+        <maven-scm-provider-jgit.version>1.9.5</maven-scm-provider-jgit.version>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
-        <surefire.version>2.18.1</surefire.version>
+        <surefire.version>2.19.1</surefire.version>
     </properties>
     <build>
         <pluginManagement>
