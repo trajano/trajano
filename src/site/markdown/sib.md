@@ -7,41 +7,39 @@ details the components used to implement a [technical reference model][].
 To keep things simple, the SIB is used to list the technologies being used
 by the organization for the purpose of delivery.
 
-Since it is a delivery organization, versions are not specific to allow
+Since it is a delivery organization, versions are not specified here to allow
 flexibility to move to newer versions without going through governance.
 Enterprises normally would define specifically supported versions.
 
-### Project and artifact management
+### Project and development management
 
-In terms of managing projects and artifacts, the following tools are used:
+There are two main development methodologies being exercised by the organization.
 
-* [GitHub][] is used for [issue tracking][] as they already provide the
-  [source repository][].  However, [Trac][] with [Agilo][] is 
-  used internally within the organization.
+* [Kanban methodology][Kanban] is used to manage *organizational level* tasks.
+* [Scrum methodology][Scrum] is used to manage *per project level* tasks.
 
-* [Jenkins][] is used for [continuous integration][] builds.  Some of the
-  [Trajano open source projects][4] are also configured to use [Travis][] 
-  as a secondary [continuous integration][] build tool.
+### Organizational level tooling
 
+The following tools are part of the *organizational level* tooling.
+
+* [Trac][] is used *organizational level* issue tracking and document sharing.  
+* [Jenkins][] is for [continuous integration][] builds for __all__ projects.
+* [SonarQube][] is a platform for [quality management][3] used to track *organizational level* product quality metrics and rules for __all__ projects.
+
+The following cloud services are used for projects as well.
+
+* [Visual Studio Team Services][].  This tool is used for *project level* project management, issue tracking and version control (using Git).  This is used only for __private__ projects.   
 * [Slack][] is used a the organization team chat tool.
 
-### Quality management
+### Open source tooling
 
-* [SonarQube][] is also used as a [quality management][3] platform internally.  [SonarQube.com][] is used for [Trajano open source projects][4]. 
+There are a [number of projects][4] that are contributed to the community by the organization mostly under [EPL-1.0][6].  Though they are built and deployed from within the confines of the organization, cloud service tooling is heavily used to allow access to the greater community.
 
-* [PMD][], [Checkstyle][] and [FindBugs][] configured with 
-  [organization coding standards][1] are defined as part of the build 
-  process to allow preliminary checks on the local workstations if needed.
-
-### Distribution management
-
-The following on-line services are used for [distribution management][].
-	
-* [GitHub Pages][] is used to host the project site via [Wagon Git][].
-
-* [Sonatype OSS][] is used as the repository as it provides a freely available
-  Nexus server and provides
-  [detailed instructions for promoting up to Maven Central][2].
+* [GitHub][] is used for [issue tracking][] and the [source repository][].
+* [Travis][] is used as a [continuous integration][] build tool to complement [Jenkins][].
+* [SonarQube.com][] is used for [quality management][3], but because the rules cannot be configured the results on [SonarQube.com][] are ignored by the organization.
+* [GitHub Pages][] is used to host the project site via [Wagon Git][] as part of [distribution management][Distribution Management].
+* [Sonatype OSS][] is used as the repository as it provides a freely available Nexus server and provides [detailed instructions for promoting up to Maven Central][2].
 
 ### Authentication and authorization
 
@@ -49,18 +47,6 @@ There is only one way to access organization resources from the Internet
 and that is through an SSL Client Side Certificates.  These certificates
 must be validated by a trusted certificate authority and the e-mail must
 be registered with the internal directory.
-
-For security reasons, client certificates are not generated nor stored by the
-organization.
-
-### Note
-
-The services above should not be used in a real enterprise as they are public 
-and the extensions used are not guaranteed to be developed regularly.  They 
-are used only as a means to an end to allow for public publishing.
-	
-An actual enterprise should be using proper hosting for the services within 
-its own walls.
 
 [Standards Information Base]: http://www.opengroup.org/public/arch/p3/sib/sib_intro.htm
 [Technical Reference Model]: http://pubs.opengroup.org/architecture/togaf8-doc/arch/chap19.html
@@ -73,16 +59,15 @@ its own walls.
 [SonarQube]: http://www.sonarqube.org/
 [SonarQube.com]: https://www.sonarqube.com/
 [Trac]: https://trac.edgewall.org/
-[Agilo]: http://www.redminebacklogs.net/
 [Distribution Management]: ./distribution-management.html
 [Continuous Integration]: ./integration.html
 [Issue Tracking]: ./issue-tracking.html
 [Source Repository]: ./source-repository.html
-[1]: http://site.trajano.net/coding-standards
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
 [3]: ./code-quality.html
-[4]: https://travis-ci.org/trajano
+[4]: https://github.com/trajano?tab=repositories
+[6]: ./license-choice.html
 [Slack]: https://trajano.slack.com/
-[PMD]: http://pmd.sourceforge.net/
-[FindBugs]: http://findbugs.sourceforge.net/
-[Checkstyle]: http://checkstyle.sourceforge.net/
+[Kanban]: https://www.agilealliance.org/glossary/kanban-board/
+[Scrum]: http://scrummethodology.com/
+[Visual Studio Team Services]: https://www.visualstudio.com/team-services/
