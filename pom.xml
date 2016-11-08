@@ -6,9 +6,7 @@
     <version>14-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Trajano</name>
-    <description>
-	Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.
-	</description>
+    <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
     <url>http://site.trajano.net/trajano/</url>
     <inceptionYear>2012</inceptionYear>
     <organization>
@@ -440,6 +438,19 @@
     </build>
     <reporting>
         <plugins>
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-jxr-plugin</artifactId>
+            </plugin>
             <plugin>
                 <artifactId>maven-linkcheck-plugin</artifactId>
             </plugin>
