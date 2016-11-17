@@ -10,7 +10,7 @@ one level behind the current one.
 
 | Artifact                                               | Type         | Purpose                                                                      |
 |--------------------------------------------------------|--------------|------------------------------------------------------------------------------|
-| [net.trajano.maven.skins:twentyfourteen-maven-skin][2] | maven skin   | Generated site look and feel to match www.trajano.net                        |
+| [net.trajano.maven.skins:twentyfourteen-maven-skin][2] | maven skin   | Generated site look and feel to match [www.trajano.net][]                    |
 | [net.trajano:coding-standards][3]                      | resource jar | Defines the coding standards used by the organization projects.              |
 | [net.trajano.mojo:cleanpom-maven-plugin][5]            | maven plugin | Cleans up pom.xml and other XML files for a project.                         |
 | [net.trajano.mojo:m2e-codestyle-maven-plugin][6]       | maven plugin | Configures the code style settings for Eclipse M2E                           |
@@ -21,3 +21,4 @@ one level behind the current one.
 [5]: http://site.trajano.net/cleanpom-maven-plugin/
 [6]: http://site.trajano.net/m2e-codestyle-maven-plugin/
 [7]: http://site.trajano.net/wagon-git/
+[www.trajano.net]: https://www.trajano.net/
