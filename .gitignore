@@ -9,6 +9,7 @@
 .pmdruleset.xml
 .project
 .settings/
+.vscode/
 artifacts.jar
 bin
 derby.log
