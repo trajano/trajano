@@ -1,12 +1,12 @@
 Using SNAPSHOT releases
 =======================
 
-[Maven Central][] does not host SNAPSHOT releases, instead  the 
-[Sonatype OSS][] is used to host the SNAPSHOT releases.  SNAPSHOT releases
+[Maven Central][] does not host `SNAPSHOT` releases, instead  the 
+[Sonatype OSS][] is used to host the `SNAPSHOT` releases.  `SNAPSHOT` releases
 provide early access to new versions of artifacts released by the organization,
 but may be unstable to use in production code.
 
-To use the SNAPSHOT releases, add the following `<profile>` in the
+To use the `SNAPSHOT` releases, add the following `<profile>` in the
 `.m2/settings.xml` file.
 
     <profile>
