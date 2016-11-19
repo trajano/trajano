@@ -85,19 +85,6 @@
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <surefire.version>2.19.1</surefire.version>
     </properties>
-    <repositories>
-        <repository>
-            <id>sonatype</id>
-            <name>Sonatype Maven OSS Repository</name>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-            <url>https://oss.sonatype.org/content/groups/public</url>
-        </repository>
-    </repositories>
     <build>
         <pluginManagement>
             <plugins>
