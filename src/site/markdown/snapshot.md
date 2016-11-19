@@ -10,7 +10,7 @@ To use the `SNAPSHOT` releases, add the following `<profile>` in the
 [`.m2/settings.xml`][settings] file.
 
     <profile>
-        <id>trajano</id>
+        <id>sonatype-repository</id>
         <activation>
             <activeByDefault>true</activeByDefault>
         </activation>
