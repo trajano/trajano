@@ -1,5 +1,6 @@
 language: java
-jdk: oraclejdk8
+jdk:
+  - oraclejdk8
 sudo: false
 cache:
   directories:
@@ -10,8 +11,9 @@ addons:
 env:
   global:
   - secure: pI0+f18LW15cjtGZK9/Hfb6xd9Hzalf/FMWVh0xJ7BEpfaZ6v/cCREJUhr4KBVY3wv+VIgmOD8/gmJvIID15bi/p1bLTxlVSHG4PJa64w4WTQED0SqZXij/qaLoDaDQd5+zL7v8Wq7GpqZCuHIdOgiHTSBGHoVlYkirvBBxbesk=
-  - secure: iQpKKXbwkmjUOi+UKvRI7y36OORykHu6wsWDyZfm/sgDfMTY2zRBBa7X1VTrCpmvQqEseJzrU+DorB9vsP83leF1VPdHPOwpvkbjmqMS6i9g/9HQqJWb+idJEl3SachpztMNLNYRcOJg5pLeuqTkQSDzp2H5DiJwGtb734bDEKw=
+  - secure: WZwHwifyIrOFWA06HU18+n5momE68IZaW5YEKzKgznVT8rU4wOYDS7QvWJShATGyqGGc4stsVFigCOo4fe1zCw0WQpo9qu1R5zlw2jatLuTWj/BOjhA6JVr133MN4EmueiPvZqKI5icBz3UNxA42Fxzo4ku1til+0jpwI6QlkoI=
+install:
+- mvn dependency:go-offline
 script:
-- jdk_switcher use oraclejdk8
-- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then export SONAR_PULL_REQUEST="-Dsonar.analysis.mode=preview -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST -Dsonar.github.repository=$TRAVIS_REPO_SLUG -Dsonar.github.oauth=$GITHUB_TOKEN"; fi
-- mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN $SONAR_PULL_REQUEST
+- mvn clean install site
+- mvn sonar:sonar
