@@ -6,8 +6,29 @@ Using SNAPSHOT releases
 provide early access to new versions of artifacts released by the organization,
 but may be unstable to use in production code.
 
-The `SNAPSHOT` releases repository is defined in `pom.xml` as of version 14,
-so there is no need to add make changes to the `.m2/settings.xml` file.
+To use the `SNAPSHOT` releases, add the following `<profile>` in the
+[`.m2/settings.xml`][settings] file.
+
+    <profile>
+        <id>sonatype-repository</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+                <id>sonatype</id>
+                <name>Sonatype Maven OSS Repository</name>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <url>https://oss.sonatype.org/content/groups/public</url>
+            </repository>
+        </repositories>
+    </profile>
 
 [Sonatype OSS]: http://oss.sonatype.org/
 [Maven Central]: http://search.maven.org/
+[settings]: ./settings.xml
