@@ -12,5 +12,4 @@ env:
   - secure: pI0+f18LW15cjtGZK9/Hfb6xd9Hzalf/FMWVh0xJ7BEpfaZ6v/cCREJUhr4KBVY3wv+VIgmOD8/gmJvIID15bi/p1bLTxlVSHG4PJa64w4WTQED0SqZXij/qaLoDaDQd5+zL7v8Wq7GpqZCuHIdOgiHTSBGHoVlYkirvBBxbesk=
   - secure: WZwHwifyIrOFWA06HU18+n5momE68IZaW5YEKzKgznVT8rU4wOYDS7QvWJShATGyqGGc4stsVFigCOo4fe1zCw0WQpo9qu1R5zlw2jatLuTWj/BOjhA6JVr133MN4EmueiPvZqKI5icBz3UNxA42Fxzo4ku1til+0jpwI6QlkoI=
 script:
-- jdk_switcher use oraclejdk8
-- mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN $SONAR_PULL_REQUEST
+- \[ "$TRAVIS_JDK_VERSION" != "oraclejdk8" ] || mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN $SONAR_PULL_REQUEST
