@@ -16,4 +16,5 @@ install:
 - mvn dependency:go-offline
 script:
 - mvn clean install site
+after_success:
 - mvn sonar:sonar
