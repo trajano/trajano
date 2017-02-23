@@ -1,12 +1,15 @@
 language: java
 jdk:
-  - oraclejdk8
+- oraclejdk8
 sudo: false
 cache:
   directories:
   - "$HOME/.m2"
   - "$HOME/.sonar/cache"
 addons:
+  apt:
+    packages:
+    - graphviz
   sonarqube: true
 env:
   global:
@@ -15,7 +18,7 @@ env:
 install:
 - mvn dependency:go-offline
 before_script:
-- mvn clean 
+- mvn clean
 script:
 - mvn install site
 after_success:
