@@ -11,7 +11,7 @@
     <inceptionYear>2012</inceptionYear>
     <organization>
         <name>Trajano</name>
-        <url>http://www.trajano.net/</url>
+        <url>https://trajano.net/</url>
     </organization>
     <licenses>
         <license>
@@ -24,8 +24,8 @@
             <id>trajano</id>
             <name>Archimedes Trajano</name>
             <organization>Trajano</organization>
-            <organizationUrl>http://www.trajano.net/</organizationUrl>
-            <url>http://www.trajano.net/</url>
+            <organizationUrl>https://trajano.net/</organizationUrl>
+            <url>https://trajano.net/</url>
             <roles>
                 <role>IT Consultant</role>
                 <role>Founder</role>
@@ -35,8 +35,8 @@
             <id>phoenix</id>
             <name>Phoenix Maximilian Trajano</name>
             <organization>Trajano</organization>
-            <organizationUrl>http://www.trajano.net/</organizationUrl>
-            <url>http://www.trajano.net/</url>
+            <organizationUrl>https://trajano.net/</organizationUrl>
+            <url>https://trajano.net/</url>
             <roles>
                 <role>Developer</role>
             </roles>
@@ -46,18 +46,18 @@
         <maven>3.0.5</maven>
     </prerequisites>
     <scm>
-        <connection>scm:git:https://github.com/trajano/trajano</connection>
-        <developerConnection>scm:git:ssh://git@github.com/trajano/trajano.git</developerConnection>
+        <connection>scm:git:https://github.com/trajano/${module.id}</connection>
+        <developerConnection>scm:git:ssh://git@github.com/trajano/${module.id}.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/trajano/trajano</url>
+        <url>https://github.com/trajano/${module.id}</url>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/trajano/trajano/issues</url>
+        <url>https://github.com/trajano/${module.id}/issues</url>
     </issueManagement>
     <ciManagement>
-        <system>Jenkins</system>
-        <url>http://i.trajano.net/jenkins/job/trajano</url>
+        <system>Travis</system>
+        <url>https://travis-ci.org/trajano/${module.id}</url>
     </ciManagement>
     <distributionManagement>
         <repository>
@@ -71,9 +71,9 @@
             <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
         </snapshotRepository>
         <site>
-            <id>gh-pages</id>
-            <name>Trajano Github Pages</name>
-            <url>github:http://site.trajano.net/trajano/</url>
+            <id>trajano-site</id>
+            <name>Trajano Maven Sites</name>
+            <url>sftp://site.trajano.net:6022/s/${module.id}/</url>
         </site>
     </distributionManagement>
     <properties>
@@ -81,6 +81,7 @@
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <maven-scm-provider-jgit.version>1.9.5</maven-scm-provider-jgit.version>
+        <module.id>trajano</module.id>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <surefire.version>2.19.1</surefire.version>
@@ -340,7 +341,7 @@
                 <plugin>
                     <groupId>net.trajano.mojo</groupId>
                     <artifactId>m2e-codestyle-maven-plugin</artifactId>
-                    <version>2.0.0</version>
+                    <version>2.1.0</version>
                     <configuration>
                         <codeStyleBaseUrl>codestyle/</codeStyleBaseUrl>
                         <javaCleanupProfileXmlUrl>codestyle/eclipse/java-cleanup.xml</javaCleanupProfileXmlUrl>
@@ -433,6 +434,11 @@
                 <groupId>net.trajano.wagon</groupId>
                 <artifactId>wagon-git</artifactId>
                 <version>2.0.4</version>
+            </extension>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh</artifactId>
+                <version>2.12</version>
             </extension>
         </extensions>
     </build>

@@ -6,8 +6,8 @@
         <version>1.0.3</version>
     </skin>
     <bannerLeft>
-        <src>http://www.trajano.net/wp-content/uploads/2014/01/logo-blog-twentyfourteen1.png</src>
-        <href>http://www.trajano.net/</href>
+        <src>https://trajano.net/wp-content/uploads/2014/01/logo-blog-twentyfourteen1.png</src>
+        <href>https://trajano.net/</href>
         <alt>Trajano</alt>
         <width>230</width>
         <height>95</height>
@@ -15,11 +15,11 @@
     <googleAnalyticsAccountId>UA-32387215-1</googleAnalyticsAccountId>
     <body>
         <links>
-            <item href="http://site.trajano.net/trajano/" name="Organizational POM"/>
-            <item href="http://site.trajano.net/coding-standards/" name="Coding standards"/>
-            <item href="http://site.trajano.net/commons-testing/" name="Commons testing"/>
-            <item href="http://site.trajano.net/java-archetype/" name="Java archetype"/>
-            <item href="http://www.trajano.net/open-source-projects/" name="Other projects"/>
+            <item href="https://site.trajano.net/trajano/" name="Organizational POM"/>
+            <item href="https://site.trajano.net/coding-standards/" name="Coding standards"/>
+            <item href="https://site.trajano.net/commons-testing/" name="Commons testing"/>
+            <item href="https://site.trajano.net/java-archetype/" name="Java archetype"/>
+            <item href="https://trajano.net/open-source-projects/" name="Other projects"/>
         </links>
         <menu name="Overview">
             <item href="index.html" name="About"/>
