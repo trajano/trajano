@@ -12,6 +12,7 @@
 .vscode/
 artifacts.jar
 bin
+deploy-keys.tar
 derby.log
 logs.zip
 pom.xml.releaseBackup
