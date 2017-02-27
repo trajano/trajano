@@ -2,10 +2,10 @@ Trajano
 =======
 
 [Trajano][] is an IT Consulting/Contracting delivery organization specialising
-in end-to-end enterprise architecture, systems design and development.  It is 
+in end-to-end enterprise architecture, systems design and development.  It is
 founded by [Archimedes Trajano][1] [[LinkedIn][LinkedIn]]
 [[StackOverflow][StackOverflow]].
-	
+
 ### About this project
 
 This project provides the [Trajano][] organizational POM.  In this project, the [services used][2], [overall reports][4], [core plugins][3] and [managed plugin versions][5] are specified along with branding details.  In a way this codifies the [Standards Information Base][2] for the organization.
@@ -23,14 +23,6 @@ The organizational POM version numbering scheme is a single numeric number. This
 is similar to the way [Apache][] does their POM versioning.  The only exception
 is when there is a build issue, but the core plugin versions and configurations
 have not changed and it had already been released to central.
-
-### Project specifiec properties
-
-The following properties are set on this project but are expected to be changed in projectst that inherit from this POM.
-
-* `module.id` defines a unique name for the project.  It is the `artifactId` of the root of a multimodule project or the project `artifactId` of a single module project.
-
-* `jdk.version` specifies which version of the JDK to use by many other plugins.  This is defaulted to `1.6` but may be changed.
 
 
 [Trajano]: https://trajano.net/
