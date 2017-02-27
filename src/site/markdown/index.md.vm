@@ -1,1 +1,16 @@
 $FileUtils.fileRead("${project.build.directory}/../README.md")
+
+#[[
+### The index file
+
+`src/site/markdown/index.md.vm` is a markdown file generated from a Velocity macro.  This file specifically generally contains one line (only the organizational POM will expand on this one).
+
+    $FileUtils.fileRead("${project.build.directory}/../README.md")
+
+This will make the generated index read from the `README.md` of the project build folder for the contents.
+
+The `README.md` file will contain a quick description of the project (ignoring the one that is specified in the POM.xml).  For open source projects the badges to Travis and SonarQube.com must be provided after the header as follows in a single line (lines broken down for readability).
+
+    [![Build Status](https://travis-ci.org/trajano/${module.id}.svg?branch=master)](https://travis-ci.org/trajano/${module.id})
+    [![Quality Gate](https://sonarqube.com/api/badges/gate?key=${project.groupId}:${project.artifactId})](https://sonarqube.com/dashboard?id=${project.groupId}:${project.artifactId})
+]]#
