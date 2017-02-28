@@ -29,15 +29,15 @@ have not changed and it had already been released to central.
 
 [Trajano]: https://trajano.net/
 [Apache]: http://apache.org/
-[LinkedIn]: http://ca.linkedin.com/in/trajano
-[StackOverflow]: http://stackoverflow.com/users/242042/archimedes-trajano
-[1]: http://www.trajano.net/archimedes-trajano-resume/
+[LinkedIn]: https://www.linkedin.com/in/trajano
+[StackOverflow]: https://stackoverflow.com/users/242042/archimedes-trajano
+[1]: https://trajano.net/
 [2]: ./sib.html
 [3]: ./plugins.html
 [4]: ./project-reports.html
 [5]: ./plugin-management.html
-[6]: http://site.trajano.net/coding-standards
-[PMD]: http://maven.apache.org/plugins/maven-pmd-plugin/
+[6]: https://site.trajano.net/coding-standards
+[PMD]: https://maven.apache.org/plugins/maven-pmd-plugin/
 [Checkstyle]: https://maven.apache.org/plugins/maven-checkstyle-plugin/
 [FindBugs]: https://gleclaire.github.io/findbugs-maven-plugin/
-[m2e]: http://site.trajano.net/m2e-codestyle-maven-plugin/
+[m2e]: https://site.trajano.net/m2e-codestyle-maven-plugin/
