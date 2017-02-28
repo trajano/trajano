@@ -1,4 +1,10 @@
-.git* text=auto export-ignore
 deploy-keys.tar.enc binary export-ignore
-*.yml text=auto
-*.md text=auto
+.git* text=auto export-ignore
+
+* text=auto
+
+*.java diff=java
+
+*.ico binary
+*.jpg binary
+*.png binary
