@@ -43,11 +43,11 @@ In addition, the most of the bad practices are mitigated by:
 Thereby reducing the need to have the extra analysis being performed by the
 IDE itself.
 
-[1]: http://site.trajano.net/coding-standards/
-[2]: http://site.trajano.net/coding-standards/checkstyle.html
-[3]: http://site.trajano.net/coding-standards/pmd.html
-[4]: http://site.trajano.net/coding-standards/findbugs.html
+[1]: https://site.trajano.net/coding-standards/
+[2]: https://site.trajano.net/coding-standards/checkstyle.html
+[3]: https://site.trajano.net/coding-standards/pmd.html
+[4]: https://site.trajano.net/coding-standards/findbugs.html
 [5]: http://www.sonarqube.org/
 [6]: https://github.com/m2e-code-quality/m2e-code-quality
-[7]: http://site.trajano.net/m2e-codestyle-maven-plugin/
-[8]: http://help.eclipse.org/luna/index.jsp?topic=/org.eclipse.jdt.doc.user/reference/preferences/java/compiler/ref-preferences-errors-warnings.htm
+[7]: https://site.trajano.net/m2e-codestyle-maven-plugin/
+[8]: http://help.eclipse.org/neon/topic/org.eclipse.jdt.doc.user/reference/preferences/java/compiler/ref-preferences-errors-warnings.htm
