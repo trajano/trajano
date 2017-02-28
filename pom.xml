@@ -217,12 +217,17 @@
                     <artifactId>maven-linkcheck-plugin</artifactId>
                     <version>1.2</version>
                     <configuration>
+                        <excludedPages>
+                            <excludedPage>source-repository.html</excludedPage>
+                        </excludedPages>
                         <excludedLinks>
+                            <excludedLink>images/*</excludedLink>
                             <excludedLink>http://i.trajano.net/**</excludedLink>
+                            <excludedLink>http://docs.sonarqube.org/display/PLUG/Plugin+Library/sonar-maven-plugin</excludedLink>
+                            <excludedLink>http://git-scm.com/**</excludedLink>
                             <excludedLink>http://mojo.codehaus.org/**</excludedLink>
                             <excludedLink>http://search.maven.org/</excludedLink>
                             <excludedLink>http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/</excludedLink>
-                            <excludedLink>https://git-scm.org/**</excludedLink>
                             <excludedLink>https://i.trajano.net/**</excludedLink>
                             <excludedLink>https://oss.sonatype.org/service/local/staging/deploy/maven2/</excludedLink>
                             <excludedLink>https://travis-ci.org/**</excludedLink>
