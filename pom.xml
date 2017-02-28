@@ -77,7 +77,7 @@
         </site>
     </distributionManagement>
     <properties>
-        <coding-standards.version>2.1.1</coding-standards.version>
+        <coding-standards.version>2.1.2</coding-standards.version>
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <maven-scm-provider-jgit.version>1.9.5</maven-scm-provider-jgit.version>
@@ -104,7 +104,7 @@
                         <dependency>
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
-                            <version>7.0</version>
+                            <version>7.6</version>
                         </dependency>
                     </dependencies>
                     <configuration>
