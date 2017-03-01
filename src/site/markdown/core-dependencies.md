@@ -10,16 +10,15 @@ one level behind the current one.
 
 | Artifact                                               | Type         | Purpose                                                                      |
 |--------------------------------------------------------|--------------|------------------------------------------------------------------------------|
-| [net.trajano.maven.skins:twentyfourteen-maven-skin][2] | maven skin   | Generated site look and feel to match [www.trajano.net][]                    |
+| [net.trajano.maven.skins:twentyfourteen-maven-skin][2] | maven skin   | Generated site look and feel to match [Archie's Blog](https://trajano.net/blog/) |
 | [net.trajano:coding-standards][3]                      | resource jar | Defines the coding standards used by the organization projects.              |
 | [net.trajano.mojo:cleanpom-maven-plugin][5]            | maven plugin | Cleans up pom.xml and other XML files for a project.                         |
-| [net.trajano.mojo:m2e-codestyle-maven-plugin][6]       | maven plugin | Configures the code style settings for Eclipse M2E                           |
+| [net.trajano.mojo:m2e-codestyle-maven-plugin][6]       | maven plugin | Configures the code style settings for Eclipse M2E.                          |
 
 As of version 14, [net.trajano.wagon:wagon-git][7] is no longer a core depenendency as the Maven generated sites are now published using SFTP which is provided by [wagon-ssh](http://maven.apache.org/wagon/wagon-providers/wagon-ssh/).
 
-[2]: http://site.trajano.net/twentyfourteen-maven-skin/
-[3]: http://site.trajano.net/coding-standards/
-[5]: http://site.trajano.net/cleanpom-maven-plugin/
-[6]: http://site.trajano.net/m2e-codestyle-maven-plugin/
-[7]: http://site.trajano.net/wagon-git/
-[www.trajano.net]: https://www.trajano.net/
+[2]: https://site.trajano.net/twentyfourteen-maven-skin/
+[3]: https://site.trajano.net/coding-standards/
+[5]: https://site.trajano.net/cleanpom-maven-plugin/
+[6]: https://site.trajano.net/m2e-codestyle-maven-plugin/
+[7]: https://site.trajano.net/wagon-git/

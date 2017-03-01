@@ -14,10 +14,9 @@
     </bannerLeft>
     <body>
         <links>
+            <item href="https://trajano.net/blog/" name="Blog"/>
             <item href="https://site.trajano.net/trajano/" name="Organizational POM"/>
             <item href="https://site.trajano.net/coding-standards/" name="Coding standards"/>
-            <item href="https://site.trajano.net/commons-testing/" name="Commons testing"/>
-            <item href="https://site.trajano.net/java-archetype/" name="Java archetype"/>
             <item href="https://trajano.net/open-source-projects/" name="Other projects"/>
         </links>
         <menu name="Overview">
