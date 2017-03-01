@@ -14,14 +14,19 @@
     </bannerLeft>
     <body>
         <links>
+            <item href="https://trajano.net/" name="Portfolio"/>
             <item href="https://trajano.net/blog/" name="Blog"/>
             <item href="https://site.trajano.net/trajano/" name="Organizational POM"/>
-            <item href="https://site.trajano.net/coding-standards/" name="Coding standards"/>
             <item href="https://trajano.net/open-source-projects/" name="Other projects"/>
         </links>
         <menu name="Overview">
             <item href="index.html" name="About"/>
-            <item href="core-dependencies.html" name="Core dependencies"/>
+            <item href="core-dependencies.html" name="Core dependencies">
+                <item href="https://site.trajano.net/coding-standards/" name="Coding standards"/>
+                <item href="https://site.trajano.net/m2e-codestyle-maven-plugin/" name="M2E Codestyle Maven Plugin"/>
+                <item href="https://site.trajano.net/twentyfourteen-maven-skin/" name="Twentyfourteen Maven Skin"/>
+                <item href="https://site.trajano.net/cleanpom-maven-plugin/" name="Clean POM Maven Plugin"/>
+            </item>
             <item href="properties.html" name="Project specific properties"/>
             <item href="sib.html" name="Standards information base"/>
             <item href="snapshot.html" name="Using SNAPSHOTs"/>
