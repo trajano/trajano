@@ -29,6 +29,10 @@ To use the `SNAPSHOT` releases, add the following `<profile>` in the
         </repositories>
     </profile>
 
+Another way of using it is to pass the location of the settings file via the command line using the `-s` option that will allow SNAPSHOT releases of organizational POM to be used.  For example
+
+    mvn -s /path/to/snapshot-settings.xml
+
 [Sonatype OSS]: http://oss.sonatype.org/
 [Maven Central]: http://search.maven.org/
 [settings]: ./settings.xml
