@@ -14,6 +14,19 @@ To use the `SNAPSHOT` releases, add the following `<profile>` in the
         <activation>
             <activeByDefault>true</activeByDefault>
         </activation>
+        <pluginRepositories>
+            <pluginRepository>
+                <id>sonatype</id>
+                <name>Sonatype Maven OSS Repository</name>
+                <releases>
+                    <enabled>true</enabled>
+                </releases>
+                <snapshots>
+                    <enabled>true</enabled>
+                </snapshots>
+                <url>https://oss.sonatype.org/content/groups/public</url>
+            </pluginRepository>
+        </pluginRepositories>
         <repositories>
             <repository>
                 <id>sonatype</id>
@@ -29,7 +42,7 @@ To use the `SNAPSHOT` releases, add the following `<profile>` in the
         </repositories>
     </profile>
 
-Another way of using it is to pass the location of the settings file via the command line using the `-s` option that will allow SNAPSHOT releases of organizational POM to be used.  For example
+Another way of using it is to pass the location of the settings file via the command line using the `-s` option that will allow SNAPSHOT releases of organizational POM to be used.  For example:
 
     mvn -s /path/to/snapshot-settings.xml
 
