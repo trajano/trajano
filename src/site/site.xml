@@ -27,6 +27,7 @@
                 <item href="https://site.trajano.net/twentyfourteen-maven-skin/" name="Twentyfourteen Maven Skin"/>
                 <item href="https://site.trajano.net/cleanpom-maven-plugin/" name="Clean POM Maven Plugin"/>
             </item>
+            <item href="forks.html" name="Forking OSS projects"/>
             <item href="properties.html" name="Project specific properties"/>
             <item href="sib.html" name="Standards information base"/>
             <item href="snapshot.html" name="Using SNAPSHOTs"/>
