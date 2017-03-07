@@ -46,18 +46,18 @@
         <maven>3.0.5</maven>
     </prerequisites>
     <scm>
-        <connection>scm:git:https://github.com/trajano/${module.id}</connection>
-        <developerConnection>scm:git:ssh://git@github.com/trajano/${module.id}.git</developerConnection>
+        <connection>scm:git:https://github.com/trajano/${repo.id}</connection>
+        <developerConnection>scm:git:ssh://git@github.com/trajano/${repo.id}.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/trajano/${module.id}</url>
+        <url>https://github.com/trajano/${repo.id}</url>
     </scm>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/trajano/${module.id}/issues</url>
+        <url>https://github.com/trajano/${repo.id}/issues</url>
     </issueManagement>
     <ciManagement>
         <system>Travis</system>
-        <url>https://travis-ci.org/trajano/${module.id}</url>
+        <url>https://travis-ci.org/trajano/${repo.id}</url>
     </ciManagement>
     <distributionManagement>
         <repository>
@@ -73,7 +73,7 @@
         <site>
             <id>trajano-site</id>
             <name>Trajano Maven Sites</name>
-            <url>sftp://site.trajano.net:6022/s/${module.id}/</url>
+            <url>sftp://site.trajano.net:6022/s/${repo.id}/</url>
         </site>
     </distributionManagement>
     <properties>
@@ -81,7 +81,7 @@
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <maven-scm-provider-jgit.version>1.9.5</maven-scm-provider-jgit.version>
-        <module.id>trajano</module.id>
+        <repo.id>trajano</repo.id>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
         <surefire.version>2.19.1</surefire.version>
