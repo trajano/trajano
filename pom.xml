@@ -81,9 +81,9 @@
         <jdk.version>1.6</jdk.version>
         <maven.scm.provider.git.implementation>org.apache.maven.scm.provider.git.jgit.JGitScmProvider</maven.scm.provider.git.implementation>
         <maven-scm-provider-jgit.version>1.9.5</maven-scm-provider-jgit.version>
-        <repo.id>trajano</repo.id>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+        <repo.id>trajano</repo.id>
         <surefire.version>2.19.1</surefire.version>
     </properties>
     <build>
@@ -466,6 +466,7 @@
                 <artifactId>maven-project-info-reports-plugin</artifactId>
                 <reportSets>
                     <reportSet>
+                        <inherited>false</inherited>
                         <reports>
                             <report>cim</report>
                             <report>dependencies</report>
