@@ -3,10 +3,11 @@ Travis configuration
 
 This is the annotated version of the [.travis.yml](https://github.com/trajano/trajano/blob/master/.travis.yml) file.
 
-### branches
+### Branches
 Travis is configured to build pushes and pull requests.  However, only `master` and the tags done by the [release process][] which are defined by the regex pattern should be built when pushed.
 
 The pattern would change for other projects.
+
 ````
 branches:
   only:
@@ -14,9 +15,9 @@ branches:
   - /^trajano-[\d\.]+$/
 ````
 
-### Language configuration
+### Travis environment configuration
 
-Java with Oracle JDK8
+Use Java with Oracle JDK8.
 
 ````
 language: java
@@ -24,15 +25,13 @@ jdk:
 - oraclejdk8
 ````
 
-### Container based builds
-
-Using a container based build as it has [many benefits](https://docs.travis-ci.com/user/migrating-from-legacy/#Why-migrate-to-container-based-infrastructure%3F).
+Use container based builds as it has [many benefits](https://docs.travis-ci.com/user/migrating-from-legacy/#Why-migrate-to-container-based-infrastructure%3F).
 
 ````
 sudo: false
 ````
 
-### Cache repositories
+Cache downloaded repository files from Sonar and Maven Central.
 
 ````
 cache:
@@ -41,9 +40,11 @@ cache:
   - "$HOME/.sonar/cache"
 ````
 
-### Travis add ons
+Enable Travis addons
+
 * The `graphviz` package is installed so JavaDoc generation  would be able to use `dot`.
 * The sonarqube add-on reduces the amount of coding needed in the `.travis.yml`
+
 ````
 addons:
   apt:
@@ -107,12 +108,11 @@ after_success:
 ````
 
 ### Deployments
-````
-deploy:
-````
 
 SNAPSHOT builds which are on the `master` branch:
+
 ````
+deploy:
 - provider: script
   skip_cleanup: true
   script: mvn deploy site-deploy
