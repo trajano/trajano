@@ -29,6 +29,8 @@
             </item>
             <item href="forks.html" name="Forking OSS projects"/>
             <item href="properties.html" name="Project specific properties"/>
+            <item href="release-process.html" name="Release process"/>
+            <item href="travis-yml.html" name="Travis configuration"/>
             <item href="sib.html" name="Standards information base"/>
             <item href="snapshot.html" name="Using SNAPSHOTs"/>
             <item href="license-choice.html" name="License choice"/>
