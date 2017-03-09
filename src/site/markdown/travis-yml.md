@@ -91,20 +91,11 @@ before_script:
 - mvn clean
 ````
 
-Perform the build using the `verify` target so the the cached `.m2/repository` folder will not need to be rebuilt.
+Perform the build using the `verify` target so the the cached `.m2/repository` folder will not need to be rebuilt followed by the site generation and SonarQube checks.
 
 ````
 script:
-- mvn verify site
-````
-
-Automated QA using SonarQube after a successful build
-
-This will also handle pull requests automatically.
-
-````
-after_success:
-- mvn sonar:sonar
+- mvn verify site sonar:sonar
 ````
 
 ### Deployments
