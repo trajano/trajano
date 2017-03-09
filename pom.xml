@@ -360,6 +360,11 @@
                     </configuration>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-changelog-plugin</artifactId>
+                    <version>2.3</version>
+                </plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>findbugs-maven-plugin</artifactId>
                     <version>3.0.4</version>
@@ -451,6 +456,9 @@
     </build>
     <reporting>
         <plugins>
+            <plugin>
+                <artifactId>maven-changelog-plugin</artifactId>
+            </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
