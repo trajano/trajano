@@ -341,6 +341,14 @@
           <version>${surefire.version}</version>
         </plugin>
         <plugin>
+          <groupId>com.github.danielflower.mavenplugins</groupId>
+          <artifactId>gitlog-maven-plugin</artifactId>
+          <version>1.13.3</version>
+          <configuration>
+            <simpleHTMLChangeLogFilename>gitlog.html</simpleHTMLChangeLogFilename>
+          </configuration>
+        </plugin>
+        <plugin>
           <groupId>net.trajano.mojo</groupId>
           <artifactId>cleanpom-maven-plugin</artifactId>
           <version>1.2.0</version>
@@ -358,11 +366,6 @@
             <javaScriptFormatterProfileXmlUrl>codestyle/eclipse/javascript-code-formatter.xml</javaScriptFormatterProfileXmlUrl>
             <javaScriptTemplatesXmlUrl>codestyle/eclipse/javascript-templates.xml</javaScriptTemplatesXmlUrl>
           </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-changelog-plugin</artifactId>
-          <version>2.3</version>
         </plugin>
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
@@ -469,7 +472,8 @@
   <reporting>
     <plugins>
       <plugin>
-        <artifactId>maven-changelog-plugin</artifactId>
+        <groupId>com.github.danielflower.mavenplugins</groupId>
+        <artifactId>gitlog-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
