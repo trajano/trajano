@@ -435,6 +435,18 @@
           </execution>
         </executions>
       </plugin>
+      <plugin>
+        <groupId>net.trajano.mojo</groupId>
+        <artifactId>m2e-codestyle-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>format</id>
+            <goals>
+              <goal>format</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
     </plugins>
     <extensions>
       <extension>
