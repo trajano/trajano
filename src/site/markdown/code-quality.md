@@ -9,7 +9,7 @@ used with their respective Maven plugins and the [M2E code quality plugin][6].
 The main reason for this choice is *purely technical* for the most part.
 
 * There were inconsistency and difficulty of getting Maven to generate the
-  site correctly with the proper rules loaded and the exceptions of ignoring 
+  site correctly with the proper rules loaded and the exceptions of ignoring
   generated sources getting applied correctly.
 * It has issues running on M2E environment and the exclusion configurations
   do not always load up correctly.
@@ -24,9 +24,15 @@ plugins addressed.  Although this is relatively the same policy that
 [SonarQube][5].  The enterprise policy may change this later, however as of
 this time [SonarQube][5] is chosen.
 
+### OSS contribution standards
+
+ [SonarQube.com](https://sonarqube.com) which is a hosted SonarQube installation is used and rules defined there are followed as much as possible (those that are not appropriate will be marked as either *Won't Fix* or *False Positive*.
+
+ This is triggered from a [Travis](https://travis-ci.org/) build and is integrated as part of the [.travis.yml](./travis-yml.html).
+
 ### Issues with the approach
 
-The problem with this approach is the lack of local and build-time testing 
+The problem with this approach is the lack of local and build-time testing
 as it now requires access to a [SonarQube][5] server to perform the tests
 rather than the IDE.
 
@@ -35,7 +41,7 @@ keeping that debt at zero may cause the business to miss the market.
 
 In addition, the most of the bad practices are mitigated by:
 
-* using [m2e-codestyle-maven-plugin][7] which will configure the IDE to 
+* using [m2e-codestyle-maven-plugin][7] which will configure the IDE to
   perform the necessary coding cleanups.
 * The Eclipse JDT already provides several [errors/warnings][8] for marking
   potential coding problems on the IDE.
