@@ -84,6 +84,7 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <repo.id>trajano</repo.id>
+    <sonar.organization>trajano</sonar.organization>
     <surefire.version>2.19.1</surefire.version>
   </properties>
   <build>

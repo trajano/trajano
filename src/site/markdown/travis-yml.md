@@ -1,7 +1,7 @@
 Travis configuration
 ====================
 
-This is the annotated version of the [.travis.yml](https://github.com/trajano/trajano/blob/master/.travis.yml) file.
+This is the annotated version of the [.travis.yml](https://github.com/trajano/trajano/blob/master/.travis.yml) file.  More detailed information on [how to integrate Travis, SonarQube and GitHub](https://trajano.net/2016/11/integrating-travis-sonarqube/) is available in [trajano.net](https://trajano.net/).
 
 ### Branches
 Travis is configured to build pushes and pull requests.  However, only `master` and the tags done by the [release process][] which are defined by the regex pattern should be built when pushed.
@@ -51,16 +51,13 @@ addons:
     - graphviz
 ````
 
-Configure SonarQube addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs a an `organization` and a an encrypted `token` which are documented below.
+Configure SonarQube addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs an encrypted `token`.
 
 ````
   sonarqube:
-    organization: trajano
     token:
       secure: ....
 ````
-
-### Keys and tokens
 
 The keys and tokens are encrypted and stored as part of the `.travis.yml` file and  can only be used by the repository and are customized per project.
 
