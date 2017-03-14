@@ -27,7 +27,7 @@ This [SIB][Standards Information Base] specifically documents the ones used by t
 [SonarQube.com]: https://www.sonarqube.com/
 [Trac]: https://trac.edgewall.org/
 [Distribution Management]: ./distribution-management.html
-[Continuous Integration]: ./cim.html
+[Continuous Integration]: ./integration.html
 [Issue Tracking]: ./issue-tracking.html
 [Source Repository]: ./source-repository.html
 [2]: http://central.sonatype.org/pages/ossrh-guide.html
