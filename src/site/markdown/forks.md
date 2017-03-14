@@ -5,7 +5,7 @@ There are times when forks of open source projects may occur in order to accomod
 
 ### Packaging and distribution
 
-For forks, the `groupId` is changed to something within the `net.trajano` package group.
+This is for **external OSS** forks only.  These forks would have the `groupId` is changed to something within the `net.trajano` package group.
 
 The `parent` will be changed to the current version of `net.trajano:trajano` which will configure most of the distribution and plugins.
 
