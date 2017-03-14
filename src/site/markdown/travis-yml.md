@@ -40,30 +40,41 @@ cache:
   - "$HOME/.sonar/cache"
 ````
 
-Enable Travis addons
+Add additional packages
 
 * The `graphviz` package is installed so JavaDoc generation  would be able to use `dot`.
-* The sonarqube add-on reduces the amount of coding needed in the `.travis.yml`
 
 ````
 addons:
   apt:
     packages:
     - graphviz
-  sonarqube: true
+````
+
+Configure SonarQube addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs a an `organization` and a an encrypted `token` which are documented below.
+
+````
+  sonarqube:
+    organization: trajano
+    token:
+      secure: ....
 ````
 
 ### Keys and tokens
 
 The keys and tokens are encrypted and stored as part of the `.travis.yml` file and  can only be used by the repository and are customized per project.
 
-The environment settings: `SONAR_GITHUB_TOKEN` and `SONAR_TOKEN` values that are encrypted using `travis encrypt`.
-
 ````
 env:
   global:
   - secure: ...
-  - secure: ...
+````
+
+The tokens are created as follows:
+
+````
+travis encrypt <SonarQube token> --add addons.sonarqube.token
+travis encrypt SONAR_GITHUB_TOKEN=<GitHub token used by SonarQube addon> --add
 ````
 
 The deployment key files are from a tar file that is encrypted using `travis encrypt-file`
