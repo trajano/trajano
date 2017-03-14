@@ -1,7 +1,7 @@
 Travis configuration
 ====================
 
-This is the annotated version of the [.travis.yml](https://github.com/trajano/trajano/blob/master/.travis.yml) file.
+This is the annotated version of the [.travis.yml](https://github.com/trajano/trajano/blob/master/.travis.yml) file.  More detailed information on [how to integrate Travis, SonarQube and GitHub](https://trajano.net/2016/11/integrating-travis-sonarqube/) is available in [trajano.net](https://trajano.net/).
 
 ### Branches
 Travis is configured to build pushes and pull requests.  However, only `master` and the tags done by the [release process][] which are defined by the regex pattern should be built when pushed.
@@ -40,30 +40,38 @@ cache:
   - "$HOME/.sonar/cache"
 ````
 
-Enable Travis addons
+Add additional packages
 
 * The `graphviz` package is installed so JavaDoc generation  would be able to use `dot`.
-* The sonarqube add-on reduces the amount of coding needed in the `.travis.yml`
 
 ````
 addons:
   apt:
     packages:
     - graphviz
-  sonarqube: true
 ````
 
-### Keys and tokens
+Configure SonarQube addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs an encrypted `token`.
+
+````
+  sonarqube:
+    token:
+      secure: ....
+````
 
 The keys and tokens are encrypted and stored as part of the `.travis.yml` file and  can only be used by the repository and are customized per project.
-
-The environment settings: `SONAR_GITHUB_TOKEN` and `SONAR_TOKEN` values that are encrypted using `travis encrypt`.
 
 ````
 env:
   global:
   - secure: ...
-  - secure: ...
+````
+
+The tokens are created as follows:
+
+````
+travis encrypt <SonarQube token> --add addons.sonarqube.token
+travis encrypt SONAR_GITHUB_TOKEN=<GitHub token used by SonarQube addon> --add
 ````
 
 The deployment key files are from a tar file that is encrypted using `travis encrypt-file`
