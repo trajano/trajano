@@ -386,6 +386,9 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.3</version>
+          <configuration>
+            <rulesUri>https://site.trajano.net/coding-standards/maven-version-rules.xml</rulesUri>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
@@ -402,7 +405,7 @@
         <plugin>
           <groupId>org.sonarsource.scanner.maven</groupId>
           <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.2</version>
+          <version>3.3.0.603</version>
           <dependencies>
             <dependency>
               <groupId>javax.servlet</groupId>
