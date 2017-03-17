@@ -212,29 +212,6 @@
           <version>2.5</version>
         </plugin>
         <plugin>
-          <artifactId>maven-linkcheck-plugin</artifactId>
-          <version>1.2</version>
-          <configuration>
-            <excludedPages>
-              <excludedPage>source-repository.html</excludedPage>
-            </excludedPages>
-            <excludedLinks>
-              <excludedLink>../**</excludedLink>
-              <excludedLink>images/*</excludedLink>
-              <excludedLink>http://i.trajano.net/**</excludedLink>
-              <excludedLink>http://docs.sonarqube.org/display/PLUG/Plugin+Library/sonar-maven-plugin</excludedLink>
-              <excludedLink>http://git-scm.com/**</excludedLink>
-              <excludedLink>http://mojo.codehaus.org/**</excludedLink>
-              <excludedLink>http://search.maven.org/</excludedLink>
-              <excludedLink>http://www.sonatype.com/public-parent/nexus-maven-plugins/nexus-staging/nexus-staging-maven-plugin/</excludedLink>
-              <excludedLink>https://i.trajano.net/**</excludedLink>
-              <excludedLink>https://oss.sonatype.org/service/local/staging/deploy/maven2/</excludedLink>
-              <excludedLink>https://travis-ci.org/**</excludedLink>
-              <excludedLink>https://www.linkedin.com/**</excludedLink>
-            </excludedLinks>
-          </configuration>
-        </plugin>
-        <plugin>
           <artifactId>maven-pmd-plugin</artifactId>
           <version>3.7</version>
           <dependencies>
@@ -491,9 +468,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-jxr-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-linkcheck-plugin</artifactId>
       </plugin>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
