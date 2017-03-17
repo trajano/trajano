@@ -448,7 +448,6 @@
         <artifactId>m2e-codestyle-maven-plugin</artifactId>
         <executions>
           <execution>
-            <id>format</id>
             <goals>
               <goal>format</goal>
             </goals>
