@@ -14,6 +14,9 @@ addons:
   apt:
     packages:
     - graphviz
+  ssh_known_hosts:
+  - github.com
+  - site.trajano.net:6022
   sonarqube:
     token:
       secure: YnJoL7AhM3OJeW8mGfyd5tUjlVwHRFFoV5LW8L6y/FaMZJ4P22yCMO3lu37B9U3n33emMxB2U3T1GUdBrF3ldyHrrSjOmdIGd6cq+ZvzB+cC4LTyy8cvhKmkaULiQf1Cqvwlrzc8jJ6L6jEduT6DW9AsodtMyebVePOR2rw2sSI=
