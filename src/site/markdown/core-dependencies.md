@@ -14,7 +14,6 @@ one level behind the current one.
 | [net.trajano:coding-standards][3]                      | resource jar | Defines the coding standards used by the organization projects.              |
 | [net.trajano.mojo:cleanpom-maven-plugin][5]            | maven plugin | Cleans up pom.xml and other XML files for a project.                         |
 | [net.trajano.mojo:m2e-codestyle-maven-plugin][6]       | maven plugin | Configures the code style settings for Eclipse M2E.                          |
-| [net.trajano.apiviz:apiviz][apiviz]                    | jar | Generates te UML diagrams in JavaDoc.  Fork of an existing project to fix an [issue with JDK 1.8.1.](https://github.com/grahamedgecombe/apiviz/pull/2)  |
 
 As of version 14, [net.trajano.wagon:wagon-git][7] is no longer a core depenendency as the Maven generated sites are now published using SFTP which is provided by [wagon-ssh](http://maven.apache.org/wagon/wagon-providers/wagon-ssh/).
 
@@ -23,4 +22,3 @@ As of version 14, [net.trajano.wagon:wagon-git][7] is no longer a core depenende
 [5]: https://site.trajano.net/cleanpom-maven-plugin/
 [6]: https://site.trajano.net/m2e-codestyle-maven-plugin/
 [7]: https://site.trajano.net/wagon-git/
-[apiviz]: https://site.trajano.net/apiviz/
