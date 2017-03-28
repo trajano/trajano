@@ -97,24 +97,6 @@
           <version>3.0.0</version>
         </plugin>
         <plugin>
-          <artifactId>maven-checkstyle-plugin</artifactId>
-          <version>2.17</version>
-          <dependencies>
-            <dependency>
-              <groupId>com.puppycrawl.tools</groupId>
-              <artifactId>checkstyle</artifactId>
-              <version>7.6.1</version>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <configLocation>config/checkstyle-configuration.xml</configLocation>
-            <headerLocation>LICENSE</headerLocation>
-            <linkXRef>true</linkXRef>
-            <includeTestResources>false</includeTestResources>
-            <excludes>^target/generated-sources</excludes>
-          </configuration>
-        </plugin>
-        <plugin>
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
@@ -230,30 +212,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <artifactId>maven-pmd-plugin</artifactId>
-          <version>3.7</version>
-          <dependencies>
-            <dependency>
-              <groupId>net.trajano</groupId>
-              <artifactId>coding-standards</artifactId>
-              <version>${coding-standards.version}</version>
-            </dependency>
-          </dependencies>
-          <configuration>
-            <linkXref>true</linkXref>
-            <sourceEncoding>utf-8</sourceEncoding>
-            <targetJdk>${jdk.version}</targetJdk>
-            <rulesets>
-              <ruleset>config/pmd-rules.xml</ruleset>
-            </rulesets>
-            <typeResolution>true</typeResolution>
-            <includeXmlInSite>true</includeXmlInSite>
-            <excludeRoots>
-              <excludeRoot>target/generated-sources</excludeRoot>
-            </excludeRoots>
-          </configuration>
-        </plugin>
-        <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>2.9</version>
           <configuration>
@@ -340,14 +298,6 @@
             <javaScriptCleanupProfileXmlUrl>codestyle/eclipse/javascript-cleanup.xml</javaScriptCleanupProfileXmlUrl>
             <javaScriptFormatterProfileXmlUrl>codestyle/eclipse/javascript-code-formatter.xml</javaScriptFormatterProfileXmlUrl>
             <javaScriptTemplatesXmlUrl>codestyle/eclipse/javascript-templates.xml</javaScriptTemplatesXmlUrl>
-          </configuration>
-        </plugin>
-        <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>findbugs-maven-plugin</artifactId>
-          <version>3.0.4</version>
-          <configuration>
-            <excludeFilterFile>/config/findbugs-exclude-filter.xml</excludeFilterFile>
           </configuration>
         </plugin>
         <plugin>
