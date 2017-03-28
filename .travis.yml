@@ -14,6 +14,7 @@ addons:
   apt:
     packages:
     - graphviz
+    - ca-certificates
   ssh_known_hosts:
   - github.com
   - site.trajano.net:6022
