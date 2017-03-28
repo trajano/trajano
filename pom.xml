@@ -225,6 +225,7 @@
               <excludedLink>images/icon_warning_sml.gif</excludedLink>
               <excludedLink>http://search.maven.org/</excludedLink>
               <excludedLink>https://i.trajano.net/**</excludedLink>
+              <excludedLink>https://oss.sonatype.org/content/repositories/snapshots/</excludedLink>
               <excludedLink>https://oss.sonatype.org/service/local/staging/deploy/maven2/</excludedLink>
               <excludedLink>https://www.linkedin.com/**</excludedLink>
             </excludedLinks>

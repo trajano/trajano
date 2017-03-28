@@ -1,5 +1,5 @@
-Java project reporting configuration
-====================================
+Project reporting configuration
+===============================
 
 As of version 14 of the organizational POM.  A large number of [plugins][1]
 have been configured to reduce the configuration needed for other projects
