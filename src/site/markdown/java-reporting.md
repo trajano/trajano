@@ -24,5 +24,14 @@ following
         <item href="plugin-info.html" name="Plugin Documentation" />
     </menu>
 
+### Linkcheck exclusions
+
+* [`plugin-management.html`](./plugin-management.html) is excluded because some plugins that this project would reference may point to invalid URLs namely `sonar-maven-plugin` and `taglist-maven-plugin`.
+* `../**` is excluded because the references to them are not valid because the target site is not necessarily in the same folder.
+* ![success](images/icon_success_sml.gif) `images/icon_success_sml.gif` and ![warning](images/icon_warning_sml.gif) `images/icon_warning_sml.gif` generate false negatives.
+* http://search.maven.org/ generates a `404` when a `HEAD` request is passed.
+* https://i.trajano.net/ this is used by the Trajano DevOps intranet site which is not publically accessible.
+* https://oss.sonatype.org/service/local/staging/deploy/maven2/ requires authorization.
+* https://www.linkedin.com/ generates a `999` when a `HEAD` request is passed.
 
 [1]: ./plugin-management.html

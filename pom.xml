@@ -216,10 +216,16 @@
           <artifactId>linkcheck-maven-plugin</artifactId>
           <version>1.3.0</version>
           <configuration>
+            <excludedPages>
+              <excludedPage>plugin-management.html</excludedPage>
+            </excludedPages>
             <excludedLinks>
               <excludedLink>../**</excludedLink>
-              <excludedLink>images/*</excludedLink>
+              <excludedLink>images/icon_success_sml.gif</excludedLink>
+              <excludedLink>images/icon_warning_sml.gif</excludedLink>
+              <excludedLink>http://search.maven.org/</excludedLink>
               <excludedLink>https://i.trajano.net/**</excludedLink>
+              <excludedLink>https://oss.sonatype.org/service/local/staging/deploy/maven2/</excludedLink>
               <excludedLink>https://www.linkedin.com/**</excludedLink>
             </excludedLinks>
           </configuration>
