@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.trajano</groupId>
   <artifactId>trajano</artifactId>
-  <version>15-SNAPSHOT</version>
+  <version>15</version>
   <packaging>pom</packaging>
   <name>Trajano</name>
   <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
@@ -48,7 +48,7 @@
   <scm>
     <connection>scm:git:https://github.com/trajano/${repo.id}.git</connection>
     <developerConnection>scm:git:https://github.com/trajano/${repo.id}.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>trajano-15</tag>
     <url>https://github.com/trajano/${repo.id}</url>
   </scm>
   <issueManagement>
@@ -166,6 +166,7 @@
           <version>2.10.4</version>
           <executions>
             <execution>
+              <id>jar</id>
               <goals>
                 <goal>jar</goal>
               </goals>
@@ -184,7 +185,6 @@
               <artifactId>apiviz</artifactId>
               <version>1.3.4</version>
             </docletArtifact>
-            <additionalparam>-sourceclasspath ${project.build.outputDirectory}</additionalparam>
           </configuration>
         </plugin>
         <plugin>
@@ -264,7 +264,7 @@
         <plugin>
           <groupId>net.trajano.mojo</groupId>
           <artifactId>cleanpom-maven-plugin</artifactId>
-          <version>1.2.1</version>
+          <version>1.2.2</version>
         </plugin>
         <plugin>
           <groupId>net.trajano.mojo</groupId>
@@ -320,6 +320,7 @@
           <version>0.7.9</version>
           <executions>
             <execution>
+              <id>prepare-agent</id>
               <goals>
                 <goal>prepare-agent</goal>
               </goals>
@@ -348,6 +349,7 @@
         <artifactId>maven-site-plugin</artifactId>
         <executions>
           <execution>
+            <id>attach-descriptor</id>
             <goals>
               <goal>attach-descriptor</goal>
             </goals>
@@ -360,6 +362,7 @@
         <artifactId>cleanpom-maven-plugin</artifactId>
         <executions>
           <execution>
+            <id>clean</id>
             <goals>
               <goal>clean-xml</goal>
               <goal>clean</goal>
@@ -372,6 +375,7 @@
         <artifactId>m2e-codestyle-maven-plugin</artifactId>
         <executions>
           <execution>
+            <id>format</id>
             <goals>
               <goal>format</goal>
             </goals>
@@ -485,7 +489,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -498,7 +502,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
