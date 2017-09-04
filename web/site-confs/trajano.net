@@ -1,0 +1,36 @@
+server {
+	listen 80;
+	server_name trajano.net;
+	return 301 https://$host$request_uri;
+}
+server {
+	listen 80;
+	server_name www.trajano.net;
+	return 301 https://trajano.net$request_uri;
+}
+server {
+	listen 443 ssl;
+	server_name www.trajano.net;
+	return 301 https://trajano.net$request_uri;
+}
+
+# main server block
+server {
+	listen 443 ssl;
+    server_name trajano.net;
+
+    root /config/www;
+	location / {
+		try_files $uri $uri/ /index.html /index.php?$args =404;
+	}
+
+	location ~ \.php$ {
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		# With php7-cgi alone:
+		fastcgi_pass wordpress:9000;
+		# With php7-fpm:
+		#fastcgi_pass unix:/var/run/php7-fpm.sock;
+		fastcgi_index index.php;
+		include /etc/nginx/fastcgi_params;
+	}
+}

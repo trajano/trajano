@@ -1,0 +1,45 @@
+version: '3.3'
+services:
+  web:
+    build: ./web
+    restart: always
+    volumes:
+    - d:/dv/www:/config
+    environment:
+    - EMAIL=arch@trajano.net
+    - URL=trajano.net
+    - SUBDOMAINS=www,i
+    - TZ=America/Toronto
+    depends_on:
+    - mysql
+    ports:
+    - "80:80"
+    - "443:443"
+  mysql:
+    #image: mariadb:10.3
+    build: ./mysql
+    restart: always
+    volumes:
+    - wordpressdb:/var/lib/mysql
+#    - www.trajano.net:/var/lib/mysql
+#    - type: bind
+#      source: d:/dv/mysql
+#      target: /var/lib/mysql
+#    #- mysqldata:/var/lib/mysql
+    environment:
+    - MYSQL_DATABASE=wordpress
+    - MYSQL_USER=wpadmin
+    - MYSQL_PASSWORD=SecretAgentMan
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+volumes:
+  wordpressdb:
+#- type: bind
+#  source: mysqldata
+#  target: d:/dv/mysql
+
+#volumes:
+#  www.trajano.net:
+#    driver: local
+#- type: bind
+#  source: mysqldata
+#  target: d:/dv/mysql
