@@ -17,10 +17,16 @@ services:
     - "443:443"
   sftpd:
     build: ./sftpd
+    restart: always
     volumes:
-    - d:/dv/www/site:/home/site/s
+    - site:/home/site/s
     ports:
     - "6022:22"
+  site:
+    build: ./site
+    restart: always
+    volumes:
+    - site:/site
   mysql:
     #image: mariadb:10.3
     build: ./mysql
@@ -59,6 +65,7 @@ services:
 volumes:
   wordpressdb:
   hath:
+  site:
 #- type: bind
 #  source: mysqldata
 #  target: d:/dv/mysql
