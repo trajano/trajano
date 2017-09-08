@@ -43,7 +43,7 @@
     </developer>
   </developers>
   <prerequisites>
-    <maven>3.0.5</maven>
+    <maven>3.2.5</maven>
   </prerequisites>
   <scm>
     <connection>scm:git:https://github.com/trajano/${repo.id}.git</connection>
@@ -83,7 +83,7 @@
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <repo.id>trajano</repo.id>
     <sonar.organization>trajano</sonar.organization>
-    <surefire.version>2.19.1</surefire.version>
+    <surefire.version>2.20</surefire.version>
   </properties>
   <build>
     <pluginManagement>
@@ -534,7 +534,7 @@
           <plugin>
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
-            <version>1.6.7</version>
+            <version>1.6.8</version>
             <extensions>true</extensions>
             <configuration>
               <serverId>ossrh</serverId>
