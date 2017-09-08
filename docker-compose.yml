@@ -21,18 +21,38 @@ services:
     restart: always
     volumes:
     - wordpressdb:/var/lib/mysql
-#    - www.trajano.net:/var/lib/mysql
-#    - type: bind
-#      source: d:/dv/mysql
-#      target: /var/lib/mysql
-#    #- mysqldata:/var/lib/mysql
     environment:
     - MYSQL_DATABASE=wordpress
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
+#  hath:
+#    #image: mariadb:10.3
+#    build: ./hath
+#    restart: always
+#    ports:
+#    - target: 12555
+#      published: 12555
+#      mode: host
+#    volumes:
+#    - hath:/var/lib/hath
+#    environment:
+#    - CLIENT_ID=24108
+#    - CLIENT_KEY=cCws9MYJgcMqSf6waahW
+#    networks:
+#    - bridgedhath
+#networks:
+ # bridgedhath:
+ #   driver: bridge
+#    ipam:
+#      config:
+#      - subnet: 97.0.0.0/16
+#    driver_opts:
+#      com.docker.network.bridge.enable_ip_masquerade: "false"
+#      com.docker.network.bridge.enable_icc: "false"
 volumes:
   wordpressdb:
+  hath:
 #- type: bind
 #  source: mysqldata
 #  target: d:/dv/mysql
