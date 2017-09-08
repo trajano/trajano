@@ -42,9 +42,6 @@
       </roles>
     </developer>
   </developers>
-  <prerequisites>
-    <maven>3.2.5</maven>
-  </prerequisites>
   <scm>
     <connection>scm:git:https://github.com/trajano/${repo.id}.git</connection>
     <developerConnection>scm:git:https://github.com/trajano/${repo.id}.git</developerConnection>
@@ -78,7 +75,8 @@
   </distributionManagement>
   <properties>
     <coding-standards.version>2.2.0</coding-standards.version>
-    <jdk.version>1.6</jdk.version>
+    <jdk.version>1.8</jdk.version>
+    <maven.site.chmod>false</maven.site.chmod>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <repo.id>trajano</repo.id>
@@ -489,7 +487,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -502,7 +500,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore />
+                        <ignore/>
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
