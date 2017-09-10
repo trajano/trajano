@@ -12,6 +12,7 @@ services:
     - TZ=America/Toronto
     depends_on:
     - mysql
+    - site
     ports:
     - "80:80"
     - "443:443"
@@ -64,7 +65,7 @@ services:
 #      com.docker.network.bridge.enable_icc: "false"
 volumes:
   wordpressdb:
-  hath:
+#  hath:
   site:
 #- type: bind
 #  source: mysqldata
