@@ -20,12 +20,12 @@ addons:
   - site.trajano.net:6022
   sonarqube:
     token:
-      secure: YnJoL7AhM3OJeW8mGfyd5tUjlVwHRFFoV5LW8L6y/FaMZJ4P22yCMO3lu37B9U3n33emMxB2U3T1GUdBrF3ldyHrrSjOmdIGd6cq+ZvzB+cC4LTyy8cvhKmkaULiQf1Cqvwlrzc8jJ6L6jEduT6DW9AsodtMyebVePOR2rw2sSI=
+      secure: V+kM88MwMT7bJ2HoPDJDlZ31I4VHEyfR5Xs/fSXBrY/vjE1n4XL5/ZXTCWNZz8OtlMnvxPghp9pmfi3hoeufFlCKgXYy2B3D1ETkrUWfyR5/TlpI2cp8uik8hsGAHCj6Tn4e/8UMkySRBT3NPKROa2AJ3cHeqxGBh+NZSO3f9js=
 env:
   global:
-  - secure: WZwHwifyIrOFWA06HU18+n5momE68IZaW5YEKzKgznVT8rU4wOYDS7QvWJShATGyqGGc4stsVFigCOo4fe1zCw0WQpo9qu1R5zlw2jatLuTWj/BOjhA6JVr133MN4EmueiPvZqKI5icBz3UNxA42Fxzo4ku1til+0jpwI6QlkoI=
+    secure: gqodVdX/ofEKeI5WMZ0fMK6mx35g50rohWymngadXjLOYJK+vE9a7wVo8jdHQnOmIbU51aIYHEnqKcRI7oCxofRcd9J8000g9XV6+GimYQhPURp47HKE98AVUZn8Xe32ND5vE1XVBH2RBEGcd8/O2wGU33i/eyH/m8If5oEQVtw=
 before_install:
-- openssl aes-256-cbc -K $encrypted_65553d4eaa33_key -iv $encrypted_65553d4eaa33_iv
+- openssl aes-256-cbc -K $encrypted_cf2cd75de4fc_key -iv $encrypted_cf2cd75de4fc_iv
   -in deploy-keys.tar.enc -out deploy-keys.tar -d
 install:
 - tar xf deploy-keys.tar -C $HOME && chmod go-rwx -R $HOME/.m2 $HOME/.ssh
