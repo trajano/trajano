@@ -20,10 +20,10 @@ addons:
   - site.trajano.net:6022
   sonarqube:
     token:
-      secure: V+kM88MwMT7bJ2HoPDJDlZ31I4VHEyfR5Xs/fSXBrY/vjE1n4XL5/ZXTCWNZz8OtlMnvxPghp9pmfi3hoeufFlCKgXYy2B3D1ETkrUWfyR5/TlpI2cp8uik8hsGAHCj6Tn4e/8UMkySRBT3NPKROa2AJ3cHeqxGBh+NZSO3f9js=
+      secure: nIi2TlzzELtZgH9dgMxJbIXqg8y42R89Y1qzt1PgwhVAwulkDF+T39AAGlyBaazZ2DNMFjTBC7X8DpG3zOCsKA2F3U+k4vcNojlfy0dBRVa77Xqr3a/SysMetI2lfhmqyHK9yUnCvvlozaq1i0x+DPwRrqC4hBMz9uP3W2bMFgM=
 env:
   global:
-    secure: gqodVdX/ofEKeI5WMZ0fMK6mx35g50rohWymngadXjLOYJK+vE9a7wVo8jdHQnOmIbU51aIYHEnqKcRI7oCxofRcd9J8000g9XV6+GimYQhPURp47HKE98AVUZn8Xe32ND5vE1XVBH2RBEGcd8/O2wGU33i/eyH/m8If5oEQVtw=
+    secure: k+fa8Cu3x2SiN/D33E8LTQc3tm/96xuBg/6/YiU3wFxgvDGx8pcBKR9F/9c1FKXJYEKgGuNMtmZ9J6oTwWI8VbNLqWxxyudnVHen96oAJefoWxpQUoMy0LupWPOA49uQkeRusofG5hpplKZ7L51wnLjKNGOr9yMKj/am0hLnpwU=
 before_install:
 - openssl aes-256-cbc -K $encrypted_cf2cd75de4fc_key -iv $encrypted_cf2cd75de4fc_iv
   -in deploy-keys.tar.enc -out deploy-keys.tar -d
