@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
   <name>Trajano</name>
   <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
-  <url>http://site.trajano.net/trajano/</url>
+  <url>https://site.trajano.net/${repo.id}/</url>
   <inceptionYear>2012</inceptionYear>
   <organization>
     <name>Trajano</name>
@@ -116,7 +116,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>1.4.1</version>
+          <version>3.0.0-M1</version>
         </plugin>
         <plugin>
           <artifactId>maven-failsafe-plugin</artifactId>
@@ -342,6 +342,25 @@
     <plugins>
       <plugin>
         <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>enforce-beanshell</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <evaluateBeanshell>
+                  <condition>${project.artifactId} == trajano || ${repo.id} != trajano</condition>
+                </evaluateBeanshell>
+              </rules>
+              <fail>true</fail>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-site-plugin</artifactId>
