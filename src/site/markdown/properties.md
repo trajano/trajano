@@ -7,9 +7,11 @@ The following properties are set on this project but are expected to be changed 
 
 * `jdk.version` specifies which version of the JDK to use by many other plugins.  This is defaulted to `1.8` but may be changed.
 
-In addition, the following fragments must be present on any top level projects that inherit from the this POM to ensure that paths are correct.
+In addition, the following fragments must be present on any top level projects that inherit from the this POM to ensure that paths and information are correct.
 
 ```
+<name>...</name>
+<description>...</description>
 <url>https://site.trajano.net/${repo.id}/</url>
 <scm>
   <connection>scm:git:https://github.com/trajano/${repo.id}.git</connection>
