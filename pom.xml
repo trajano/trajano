@@ -354,7 +354,7 @@
             <configuration>
               <rules>
                 <evaluateBeanshell>
-                  <condition>${project.artifactId} == trajano || ${repo.id} != trajano</condition>
+                  <condition>"${project.artifactId}" == "trajano" || "${repo.id}" != "trajano"</condition>
                 </evaluateBeanshell>
               </rules>
               <fail>true</fail>
