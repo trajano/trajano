@@ -18,7 +18,7 @@ addons:
   ssh_known_hosts:
   - github.com
   - site.trajano.net:6022
-  sonarqube:
+  sonarcloud:
     token:
       secure: nIi2TlzzELtZgH9dgMxJbIXqg8y42R89Y1qzt1PgwhVAwulkDF+T39AAGlyBaazZ2DNMFjTBC7X8DpG3zOCsKA2F3U+k4vcNojlfy0dBRVa77Xqr3a/SysMetI2lfhmqyHK9yUnCvvlozaq1i0x+DPwRrqC4hBMz9uP3W2bMFgM=
 env:

@@ -1,7 +1,7 @@
 Trajano
 =======
 
-[![Build Status](https://travis-ci.org/trajano/trajano.svg?branch=master)](https://travis-ci.org/trajano/trajano) [![Quality Gate](https://sonarqube.com/api/badges/gate?key=net.trajano:trajano)](https://sonarqube.com/dashboard?id=net.trajano:trajano)
+[![Build Status](https://travis-ci.org/trajano/trajano.svg?branch=master)](https://travis-ci.org/trajano/trajano) [![Quality Gate](https://sonarcloud.io/api/badges/gate?key=net.trajano:trajano)](https://sonarcloud.io/dashboard?id=net.trajano:trajano)
 
 [Trajano][] is an IT Consulting/Contracting delivery organization specialising
 in end-to-end enterprise architecture, systems design and development.  It is

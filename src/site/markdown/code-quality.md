@@ -26,7 +26,7 @@ this time [SonarQube][5] is chosen.
 
 ### OSS contribution standards
 
- [SonarQube.com](https://sonarqube.com) which is a hosted SonarQube installation is used and rules defined there are followed as much as possible (those that are not appropriate will be marked as either *Won't Fix* or *False Positive*.
+ [SonarCloud](https://sonarcloud.io) which is a hosted SonarQube installation is used and rules defined there are followed as much as possible (those that are not appropriate will be marked as either *Won't Fix* or *False Positive*.
 
  This is triggered from a [Travis](https://travis-ci.org/) build and is integrated as part of the [.travis.yml](./travis-yml.html).
 

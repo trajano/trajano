@@ -11,7 +11,7 @@ This [SIB][Standards Information Base] specifically documents the ones used by t
 
 * [GitHub][] is used for [issue tracking][] and the [source repository][].
 * [Travis][] is used as a [continuous integration][] and does the [release process](release-process.html).
-* [SonarQube.com][] is used for [quality management][3], but because the rules cannot be configured the results on [SonarQube.com][] are ignored by the organization.
+* [SonarQube][] is used for [quality management][3], but because the rules cannot be configured the results on [SonarCloud.io][] are ignored by the organization.
 * [Sonatype OSS][] is used as the repository as it provides a freely available Nexus server and provides [detailed instructions for promoting up to Maven Central][2].
 
 
@@ -24,7 +24,7 @@ This [SIB][Standards Information Base] specifically documents the ones used by t
 [Sonatype OSS]: http://oss.sonatype.org/
 [Travis]: https://travis-ci.org/
 [SonarQube]: http://www.sonarqube.org/
-[SonarQube.com]: https://www.sonarqube.com/
+[SonarCloud.io]: https://www.sonarcloud.io/
 [Trac]: https://trac.edgewall.org/
 [Distribution Management]: ./distribution-management.html
 [Continuous Integration]: ./integration.html

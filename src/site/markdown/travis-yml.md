@@ -51,10 +51,10 @@ addons:
     - graphviz
 ````
 
-Configure SonarQube addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs an encrypted `token`.
+Configure SonarCloud addon to  reduce the amount of coding needed in the `.travis.yml`.  It needs an encrypted `token`.
 
 ````
-  sonarqube:
+  sonarcloud:
     token:
       secure: ....
 ````
@@ -70,8 +70,8 @@ env:
 The tokens are created as follows:
 
 ````
-travis encrypt <SonarQube token> --add addons.sonarqube.token
-travis encrypt SONAR_GITHUB_TOKEN=<GitHub token used by SonarQube addon> --add
+travis encrypt <SonarCloud token> --add addons.sonarcloud.token
+travis encrypt SONAR_GITHUB_TOKEN=<GitHub token used by SonarCloud addon> --add
 ````
 
 The deployment key files are from a tar file that is encrypted using `travis encrypt-file`
