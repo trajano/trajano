@@ -1,10 +1,18 @@
-version: '3.3'
+version: '3'
 services:
   web:
     build: ./web
+    image: trajano/web
     restart: always
     volumes:
-    - d:/dv/www:/config
+    - "c:/www:/config"
+#    volumes:#
+#    - type: bind
+#      source: "c:/www"
+#      target: /config
+#    - type: bind
+#      source: "d:/dv/www"
+#      target: /asdf/asdf/asdf
     environment:
     - EMAIL=arch@trajano.net
     - URL=trajano.net
@@ -18,6 +26,7 @@ services:
     - "443:443"
   sftpd:
     build: ./sftpd
+    image: trajano/sftpd
     restart: always
     volumes:
     - site:/home/site/s
@@ -25,12 +34,14 @@ services:
     - "6022:22"
   site:
     build: ./site
+    image: trajano/site
     restart: always
     volumes:
     - site:/site
   mysql:
     #image: mariadb:10.3
     build: ./mysql
+    image: trajano/wpdb
     restart: always
     volumes:
     - wordpressdb:/var/lib/mysql
@@ -39,19 +50,29 @@ services:
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
+#  wordpress:
+ #   build: ./wordpress
+ #   volumes:
+ #   - type: bind
+ #     source: "d:/dv/www/www"
+ #     target: /www
+    
 #  hath:
-#    #image: mariadb:10.3
 #    build: ./hath
 #    restart: always
 #    ports:
+#    - "12555:12555"
 #    - target: 12555
 #      published: 12555
+#      protocol: tcp
 #      mode: host
 #    volumes:
 #    - hath:/var/lib/hath
-#    environment:
-#    - CLIENT_ID=24108
-#    - CLIENT_KEY=cCws9MYJgcMqSf6waahW
+ #   environment:
+ #   - CLIENT_ID=24108
+ #   - CLIENT_KEY=cCws9MYJgcMqSf6waahW
+ #   network_mode: "bridge"
+#    #image: mariadb:10.3
 #    networks:
 #    - bridgedhath
 #networks:
