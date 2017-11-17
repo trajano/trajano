@@ -16,7 +16,7 @@ services:
     environment:
     - EMAIL=arch@trajano.net
     - URL=trajano.net
-    - SUBDOMAINS=www,i,site
+    - SUBDOMAINS=www,i,site,gw,ms
     - TZ=America/Toronto
     depends_on:
     - mysql
