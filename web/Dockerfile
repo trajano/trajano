@@ -1,5 +1,6 @@
 FROM nginx:alpine
-RUN apk add py-urllib3 certbot --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.7/community/  --repository http://dl-3.alpinelinux.org/alpine/v3.7/main/
+RUN apk add py-urllib3 certbot --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.7/community/  --repository http://dl-3.alpinelinux.org/alpine/v3.7/main/ \
+  && rm -rf /var/cache/apk/*
 # --repository http://dl-3.alpinelinux.org/alpine/3.7/community/
 #FROM linuxserver/letsencrypt:latest
 #RUN apk add --update \
@@ -8,15 +9,11 @@ RUN apk add py-urllib3 certbot --no-cache --repository http://dl-3.alpinelinux.o
 #  && rm -rf /var/cache/apk/*
 # COPY site-confs/* /config/nginx/site-confs/
 #COPY 00-wait-for-volume.sh /etc/cont-init.d/
-#RUN chmod 700 /etc/cont-init.d/00-wait-for-volume.sh
 #VOLUME /config
 EXPOSE 443
 COPY conf.d/* /etc/nginx/conf.d/
 VOLUME /etc/letsencrypt
 COPY bootstrap.sh /
-ENV EMAIL=arch@trajano.net
-ENV URL=trajano.net
-ENV SUBDOMAINS=www,i,site,gw,ms
+RUN chmod 700 /bootstrap.sh
 ENV TZ=America/Toronto
-ENV HTTPVAL=true
 CMD [ "/bootstrap.sh" ]
