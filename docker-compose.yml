@@ -1,26 +1,48 @@
-version: '3'
+version: '3.4'
 services:
+#  web:
+#    build: ./web
+#    image: trajano/web
+#    restart: always
+#    deploy:
+#      restart_policy:
+#        condition: any
+ #       delay: 10s
+  #  volumes:
+   # - "//c/www:/config"
+    #environment:
+#    -# EMAIL=arch@trajano.net
+#    - URL=trajano.net
+#    - SUBDOMAINS=www,i,site,gw,ms
+#    - TZ=America/Toronto
+#    depends_on:
+#    - mysql
+ #   - site
+  #  ports:
+   # - "80:80"
+   # - "443:443"
+
   web:
     build: ./web
     image: trajano/web
     restart: always
+#    deploy:
+#      restart_policy:
+#        condition: any
+#        delay: 10s
     volumes:
-    - "c:/www:/config"
-#    volumes:#
-#    - type: bind
-#      source: "c:/www"
-#      target: /config
-#    - type: bind
-#      source: "d:/dv/www"
-#      target: /asdf/asdf/asdf
+    #- "//c/www:/config"
+    - letsencrypt:/etc/letsencrypt
     environment:
     - EMAIL=arch@trajano.net
     - URL=trajano.net
     - SUBDOMAINS=www,i,site,gw,ms
+    - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
     - TZ=America/Toronto
-    depends_on:
-    - mysql
-    - site
+    - HTTPVAL=true
+  #  depends_on:
+#    - mysql
+#    - site
     ports:
     - "80:80"
     - "443:443"
@@ -44,7 +66,8 @@ services:
     image: trajano/wpdb
     restart: always
     volumes:
-    - wordpressdb:/var/lib/mysql
+    #- "c:/wpdb:/var/lib/mysql"
+    - wordpressdb:/var/lib/mysql:rw
     environment:
     - MYSQL_DATABASE=wordpress
     - MYSQL_USER=wpadmin
@@ -85,13 +108,28 @@ services:
 #      com.docker.network.bridge.enable_ip_masquerade: "false"
 #      com.docker.network.bridge.enable_icc: "false"
 volumes:
-  wordpressdb:
 #  hath:
   site:
 #- type: bind
 #  source: mysqldata
 #  target: d:/dv/mysql
-
+  wordpressdb:
+    name: 'noriko/s/wpdb'
+    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+  www:
+    name: 'noriko/s/www'
+    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+  letsencrypt:
+    name: 'noriko/s/letsencrypt'
+    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+# docker volume create -d cifs --name noriko/s/wpdb --opt cifsopts=vers=3.02,file_mode=0666,dir_mode=0777
+# docker volume create -d cifs --name noriko/s/www --opt cifsopts=vers=3.02,file_mode=0666,dir_mode=0777
 #volumes:
 #  www.trajano.net:
 #    driver: local

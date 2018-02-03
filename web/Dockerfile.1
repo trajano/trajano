@@ -1,21 +1,16 @@
-FROM nginx:alpine
-RUN apk update
-RUN apk add certbot
-#FROM linuxserver/letsencrypt:latest
+#FROM nginx
+FROM linuxserver/letsencrypt:latest
 #RUN apk add --update \
 #    php7-fpm \
 #    php7-mysqlnd \
 #  && rm -rf /var/cache/apk/*
 # COPY site-confs/* /config/nginx/site-confs/
 #COPY 00-wait-for-volume.sh /etc/cont-init.d/
-#COPY conf.d/* /etc/nginx/conf.d/
+COPY conf.d/* /etc/nginx/conf.d/
 #RUN chmod 700 /etc/cont-init.d/00-wait-for-volume.sh
-#VOLUME /config
-VOLUME /etc/letsencrypt
-COPY bootstrap.sh /
+VOLUME /config
 ENV EMAIL=arch@trajano.net
 ENV URL=trajano.net
 ENV SUBDOMAINS=www,i,site,gw,ms
 ENV TZ=America/Toronto
 ENV HTTPVAL=true
-CMD [ "/bootstrap.sh" ]

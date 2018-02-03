@@ -1,6 +1,6 @@
 FROM mysql:latest
 COPY client.cnf /
-COPY docker-entrypoint.sh /
 RUN chmod 400 /client.cnf
-RUN chmod 700 /docker-entrypoint.sh
+# docker volume create -d cifs --name noriko/s/wpdb --opt cifsopts=vers=3.02,file_mode=0666,dir_mode=0777
+# docker volume create -d cifs --name noriko/s/www --opt cifsopts=vers=3.02,file_mode=0666,dir_mode=0777
 
