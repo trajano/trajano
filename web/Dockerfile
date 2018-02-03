@@ -1,6 +1,6 @@
 FROM nginx:alpine
-RUN apk update
-RUN apk add certbot
+RUN apk add py-urllib3 certbot --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.7/community/  --repository http://dl-3.alpinelinux.org/alpine/v3.7/main/
+# --repository http://dl-3.alpinelinux.org/alpine/3.7/community/
 #FROM linuxserver/letsencrypt:latest
 #RUN apk add --update \
 #    php7-fpm \
@@ -8,9 +8,10 @@ RUN apk add certbot
 #  && rm -rf /var/cache/apk/*
 # COPY site-confs/* /config/nginx/site-confs/
 #COPY 00-wait-for-volume.sh /etc/cont-init.d/
-#COPY conf.d/* /etc/nginx/conf.d/
 #RUN chmod 700 /etc/cont-init.d/00-wait-for-volume.sh
 #VOLUME /config
+EXPOSE 443
+COPY conf.d/* /etc/nginx/conf.d/
 VOLUME /etc/letsencrypt
 COPY bootstrap.sh /
 ENV EMAIL=arch@trajano.net
