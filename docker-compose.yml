@@ -20,8 +20,10 @@ services:
       restart_policy:
         condition: any
         delay: 10s
+    ports:
+    - "80:80"
+    - "443:443"
     volumes:
-    #- "//c/www:/config"
     - letsencrypt:/etc/letsencrypt
     environment:
     - EMAIL=arch@trajano.net
@@ -30,12 +32,16 @@ services:
     - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
     - TZ=America/Toronto
     - HTTPVAL=true
-  #  depends_on:
-#    - mysql
-#    - site
-    ports:
-    - "80:80"
-    - "443:443"
+  portfolio:
+    image: trajano.net/portfolio
+    restart: always
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
+    environment:
+    - TZ=America/Toronto
+    - HTTPVAL=true
   sftpd:
     build: ./sftpd
     image: trajano.net/sftpd

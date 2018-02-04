@@ -3,7 +3,7 @@
 
 FROM openjdk:jre-alpine
 RUN apk add --no-cache curl unzip \
- && curl https://repo.e-hentai.org/hath/HentaiAtHome_1.4.1.zip > /tmp/HentaiAtHome.zip \
+ && curl https://repo.e-hentai.org/hath/HentaiAtHome_1.4.2.zip > /tmp/HentaiAtHome.zip \
  && unzip /tmp/HentaiAtHome.zip HentaiAtHome.jar \
  && mkdir -p /var/lib/hath/cache \
  && mkdir -p /usr/lib/hath \
