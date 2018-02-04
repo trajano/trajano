@@ -35,7 +35,7 @@ services:
     - registry:/var/lib/registry
   web:
     build: ./web
-    image: trajano/web
+    image: trajano.net/web
     restart: always
     deploy:
       restart_policy:
@@ -59,7 +59,7 @@ services:
     - "443:443"
   sftpd:
     build: ./sftpd
-    image: trajano/sftpd
+    image: trajano.net/sftpd
     restart: always
     volumes:
     - site:/home/site/s
@@ -67,14 +67,14 @@ services:
     - "6022:22"
   site:
     build: ./site
-    image: trajano/site
+    image: trajano.net/site
     restart: always
     volumes:
     - site:/site
   mysql:
     #image: mariadb:10.3
     build: ./mysql
-    image: trajano/wpdb
+    image: trajano.net/wpdb
     restart: always
     volumes:
     #- "c:/wpdb:/var/lib/mysql"
