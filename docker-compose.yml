@@ -22,15 +22,25 @@ services:
   #  ports:
    # - "80:80"
    # - "443:443"
-
+   # 4/kZkxXSsPXu7XlzItajkniSMhlptkhIjLVKJe7Aj+WjvbS35sdkEzjld8eqpO5c:$apr1$nAlpgWWz$m1r3URBT9dfTWr2sfZ24f.
+  # 4/kZkxXSsPXu7XlzItajkniSMhlptkhIjLVKJe7Aj+WjvbS35sdkEzjld8eqpO5c
+  # RhN5o7rN/PUiGySg0SBHr1HZaOy5hkG3bKnEeROU7BCmUqRhUwkzA271SK+RTdlb
+  registry:
+    image: registry:2
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
+    volumes:
+    - registry:/var/lib/registry
   web:
     build: ./web
     image: trajano/web
     restart: always
-#    deploy:
-#      restart_policy:
-#        condition: any
-#        delay: 10s
+    deploy:
+      restart_policy:
+        condition: any
+        delay: 10s
     volumes:
     #- "//c/www:/config"
     - letsencrypt:/etc/letsencrypt
@@ -116,6 +126,11 @@ volumes:
 #  target: d:/dv/mysql
   wordpressdb:
     name: 'noriko/s/wpdb'
+    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+  registry:
+    name: 'noriko/s/registry'
     driver: cifs
     driver_opts:
       cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
