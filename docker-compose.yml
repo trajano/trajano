@@ -1,4 +1,4 @@
-#docker stack deploy -c docker-compose.yml trajano
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 version: '3.4'
 services:
    # 4/kZkxXSsPXu7XlzItajkniSMhlptkhIjLVKJe7Aj+WjvbS35sdkEzjld8eqpO5c:$apr1$nAlpgWWz$m1r3URBT9dfTWr2sfZ24f.
@@ -63,19 +63,15 @@ services:
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
-#  wordpress:
- #   build: ./wordpress
- #   volumes:
- #   - type: bind
- #     source: "d:/dv/www/www"
- #     target: /www
-    
   hath:
     build: ./hath
     image: trajano.net/hath
     restart: always
     ports:
-    - "12555:12555"
+    - target: 12555
+      published: 12555
+      protocol: tcp
+      mode: host
     volumes:
     - hath:/var/lib/hath
 volumes:
