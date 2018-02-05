@@ -32,6 +32,13 @@ services:
     - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
     - TZ=America/Toronto
     - HTTPVAL=true
+  wordpress:
+    build: ./wordpress
+    image: trajano.net/blog
+    ports:
+    - "8080:443"
+    volumes:
+    - wordpress:/var/www/html
   portfolio:
     image: trajano.net/portfolio
     restart: always
@@ -94,6 +101,11 @@ volumes:
       cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
   www:
     name: 'noriko/s/www'
+    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+  wordpress:
+    name: 'noriko/s/wordpress'
     driver: cifs
     driver_opts:
       cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
