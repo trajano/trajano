@@ -2,15 +2,15 @@
 #RUN apt-get update && apt-get install curl unzip \
 
 FROM openjdk:jre-alpine
-RUN apk add --no-cache curl unzip \
- && curl https://repo.e-hentai.org/hath/HentaiAtHome_1.4.2.zip > /tmp/HentaiAtHome.zip \
+RUN apk add --no-cache wget unzip \
+ && wget -q https://repo.e-hentai.org/hath/HentaiAtHome_1.4.2.zip -O /tmp/HentaiAtHome.zip \
  && unzip /tmp/HentaiAtHome.zip HentaiAtHome.jar \
  && mkdir -p /var/lib/hath/cache \
  && mkdir -p /usr/lib/hath \
  && mkdir -p /var/lib/hath/download \
  && mkdir -p /var/log/hath \
  && mkdir -p /tmp/hath \
- && apk del curl unzip \
+ && apk del wget unzip \
  && rm -rf /var/cache/apk/* \
 VOLUME /var/lib/hath
 COPY client_login /usr/lib/hath/

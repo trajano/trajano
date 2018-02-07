@@ -17,9 +17,13 @@ services:
     image: trajano.net/web
     restart: always
     deploy:
+      replicas: 3
       restart_policy:
         condition: any
         delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
     ports:
     - "80:80"
     - "443:443"
@@ -32,6 +36,8 @@ services:
     - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
     - TZ=America/Toronto
     - HTTPVAL=true
+    depends_on: 
+    - portfolio
   wordpress:
     build: ./wordpress
     image: trajano.net/blog
@@ -43,12 +49,12 @@ services:
     image: trajano.net/portfolio
     restart: always
     deploy:
+      replicas: 2
       restart_policy:
         condition: any
         delay: 10s
     environment:
     - TZ=America/Toronto
-    - HTTPVAL=true
   sftpd:
     build: ./sftpd
     image: trajano.net/sftpd
@@ -80,6 +86,11 @@ services:
     build: ./hath
     image: trajano.net/hath
     restart: always
+    deploy:
+      mode: global
+      placement:
+        constraints:
+        - node.hostname==docker-engine
     ports:
     - target: 12555
       published: 12555
@@ -98,7 +109,7 @@ volumes:
     name: 'noriko/s/registry'
     driver: cifs
     driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
+      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777,mfsymlinks
   www:
     name: 'noriko/s/www'
     driver: cifs
