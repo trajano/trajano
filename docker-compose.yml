@@ -53,6 +53,9 @@ services:
       restart_policy:
         condition: any
         delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
     environment:
     - TZ=America/Toronto
   sftpd:
