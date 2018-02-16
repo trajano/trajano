@@ -23,10 +23,16 @@ services:
         delay: 10s
       placement:
         constraints:
-        - node.hostname!=docker-engine
+        - node.hostname==docker-engine
     ports:
-    - "80:80"
-    - "443:443"
+    - target: 80
+      published: 80
+      protocol: tcp
+      mode: host
+    - target: 443
+      published: 443
+      protocol: tcp
+      mode: host
     volumes:
     - letsencrypt:/etc/letsencrypt
     environment:
@@ -85,51 +91,45 @@ services:
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
-  hath:
-    build: ./hath
-    image: trajano.net/hath
-    restart: always
-    deploy:
-      mode: global
-      placement:
-        constraints:
-        - node.hostname==docker-engine
-    ports:
-    - target: 12555
-      published: 12555
-      protocol: tcp
-      mode: host
-    volumes:
-    - hath:/var/lib/hath
+#  hath:
+#    build: ./hath
+#    image: trajano.net/hath
+#    restart: always
+#    deploy:
+#      mode: global
+#      placement:
+#        constraints:
+#        - node.hostname==docker-engine
+#    networks: 
+#    - hosted
+#    ports:
+#    - target: 12555
+#      published: 12555
+#      protocol: tcp
+#      mode: host
+#    volumes:
+#    - hath:/var/lib/hath
 volumes:
   site:
   wordpressdb:
     name: 'noriko/s/wpdb'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
   registry:
     name: 'noriko/s/registry'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777,mfsymlinks
   www:
     name: 'noriko/s/www'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
   wordpress:
     name: 'noriko/s/wordpress'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
   hath:
     name: 'noriko/s/hath'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,file_mode=0666,dir_mode=0777,mfsymlinks
+networks:
+  hosted:
+    external:
+      name: host
