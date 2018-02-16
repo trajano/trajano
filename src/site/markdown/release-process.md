@@ -3,17 +3,16 @@ Release process
 
 The release process for OSS projects by the organization is done through [Travis][] and the [Maven Release Plugin][maven-release-plugin].
 
-The release process is triggered by executing:
+The release process is triggered by executing the following that would push to the release branch that would trigger a [Travis][] build.
 
-    mvn release:prepare && mvn release:clean
+    git push origin origin/master:release
 
-To use the default values for the tags and versions use `--batch-mode` as follows:
+This will use the version currently set on the snapshot and increment the version accordingly.  If a different version is required then the [versions-maven-plugin][] is used as follows:
 
-    mvn --batch-mode release:prepare && mvn release:clean
-
-`mvn release:prepare` will do some preflight verifications, commit `pom.xml` changes and push a new tag to the repository.  [Travis][]  will get triggeredand the `mvn release:perform` on the [Travis][] container.
-
-Since [Travis][] is performing the actual release, `mvn release:clean` will remove the intermediate release files.
+    mvn versions:set -DnewVersion=<newsnapshotversion> versions:commit
+    git commit -a -m "Set version to ..."
+    git push
 
 [Travis]: https://travis-ci.org/
 [maven-release-plugin]: http://maven.apache.org/maven-release/maven-release-plugin
+[versions-maven-plugin]: http://www.mojohaus.org/versions-maven-plugin/
