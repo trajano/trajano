@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.trajano</groupId>
   <artifactId>trajano</artifactId>
-  <version>16.5</version>
+  <version>16.6-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Trajano</name>
   <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
@@ -45,7 +45,7 @@
   <scm>
     <connection>scm:git:https://github.com/trajano/${repo.id}.git</connection>
     <developerConnection>scm:git:https://github.com/trajano/${repo.id}.git</developerConnection>
-    <tag>trajano-16.5</tag>
+    <tag>HEAD</tag>
     <url>https://github.com/trajano/${repo.id}</url>
   </scm>
   <issueManagement>
@@ -524,7 +524,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -537,7 +537,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
