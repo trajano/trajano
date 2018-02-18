@@ -33,17 +33,34 @@ install:
 - mvn dependency:go-offline
 before_script:
 - mvn clean
-script:
-- mvn verify site sonar:sonar
-deploy:
-- provider: script
-  skip_cleanup: true
-  script: mvn -e deploy site-deploy
-  on:
-    branch: master
-- provider: script
-  skip_cleanup: true
-  script: bash -e -x ./src/scripts/release.sh
-  on:
-    tags: false
-    branch: release
+
+jobs:
+  include:
+  - stage: development build
+    if: branch != release
+    script:
+    - mvn verify site sonar:sonar
+    deploy:
+    - provider: script
+      skip_cleanup: true
+      script: mvn -e deploy site-deploy
+      on:
+        branch: master
+  - stage: release build
+    script:
+    - bash -e -x ./src/scripts/release.sh
+    if: branch = release
+
+#script:
+#- mvn verify site sonar:sonar
+#deploy:
+#- provider: script
+#  skip_cleanup: true
+#  script: mvn -e deploy site-deploy
+#  on:
+#    branch: master
+#- provider: script
+#  skip_cleanup: true
+#  script: bash -e -x ./src/scripts/release.sh
+#  on:
+#   tags: true
