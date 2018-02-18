@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.trajano</groupId>
   <artifactId>trajano</artifactId>
-  <version>16.3-SNAPSHOT</version>
+  <version>16.20-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Trajano</name>
   <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
