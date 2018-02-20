@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.trajano</groupId>
   <artifactId>trajano</artifactId>
-  <version>16.21-SNAPSHOT</version>
+  <version>16.22-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Trajano</name>
   <description>Trajano is an IT Consulting/Contracting firm specialising in end-to-end enterprise architecture.</description>
@@ -525,7 +525,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                     <pluginExecution>
@@ -538,7 +538,7 @@
                         </goals>
                       </pluginExecutionFilter>
                       <action>
-                        <ignore/>
+                        <ignore />
                       </action>
                     </pluginExecution>
                   </pluginExecutions>
