@@ -7,7 +7,7 @@ then
   git merge --no-ff release
   git status
   git remote set-url --push origin https://${SONAR_GITHUB_TOKEN}@github.com/${TRAVIS_SLUG}.git
-  git push origin
+  git push origin master
   git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 elif [[ "$logmsg" != "[maven-release-plugin]"* ]]
 then
