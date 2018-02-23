@@ -10,7 +10,8 @@ by the organization for the purpose of delivery.
 This [SIB][Standards Information Base] specifically documents the ones used by the [open source contributions][4] of the organization.  Though they are built and deployed from within the confines of the organization, cloud service tooling is heavily used to allow access to the greater community.
 
 * [GitHub][] is used for [issue tracking][] and the [source repository][].
-* [Travis][] is used as a [continuous integration][] and does the [release process](release-process.html).
+* [Travis][] is used as a [continuous integration][] and however as of trajano-17 it no longer does the [release process](release-process.html).
+* [Jenkins][] is used for the continuous release and is managed within the organization.
 * [SonarQube][] is used for [quality management][3], but because the rules cannot be configured the results on [SonarCloud.io][] are ignored by the organization.
 * [Sonatype OSS][] is used as the repository as it provides a freely available Nexus server and provides [detailed instructions for promoting up to Maven Central][2].
 

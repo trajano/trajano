@@ -9,7 +9,7 @@ The release process is triggered by executing the following that would push to t
 
 This will use the version currently set on the snapshot and increment the version accordingly.  If a different version is required then the [versions-maven-plugin][] is used as follows:
 
-    mvn versions:set -DnewVersion=<newsnapshotversion> versions:commit
+    mvn -B release:update-versions -DdevelopmentVersion=<newsnapshotversion>
     git commit -a -m "Set version to ..."
     git push
 
