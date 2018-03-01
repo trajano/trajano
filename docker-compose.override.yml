@@ -21,12 +21,20 @@ services:
       restart_policy:
         condition: any
         delay: 10s
-      placement:
-        constraints:
-        - node.hostname==docker-engine
+#      placement:
+#        constraints:
+#        - node.hostname!=docker-engine
     ports:
     - "80:80"
     - "443:443"
+#    - target: 80
+#      published: 80
+#      protocol: tcp
+#      mode: host
+#    - target: 443
+#      published: 443
+#      protocol: tcp
+#      mode: host
     volumes:
     - letsencrypt:/etc/letsencrypt
     environment:
@@ -59,19 +67,24 @@ services:
     environment:
     - TZ=America/Toronto
   sftpd:
+    build: ./sftpd
     image: trajano.net/sftpd
+    restart: always
     volumes:
     - site:/home/site/s
     ports:
     - "6022:22"
   site:
+    build: ./site
     image: trajano.net/site
     restart: always
     volumes:
     - site:/site
   mysql:
     #image: mariadb:10.3
+    build: ./mysql
     image: trajano.net/wpdb
+    restart: always
     volumes:
     #- "c:/wpdb:/var/lib/mysql"
     - wordpressdb:/var/lib/mysql:rw
@@ -80,22 +93,23 @@ services:
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
-#  hath:
-#    image: trajano.net/hath
-#    restart: always
-#    network_mode: host
-#    deploy:
-#      mode: global
-#      placement:
-#        constraints:
-#        - node.hostname==docker-engine
-#    ports:
-#    - target: 12555
-#      published: 12555
-#      protocol: tcp
-#      mode: host
-#    volumes:
-#    - hath:/var/lib/hath
+  hath:
+    build: ./hath
+    image: trajano.net/hath
+    restart: always
+    network_mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints:
+        - node.hostname==docker-engine
+    ports:
+    - target: 12555
+      published: 12555
+      protocol: tcp
+      mode: host
+    volumes:
+    - hath:/var/lib/hath
 volumes:
   site:
   wordpressdb:
@@ -116,3 +130,5 @@ volumes:
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
+networks:
+  hath:

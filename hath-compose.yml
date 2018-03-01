@@ -1,0 +1,24 @@
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+version: '3.4'
+services:
+  hath:
+    build: ./hath
+    image: trajano.net/hath
+    restart: always
+    network_mode: host
+    deploy:
+      mode: global
+      placement:
+        constraints:
+        - node.hostname==docker-engine
+    ports:
+    - target: 12555
+      published: 12555
+      protocol: tcp
+      mode: host
+    volumes:
+    - hath:/var/lib/hath
+volumes:
+  hath:
+    name: 'noriko/s/hath'
+    driver: cifs
