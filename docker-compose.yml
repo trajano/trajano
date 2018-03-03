@@ -30,10 +30,6 @@ services:
     volumes:
     - letsencrypt:/etc/letsencrypt
     environment:
-    - EMAIL=arch@trajano.net
-    - URL=trajano.net
-    - SUBDOMAINS=www,i,site,gw,ms
-    - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
     - TZ=America/Toronto
     - HTTPVAL=true
     depends_on: 
@@ -73,29 +69,12 @@ services:
     #image: mariadb:10.3
     image: trajano.net/wpdb
     volumes:
-    #- "c:/wpdb:/var/lib/mysql"
     - wordpressdb:/var/lib/mysql:rw
     environment:
     - MYSQL_DATABASE=wordpress
     - MYSQL_USER=wpadmin
     - MYSQL_PASSWORD=SecretAgentMan
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
-#  hath:
-#    image: trajano.net/hath
-#    restart: always
-#    network_mode: host
-#    deploy:
-#      mode: global
-#      placement:
-#        constraints:
-#        - node.hostname==docker-engine
-#    ports:
-#    - target: 12555
-#      published: 12555
-#      protocol: tcp
-#      mode: host
-#    volumes:
-#    - hath:/var/lib/hath
 volumes:
   site:
   wordpressdb:
@@ -109,9 +88,6 @@ volumes:
     driver: cifs
   wordpress:
     name: 'noriko/s/wordpress'
-    driver: cifs
-  hath:
-    name: 'noriko/s/hath'
     driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
