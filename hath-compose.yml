@@ -6,11 +6,11 @@ services:
     image: trajano.net/hath
     restart: always
     network_mode: host
-    deploy:
-      mode: global
-      placement:
-        constraints:
-        - node.hostname==docker-engine
+#    deploy:
+#      mode: global
+#      placement:
+#        constraints:
+#        - node.hostname==docker-engine
     ports:
     - target: 12555
       published: 12555
