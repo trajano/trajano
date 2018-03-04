@@ -48,68 +48,12 @@ services:
     - portfolio
   wordpress:
     build: ./wordpress
-    image: trajano.net/blog
-    ports:
-    - "8080:443"
-    volumes:
-    - wordpress:/var/www/html
-  portfolio:
-    image: trajano.net/portfolio
-    restart: always
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-        - node.hostname!=docker-engine
-    environment:
-    - TZ=America/Toronto
+  wordpress-php:
+    build: ./wordpress-php
   sftpd:
     build: ./sftpd
-    image: trajano.net/sftpd
-    restart: always
-    volumes:
-    - site:/home/site/s
-    ports:
-    - "6022:22"
   site:
     build: ./site
-    image: trajano.net/site
-    restart: always
-    volumes:
-    - site:/site
-  mysql:
-    #image: mariadb:10.3
-    build: ./mysql
-    image: trajano.net/wpdb
-    restart: always
-    volumes:
-    #- "c:/wpdb:/var/lib/mysql"
-    - wordpressdb:/var/lib/mysql:rw
-    environment:
-    - MYSQL_DATABASE=wordpress
-    - MYSQL_USER=wpadmin
-    - MYSQL_PASSWORD=SecretAgentMan
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
-  hath:
-    build: ./hath
-    image: trajano.net/hath
-    restart: always
-    network_mode: host
-    deploy:
-      mode: global
-      placement:
-        constraints:
-        - node.hostname==docker-engine
-    ports:
-    - target: 12555
-      published: 12555
-      protocol: tcp
-      mode: host
-    volumes:
-    - hath:/var/lib/hath
 volumes:
   site:
   wordpressdb:

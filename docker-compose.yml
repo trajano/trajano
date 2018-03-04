@@ -38,9 +38,31 @@ services:
     build: ./wordpress
     image: trajano.net/blog
     ports:
-    - "8080:443"
+    - "8080:80"
+    networks: 
+    - default
+    - wordpress
     volumes:
     - wordpress:/var/www/html
+  wordpress-php:
+    image: trajano.net/blog-fpm
+    networks: 
+    - wordpress
+    volumes:
+    - wordpress:/var/www/html
+  mysql:
+    image: mysql:latest
+    volumes:
+    - wordpressdb:/var/lib/mysql:rw
+    environment:
+    - MYSQL_DATABASE=wordpress
+    - MYSQL_USER=wpadmin
+    - MYSQL_PASSWORD=SecretAgentMan
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    networks: 
+    - wordpress
+    ports:
+    - "3306:3306"
   portfolio:
     image: trajano.net/portfolio
     restart: always
@@ -63,18 +85,16 @@ services:
   site:
     image: trajano.net/site
     restart: always
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
     volumes:
     - site:/site
-  mysql:
-    #image: mariadb:10.3
-    image: trajano.net/wpdb
-    volumes:
-    - wordpressdb:/var/lib/mysql:rw
-    environment:
-    - MYSQL_DATABASE=wordpress
-    - MYSQL_USER=wpadmin
-    - MYSQL_PASSWORD=SecretAgentMan
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
 volumes:
   site:
   wordpressdb:
@@ -92,3 +112,5 @@ volumes:
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
+networks:
+  wordpress:
