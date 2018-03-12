@@ -5,12 +5,13 @@ services:
     build: ./hath
     image: trajano.net/hath
     restart: always
-    network_mode: host
-#    deploy:
-#      mode: global
-#      placement:
-#        constraints:
-#        - node.hostname==docker-engine
+    #network_mode: host
+    deploy:
+      placement:
+        constraints:
+        - node.hostname==docker-engine
+    networks:
+    - bridge
     ports:
     - target: 12555
       published: 12555
@@ -22,3 +23,7 @@ volumes:
   hath:
     name: 'noriko/s/hath'
     driver: cifs
+networks:
+  bridge:
+    external:
+      name: bridge

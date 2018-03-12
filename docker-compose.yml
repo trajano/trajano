@@ -13,9 +13,7 @@ services:
     volumes:
     - registry:/var/lib/registry
   web:
-    build: ./web
     image: trajano.net/web
-    restart: always
     deploy:
       replicas: 1
       restart_policy:
@@ -33,12 +31,10 @@ services:
     - TZ=America/Toronto
     - HTTPVAL=true
     depends_on: 
+    - registry
     - portfolio
   wordpress:
-    build: ./wordpress
     image: trajano.net/blog
-    ports:
-    - "8080:80"
     networks: 
     - default
     - wordpress
@@ -65,7 +61,6 @@ services:
     - "3306:3306"
   portfolio:
     image: trajano.net/portfolio
-    restart: always
     deploy:
       replicas: 2
       restart_policy:
@@ -84,7 +79,6 @@ services:
     - "6022:22"
   site:
     image: trajano.net/site
-    restart: always
     deploy:
       replicas: 2
       restart_policy:
@@ -95,6 +89,18 @@ services:
         - node.hostname!=docker-engine
     volumes:
     - site:/site
+#  gitlab:
+#    image: gitlab/gitlab-ce:latest
+#    deploy:
+#      restart_policy:
+#        condition: any
+#        delay: 10s
+#      placement:
+#        constraints:
+#        - node.hostname!=docker-engine
+#    volumes:
+#    - gitlab-config:/etc/gitlab
+#    - gitlab-data:/var/opt/gitlab
 volumes:
   site:
   wordpressdb:
@@ -111,6 +117,14 @@ volumes:
     driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
+    driver: cifs
+  gitlab-config:
+    name: 'noriko/s/gitlab-config'
+    driver: cifs
+    driver_opts: 
+      cifsopts: vers=3.02,mfsymlinks,dynperm
+  gitlab-data:
+    name: 'noriko/s/gitlab-data'
     driver: cifs
 networks:
   wordpress:

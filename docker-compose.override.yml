@@ -1,51 +1,9 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 version: '3.4'
 services:
-   # 4/kZkxXSsPXu7XlzItajkniSMhlptkhIjLVKJe7Aj+WjvbS35sdkEzjld8eqpO5c:$apr1$nAlpgWWz$m1r3URBT9dfTWr2sfZ24f.
-  # 4/kZkxXSsPXu7XlzItajkniSMhlptkhIjLVKJe7Aj+WjvbS35sdkEzjld8eqpO5c
-  # RhN5o7rN/PUiGySg0SBHr1HZaOy5hkG3bKnEeROU7BCmUqRhUwkzA271SK+RTdlb
-  registry:
-    image: registry:2
-    deploy:
-      restart_policy:
-        condition: any
-        delay: 10s
-    volumes:
-    - registry:/var/lib/registry
   web:
     build: ./web
-    image: trajano.net/web
     restart: always
-    deploy:
-      replicas: 3
-      restart_policy:
-        condition: any
-        delay: 10s
-#      placement:
-#        constraints:
-#        - node.hostname!=docker-engine
-    ports:
-    - "80:80"
-    - "443:443"
-#    - target: 80
-#      published: 80
-#      protocol: tcp
-#      mode: host
-#    - target: 443
-#      published: 443
-#      protocol: tcp
-#      mode: host
-    volumes:
-    - letsencrypt:/etc/letsencrypt
-    environment:
-    - EMAIL=arch@trajano.net
-    - URL=trajano.net
-    - SUBDOMAINS=www,i,site,gw,ms
-    - CERTS=www.trajano.net,i.trajano.net,site.trajano.net,gw.trajano.net,ms.trajano.net
-    - TZ=America/Toronto
-    - HTTPVAL=true
-    depends_on: 
-    - portfolio
   wordpress:
     build: ./wordpress
   wordpress-php:
