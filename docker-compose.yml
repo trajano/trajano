@@ -140,6 +140,14 @@ volumes:
   wordpress:
     name: 'noriko/s/wordpress'
     driver: cifs
+#  wordpress_local:
+#    driver: local
+#    driver_opts:
+#      type: cifs
+#      o: vers=3.02,credential=/root/sharecreds
+#      device: "//192.168.1.86/s/wordpress"
+#    name: 'noriko/s/wordpress'
+#    driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
