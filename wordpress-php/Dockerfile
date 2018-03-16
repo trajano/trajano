@@ -15,3 +15,4 @@ RUN apk add --no-cache freetype libpng libjpeg-turbo freetype-dev libpng-dev lib
   docker-php-ext-install mysqli gd && \
   apk del --no-cache freetype-dev libpng-dev libjpeg-turbo-dev
 VOLUME /var/www/html
+HEALTHCHECK --start-period=30s CMD nc -z localhost 9000 || exit 1
