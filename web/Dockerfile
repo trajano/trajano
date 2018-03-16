@@ -9,4 +9,4 @@ COPY bootstrap.sh /
 RUN chmod 700 /bootstrap.sh
 ENV TZ=America/Toronto
 CMD [ "/bootstrap.sh" ]
-HEALTHCHECK --start-period=30s CMD curl --fail http://localhost/ || exit 1
+HEALTHCHECK --start-period=30s CMD curl --fail http://localhost/ping || exit 1

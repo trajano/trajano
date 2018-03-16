@@ -1,17 +1,21 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+# docker-compose -f hath-compose.yml up -d --build
+# docker service create --constraint node.hostname==docker-engine --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
+# docker run --restart always --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
 version: '3.4'
 services:
   hath:
     build: ./hath
     image: trajano.net/hath
     restart: always
-    #network_mode: host
-    deploy:
-      placement:
-        constraints:
-        - node.hostname==docker-engine
-    networks:
-    - bridge
+    network_mode: host
+#    deploy:
+#      placement:
+#        constraints:
+#        - node.hostname==docker-engine
+#    networks:
+#    - default
+#    - bridge
     ports:
     - target: 12555
       published: 12555
@@ -23,7 +27,7 @@ volumes:
   hath:
     name: 'noriko/s/hath'
     driver: cifs
-networks:
-  bridge:
-    external:
-      name: bridge
+#networks:
+#  bridge:
+#    external:
+#      name: bridge

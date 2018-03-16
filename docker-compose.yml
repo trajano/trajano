@@ -30,9 +30,6 @@ services:
     environment:
     - TZ=America/Toronto
     - HTTPVAL=true
-    depends_on: 
-    - registry
-    - portfolio
   wordpress:
     image: trajano.net/blog
     deploy:
