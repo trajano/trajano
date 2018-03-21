@@ -1,3 +1,0 @@
-stream {
-    include /etc/nginx/stream.d/*.conf;
-}

@@ -1,0 +1,23 @@
+stream {
+    resolver 127.0.0.11 valid=30s;
+
+    upstream intranet {
+        server intranet:443;
+    }
+
+    upstream default_https {
+        server localhost:443;
+    }
+
+    map $ssl_preread_server_name $upstream {
+        default default_https;
+        i.trajano.net intranet;
+    }
+    server {
+        listen 444;
+        ssl_preread on;
+
+        proxy_pass $upstream;
+        proxy_ssl_server_name      on;
+    }
+}

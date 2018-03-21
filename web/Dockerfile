@@ -5,12 +5,10 @@ VOLUME /etc/letsencrypt
 RUN apk add py-urllib3 openssl certbot curl --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.7/community/ --repository http://dl-3.alpinelinux.org/alpine/v3.7/main/ \
   && rm -rf /var/cache/apk/*
 COPY conf.d/* /etc/nginx/conf.d/
-COPY stream.d/* /etc/nginx/stream.d/
-COPY bootstrap.sh nginx.conf.additions /
+COPY bootstrap.sh nginx.conf.stream /
 RUN chmod 700 /bootstrap.sh \
- && mkdir -p /etc/nginx/stream.d \
- && cat nginx.conf.additions >> /etc/nginx/nginx.conf \
- && rm nginx.conf.additions
+ && cat nginx.conf.stream >> /etc/nginx/nginx.conf \
+ && rm nginx.conf.stream
 ENV TZ=America/Toronto
 EXPOSE 444
 CMD [ "/bootstrap.sh" ]
