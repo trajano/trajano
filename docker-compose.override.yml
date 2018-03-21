@@ -4,6 +4,9 @@ services:
   web:
     build: ./web
     restart: always
+  intranet:
+    build: ./intranet
+    restart: always
   wordpress:
     build: ./wordpress
   wordpress-php:

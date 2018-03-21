@@ -31,7 +31,6 @@ services:
     - TZ=America/Toronto
     - HTTPVAL=true
   intranet:
-    build: ./intranet
     image: trajano.net/intranet
     volumes:
     - letsencrypt:/etc/letsencrypt
