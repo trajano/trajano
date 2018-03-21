@@ -10,6 +10,5 @@ RUN chmod 700 /bootstrap.sh \
  && cat nginx.conf.stream >> /etc/nginx/nginx.conf \
  && rm nginx.conf.stream
 ENV TZ=America/Toronto
-EXPOSE 444
 CMD [ "/bootstrap.sh" ]
 HEALTHCHECK --start-period=30s CMD curl --fail http://localhost/ping || exit 1

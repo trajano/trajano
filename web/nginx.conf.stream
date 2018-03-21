@@ -6,7 +6,7 @@ stream {
     }
 
     upstream default_https {
-        server localhost:443;
+        server localhost:444;
     }
 
     map $ssl_preread_server_name $upstream {
@@ -14,10 +14,10 @@ stream {
         i.trajano.net intranet;
     }
     server {
-        listen 444;
+        listen 443;
         ssl_preread on;
 
         proxy_pass $upstream;
-        proxy_ssl_server_name      on;
+        proxy_ssl_server_name on;
     }
 }

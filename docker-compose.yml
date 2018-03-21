@@ -25,7 +25,7 @@ services:
         - node.hostname==docker-engine
     ports:
     - "80:80"
-    - "443:444"
+    - "443:443"
     volumes:
     - letsencrypt:/etc/letsencrypt
     environment:
