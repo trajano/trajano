@@ -37,6 +37,9 @@ services:
     environment:
     - TZ=America/Toronto
     - HTTPVAL=true
+    networks: 
+    - default
+    - intranet
   wordpress:
     image: trajano.net/blog
     deploy:
@@ -109,8 +112,6 @@ services:
     image: charypar/swarm-dashboard
     volumes:
     - "/var/run/docker.sock:/var/run/docker.sock"
-    ports:
-    - 8080:8080
     environment:
       PORT: 8080
     deploy:
@@ -118,6 +119,8 @@ services:
       placement:
         constraints:
           - node.role == manager
+    networks: 
+    - intranet
 #  gitlab:
 #    image: gitlab/gitlab-ce:latest
 #    deploy:
@@ -165,3 +168,4 @@ volumes:
     driver: cifs
 networks:
   wordpress:
+  intranet:
