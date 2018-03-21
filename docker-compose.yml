@@ -30,6 +30,14 @@ services:
     environment:
     - TZ=America/Toronto
     - HTTPVAL=true
+  intranet:
+    build: ./intranet
+    image: trajano.net/intranet
+    volumes:
+    - letsencrypt:/etc/letsencrypt
+    environment:
+    - TZ=America/Toronto
+    - HTTPVAL=true
   wordpress:
     image: trajano.net/blog
     deploy:

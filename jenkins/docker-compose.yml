@@ -1,0 +1,28 @@
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+# docker-compose up -d --build
+# docker service create --constraint node.hostname==docker-engine --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
+# docker run --restart always --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
+version: '3.4'
+services:
+  nexus:
+    image: sonatype/nexus3
+    ports:
+    - target: 8081
+      published: 8081
+      protocol: tcp
+  jenkins:
+    build: .
+    image: trajano.net/jenkins
+    ports:
+    - target: 8080
+      published: 18080
+      protocol: tcp
+#    privileged: true
+#    volumes: 
+#    - /var/run/docker.sock:/var/run/docker.sock
+#  slave:
+#    image: jenkins/slave
+#    deploy:
+#      mode: replicated
+#      replicas: 2
+#      endpoint_mode: dnsrr
