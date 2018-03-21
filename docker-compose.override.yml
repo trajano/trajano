@@ -11,6 +11,8 @@ services:
     build: ./wordpress
   wordpress-php:
     build: ./wordpress-php
+  jenkins:
+    build: ./jenkins
   sftpd:
     build: ./sftpd
   site:

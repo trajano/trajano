@@ -85,8 +85,6 @@ services:
     - MYSQL_RANDOM_ROOT_PASSWORD=yes
     networks: 
     - wordpress
-#    ports:
-#    - "3306:3306"
   portfolio:
     image: trajano.net/portfolio
     deploy:
@@ -105,6 +103,14 @@ services:
     - site:/home/site/s
     ports:
     - "6022:22"
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
   site:
     image: trajano.net/site
     deploy:
@@ -117,6 +123,34 @@ services:
         - node.hostname!=docker-engine
     volumes:
     - site:/site
+#  nexus:
+#    image: sonatype/nexus3
+#    deploy:
+#      restart_policy:
+#        condition: any
+#        delay: 10s
+#      placement:
+ #       constraints:
+ #       - node.hostname!=docker-engine
+ #   environment:
+ #   - NEXUS_CONTEXT=nexus
+ #   networks: 
+  #  - intranet
+  #  volumes:
+  #  - nexus-data:/nexus-data
+#  jenkins:
+#    image: trajano.net/jenkins
+#    networks: 
+#    - intranet
+#    volumes:
+#    - jenkins-data:/var/jenkins_home
+#    deploy:
+#     restart_policy:
+#       condition: any
+#       delay: 10s
+#      placement:
+#       constraints:
+#       - node.hostname!=docker-engine
   dashboard:
     image: charypar/swarm-dashboard
     volumes:
@@ -167,14 +201,20 @@ volumes:
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
-  gitlab-config:
-    name: 'noriko/s/gitlab-config'
-    driver: cifs
-    driver_opts: 
-      cifsopts: vers=3.02,mfsymlinks,dynperm
-  gitlab-data:
-    name: 'noriko/s/gitlab-data'
-    driver: cifs
+#  nexus-data:
+#    name: 'noriko/s/nexus'
+#    driver: cifs
+#  jenkins-data:
+ #   name: 'noriko/s/jenkins'
+  #  driver: cifs
+  #gitlab-config:
+   # name: 'noriko/s/gitlab-config'
+   # driver: cifs
+    #driver_opts: 
+#      cifsopts: vers=3.02,mfsymlinks,dynperm
+#  gitlab-data:
+#    name: 'noriko/s/gitlab-data'
+#    driver: cifs
 networks:
   wordpress:
   intranet:
