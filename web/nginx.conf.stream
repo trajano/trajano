@@ -6,7 +6,7 @@ stream {
     }
 
     upstream default_https {
-        server localhost:444;
+        server unix:/var/run/nginx.sock;
     }
 
     map $ssl_preread_server_name $upstream {
