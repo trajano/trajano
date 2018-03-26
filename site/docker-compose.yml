@@ -1,0 +1,40 @@
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+#docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
+version: '3.4'
+services:
+  sftpd:
+    image: trajano.net/sftpd
+    volumes:
+    - site:/home/site/s
+    ports:
+    - "6022:22"
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
+  site:
+    image: trajano.net/site
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 10s
+      placement:
+        constraints:
+        - node.hostname!=docker-engine
+    volumes:
+    - site:/mnt
+    networks:
+    - public
+volumes:
+  site:
+    driver: cifs
+    name: 'noriko/s/site'
+networks:
+  public:
+    external:
+      name: public

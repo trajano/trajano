@@ -1,4 +1,4 @@
-#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+#docker stack deploy -c docker-compose.yml --with-registry-auth jenkins
 # docker-compose up -d --build
 # docker service create --constraint node.hostname==docker-engine --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
 # docker run --restart always --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
@@ -8,6 +8,8 @@ services:
     image: sonatype/nexus3
     environment:
     - NEXUS_CONTEXT=nexus
+    volumes:
+    - nexus-data:/nexus-data
     ports:
     - target: 8081
       published: 8081
@@ -19,12 +21,14 @@ services:
     - target: 8080
       published: 18080
       protocol: tcp
-#    privileged: true
-#    volumes: 
-#    - /var/run/docker.sock:/var/run/docker.sock
-#  slave:
-#    image: jenkins/slave
-#    deploy:
-#      mode: replicated
-#      replicas: 2
-#      endpoint_mode: dnsrr
+    volumes:
+    - jenkins_home:/var/jenkins_home
+volumes:
+  nexus-data:
+    driver: sapk/plugin-gluster
+    driver_opts:
+      voluri: "store1:/nexus"
+  jenkins_home:
+    driver: sapk/plugin-gluster
+    driver_opts:
+      voluri: "store1:/jenkins"

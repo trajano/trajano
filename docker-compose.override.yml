@@ -5,18 +5,19 @@ services:
     build: ./web
     restart: always
   intranet:
-    build: ./intranet
+    build: ./intranet/intranet
     restart: always
+    image: trajano.net/intranet
   wordpress:
-    build: ./wordpress
+    build: ./blog/wordpress
   wordpress-php:
-    build: ./wordpress-php
+    build: ./blog/wordpress-php
   jenkins:
     build: ./jenkins
   sftpd:
-    build: ./sftpd
+    build: ./site/sftpd
   site:
-    build: ./site
+    build: ./site/site
 volumes:
   site:
   wordpressdb:

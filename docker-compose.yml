@@ -11,12 +11,18 @@ services:
       restart_policy:
         condition: any
         delay: 10s
+      resources:
+        limits:
+          memory: 64M
+      placement:
+        constraints:
+        - node.hostname==docker-engine
     volumes:
     - registry:/var/lib/registry
   web:
     image: trajano.net/web
     deploy:
-      replicas: 1
+      replicas: 2
       restart_policy:
         condition: any
         delay: 10s
@@ -31,128 +37,20 @@ services:
     environment:
     - TZ=America/Toronto
     - HTTPVAL=true
-  intranet:
-    image: trajano.net/intranet
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-        - node.hostname!=docker-engine
-    volumes:
-    - letsencrypt:/etc/letsencrypt
-    environment:
-    - TZ=America/Toronto
-    - HTTPVAL=true
     networks: 
+    - public
     - default
-    - intranet
-  wordpress:
-    image: trajano.net/blog
-    deploy:
-      placement:
-        constraints:
-          - node.role != manager
-    networks: 
-    - default
-    - wordpress
-    volumes:
-    - wordpress:/var/www/html
-  wordpress-php:
-    image: trajano.net/blog-fpm
-    deploy:
-      placement:
-        constraints:
-          - node.role != manager
-    networks: 
-    - wordpress
-    volumes:
-    - wordpress:/var/www/html
-  mysql:
-    image: mysql:latest
-    deploy:
-      placement:
-        constraints:
-          - node.role != manager
-    volumes:
-    - wordpressdb:/var/lib/mysql:rw
-    environment:
-    - MYSQL_DATABASE=wordpress
-    - MYSQL_USER=wpadmin
-    - MYSQL_PASSWORD=SecretAgentMan
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
-    networks: 
-    - wordpress
-  portfolio:
-    image: trajano.net/portfolio
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-        - node.hostname!=docker-engine
-    environment:
-    - TZ=America/Toronto
-  sftpd:
-    image: trajano.net/sftpd
-    volumes:
-    - site:/home/site/s
-    ports:
-    - "6022:22"
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-        - node.hostname!=docker-engine
-  site:
-    image: trajano.net/site
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-        - node.hostname!=docker-engine
-    volumes:
-    - site:/site
-  dashboard:
-    image: charypar/swarm-dashboard
-    volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-    environment:
-      PORT: 8080
-    deploy:
-      replicas: 1
-      placement:
-        constraints:
-          - node.role == manager
-    networks: 
-    - intranet
 volumes:
-  site:
   wordpressdb:
     name: 'noriko/s/wpdb'
     driver: cifs
   registry:
     name: 'noriko/s/registry'
     driver: cifs
-  www:
-    name: 'noriko/s/www'
-    driver: cifs
-  wordpress:
-    name: 'noriko/s/wordpress'
-    driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
 networks:
-  wordpress:
-  intranet:
+  public:
+    external:
+      name: public

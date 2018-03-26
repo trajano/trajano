@@ -1,5 +1,5 @@
 # This is used as the gateway proxy that would route to the individual servers.
-FROM nginx:alpine
+FROM nginx:1.13.10-alpine
 EXPOSE 443
 VOLUME /etc/letsencrypt
 RUN apk add py-urllib3 openssl certbot curl --no-cache --repository http://dl-3.alpinelinux.org/alpine/v3.7/community/ --repository http://dl-3.alpinelinux.org/alpine/v3.7/main/ \
