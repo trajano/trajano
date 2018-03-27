@@ -41,9 +41,6 @@ services:
     - public
     - default
 volumes:
-  wordpressdb:
-    name: 'noriko/s/wpdb'
-    driver: cifs
   registry:
     name: 'noriko/s/registry'
     driver: cifs

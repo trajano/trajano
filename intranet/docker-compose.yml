@@ -38,6 +38,7 @@ services:
     networks:
     - mon
     - default
+    - db
     environment:
     - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
     - GF_SECURITY_ADMIN_PASSWORD=${ADMIN_PASSWORD:-admin}
@@ -48,6 +49,7 @@ services:
     - GF_AUTH_PROXY_HEADER_NAME=X-WEBAUTH-USER
     - GF_AUTH_PROXY_HEADER_PROPERTY=username
     - GF_AUTH_PROXY_AUTO_SIGN_UP=true
+    - GF_DATABASE_URL=mysql://grafana:r4BTIeqCHEj3ObckcbeO@mysql:3306/grafana
     #- GF_SERVER_ROOT_URL=${GF_SERVER_ROOT_URL:-localhost}
     #- GF_SMTP_ENABLED=${GF_SMTP_ENABLED:-false}
     #- GF_SMTP_FROM_ADDRESS=${GF_SMTP_FROM_ADDRESS:-grafana@test.com}
@@ -77,6 +79,9 @@ networks:
   mon:
     external:
       name: mon_net
+  db:
+    external:
+      name: db_default
   public:
     external:
       name: public

@@ -4,6 +4,7 @@ version: '3.4'
 services:
   mysql:
     image: mysql:latest
+    #command: --skip-grant-tables
     deploy:
       placement:
         constraints:
@@ -11,6 +12,8 @@ services:
       resources:
         limits:
           memory: 128M
+    ports:
+    - "3306:3306"
     volumes:
     - db-data:/var/lib/mysql:rw
     environment:
