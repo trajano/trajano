@@ -1,0 +1,28 @@
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+#docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
+version: '3.4'
+services:
+  mysql:
+    image: mysql:latest
+    deploy:
+      placement:
+        constraints:
+        - node.role != manager
+      resources:
+        limits:
+          memory: 128M
+    volumes:
+    - db-data:/var/lib/mysql:rw
+    environment:
+    - MYSQL_DATABASE=wordpress
+    - MYSQL_USER=wpadmin
+    - MYSQL_PASSWORD=SecretAgentMan
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+volumes:
+  db-data:
+    name: 'noriko/s/wpdb'
+    driver: cifs
+networks:
+  default:
+    driver: overlay
+    attachable: true

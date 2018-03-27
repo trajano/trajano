@@ -21,6 +21,8 @@ services:
     build: ./site/sftpd
   site:
     build: ./site/site
+  mysql:
+    build: ./db/mysql
 volumes:
   site:
   wordpressdb:
