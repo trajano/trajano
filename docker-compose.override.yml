@@ -8,6 +8,9 @@ services:
     build: ./intranet/intranet
     restart: always
     image: trajano.net/intranet
+  grafana:
+    build: ./intranet/grafana
+    image: trajano.net/swarmprom-grafana
   wordpress:
     build: ./blog/wordpress
   wordpress-php:
