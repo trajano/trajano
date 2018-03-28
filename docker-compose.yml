@@ -26,6 +26,9 @@ services:
       restart_policy:
         condition: any
         delay: 10s
+      resources:
+        limits:
+          memory: 32M
       placement:
         constraints:
         - node.hostname==docker-engine
