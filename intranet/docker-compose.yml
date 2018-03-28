@@ -74,6 +74,8 @@ services:
           memory: 128M
         reservations:
           memory: 64M
+  smtp:
+    image: trajano.net/smtp
 volumes:
   grafana:
   letsencrypt:
