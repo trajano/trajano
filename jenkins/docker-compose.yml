@@ -25,10 +25,13 @@ services:
     - jenkins_home:/var/jenkins_home
 volumes:
   nexus-data:
-    driver: sapk/plugin-gluster
+    driver: gluster
     driver_opts:
-      voluri: "store1:/nexus"
+      voluri: "store1:trajano/nexus"
   jenkins_home:
-    driver: sapk/plugin-gluster
+    driver: gluster
+#    driver: cifs
+#    name: 'noriko/s/jenkins'
     driver_opts:
-      voluri: "store1:/jenkins"
+#      o: dynperm,cifsacl
+      voluri: "store1,store2:trajano/jenkins"

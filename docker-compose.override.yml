@@ -11,7 +11,10 @@ services:
   grafana:
     build: ./intranet/grafana
     image: trajano.net/swarmprom-grafana
-  grafana:
+  prometheus:
+    build: ./intranet/prometheus
+    image: trajano.net/swarmprom-prometheus
+  smtp:
     build: ./intranet/smtp
     image: trajano.net/smtp
   wordpress:

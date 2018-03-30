@@ -1,0 +1,3 @@
+relayhost = in-v3.mailjet.com
+smtp_sasl_auth_enable = yes
+smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd

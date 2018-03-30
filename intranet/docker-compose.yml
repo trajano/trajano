@@ -1,6 +1,11 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 #docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
 version: '3.4'
+configs:
+  node_rules:
+    file: ./prometheus/rules/swarm_node.rules.yml
+  task_rules:
+    file: ./prometheus/rules/swarm_task.rules.yml
 services:
   intranet:
     image: trajano.net/intranet
@@ -22,6 +27,7 @@ services:
     networks:
     - public
     - default
+    - ci
   dashboard:
     image: charypar/swarm-dashboard
     volumes:
@@ -77,14 +83,48 @@ services:
           memory: 128M
         reservations:
           memory: 64M
+  prometheus:
+    image: trajano.net/swarmprom-prometheus
+    networks:
+    - mon
+    command:
+    - '--config.file=/etc/prometheus/prometheus.yml'
+    - '--web.console.libraries=/etc/prometheus/console_libraries'
+    - '--web.console.templates=/etc/prometheus/consoles'
+    - '--storage.tsdb.path=/prometheus'
+    - '--storage.tsdb.retention=24h'
+    volumes:
+    - prometheus:/prometheus
+    configs:
+    - source: node_rules
+      target: /etc/prometheus/swarm_node.rules.yml
+    - source: task_rules
+      target: /etc/prometheus/swarm_task.rules.yml
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+        - node.role != manager
+      resources:
+        limits:
+          memory: 512M
+        reservations:
+          memory: 128M
   smtp:
     image: trajano.net/smtp
 volumes:
   grafana:
+  prometheus:
+    name: 'noriko/s/prometheus'
+    driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
 networks:
+  ci:
+    external:
+      name: ci_default
   mon:
     external:
       name: mon_net
