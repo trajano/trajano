@@ -15,7 +15,7 @@ services:
     build: ./intranet/prometheus
     image: trajano.net/swarmprom-prometheus
   smtp:
-    build: ./smtp/smtp
+    build: ./intranet/smtp
     image: trajano.net/smtp
   wordpress:
     build: ./blog/wordpress

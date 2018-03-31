@@ -1,0 +1,18 @@
+#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
+#docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
+version: '3.4'
+services:
+  smtp:
+    image: trajano.net/smtp
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: any
+        delay: 10s
+      placement:
+        constraints:
+        - node.role != manager
+networks:
+  default:
+    driver: overlay
+    attachable: true

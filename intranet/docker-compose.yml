@@ -45,6 +45,7 @@ services:
     - mon
     - default
     - db
+    - smtp
     - cache
     environment:
     - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
@@ -111,8 +112,6 @@ services:
           memory: 512M
         reservations:
           memory: 128M
-  smtp:
-    image: trajano.net/smtp
 volumes:
   grafana:
   prometheus:
@@ -128,6 +127,9 @@ networks:
   mon:
     external:
       name: mon_net
+  smtp:
+    external:
+      name: smtp_default
   db:
     external:
       name: db_default

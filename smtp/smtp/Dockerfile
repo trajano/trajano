@@ -5,7 +5,7 @@ RUN curl --silent http://cdn.postfix.johnriley.me/mirrors/postfix-release/offici
 WORKDIR postfix-3.3.0
 RUN useradd postfix && \
     groupadd postdrop && \
-    yum install -y make gcc libdb libdb-devel && \
+    yum install -y make gcc libdb libdb-devel nc && \
     make && \
     make upgrade
 WORKDIR /
@@ -15,3 +15,4 @@ RUN cat /main.cf.relay >> /etc/postfix/main.cf && \
     chmod 600 /etc/postfix/sasl_password && \
     rm -rf /main.cf.relay postfix-3.3.0
 CMD [ "/usr/sbin/postfix", "start-fg" ]
+HEALTHCHECK --start-period=5s CMD nc localhost 25 --send-only < /dev/null || exit 1
