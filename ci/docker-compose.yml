@@ -8,12 +8,15 @@ services:
     image: sonatype/nexus3
     environment:
     - NEXUS_CONTEXT=nexus
+    networks:
+    - default
+    - smtp
     volumes:
     - nexus-data:/nexus-data
-    ports:
-    - target: 8081
-      published: 8081
-      protocol: tcp
+#    ports:
+#    - target: 8081
+#      published: 8081
+#      protocol: tcp
   jenkins:
     image: trajano.net/jenkins
     networks:
