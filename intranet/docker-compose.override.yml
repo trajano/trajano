@@ -1,53 +1,10 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 version: '3.4'
 services:
-  web:
-    build: ./web
-    restart: always
   intranet:
-    build: ./intranet/intranet
+    build: ./intranet
     restart: always
     image: trajano.net/intranet
   grafana:
-    build: ./intranet/grafana
+    build: ./grafana
     image: trajano.net/swarmprom-grafana
-  prometheus:
-    build: ./intranet/prometheus
-    image: trajano.net/swarmprom-prometheus
-  smtp:
-    build: ./intranet/smtp
-    image: trajano.net/smtp
-  wordpress:
-    build: ./blog/wordpress
-  wordpress-php:
-    build: ./blog/wordpress-php
-  jenkins:
-    build: ./ci/jenkins
-  sftpd:
-    build: ./site/sftpd
-  site:
-    build: ./site/site
-  mysql:
-    build: ./db/mysql
-volumes:
-  site:
-  wordpressdb:
-    name: 'noriko/s/wpdb'
-    driver: cifs
-  registry:
-    name: 'noriko/s/registry'
-    driver: cifs
-  www:
-    name: 'noriko/s/www'
-    driver: cifs
-  wordpress:
-    name: 'noriko/s/wordpress'
-    driver: cifs
-  hath:
-    name: 'noriko/s/hath'
-    driver: cifs
-  letsencrypt:
-    name: 'noriko/s/letsencrypt'
-    driver: cifs
-networks:
-  hath:
