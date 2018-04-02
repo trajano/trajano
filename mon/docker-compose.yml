@@ -79,7 +79,7 @@ services:
         - node.role != manager
       resources:
         limits:
-          memory: 512M
+          memory: 384M
         reservations:
           memory: 128M
 
@@ -123,8 +123,9 @@ volumes:
     name: 'noriko/s/alertmanager'
     driver: cifs
   prometheus:
-    name: 'noriko/s/prometheus'
-    driver: cifs
+    driver_opts:
+      voluri: "store1,store2:trajano/prometheus"
+    driver: gluster
 networks:
   default:
     driver: overlay

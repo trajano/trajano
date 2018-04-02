@@ -1,1 +1,1 @@
-docker-compose build && docker-compose push && docker stack deploy -c docker-compose.yml --with-registry-auth mon
+docker-compose build && docker-compose push && docker stack deploy -c docker-compose.yml --prune --with-registry-auth mon
