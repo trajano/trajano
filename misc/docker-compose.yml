@@ -21,19 +21,6 @@ services:
       mode: host
     volumes:
     - hath:/var/lib/hath
-  googlemusic:
-    image: jaymoulin/google-music-uploader
-    command: google-music-upload -d /media/library -a /root/oauth/oauth.key
-    deploy:
-      placement:
-        constraints:
-        - node.role != manager
-#    environment:
-#    - UPLOADER_ID=08:7A:4C:14:BA:B9
-#    - REMOVE=0
-    volumes:
-    - music:/media/library
-    - music_auth:/root/oauth
 volumes:
   hath:
     name: 'noriko/s/hath'

@@ -64,8 +64,8 @@ services:
     #- GF_SMTP_HOST=${GF_SMTP_HOST:-smtp:25}
     #- GF_SMTP_USER=${GF_SMTP_USER}
     #- GF_SMTP_PASSWORD=${GF_SMTP_PASSWORD}
-#    volumes:
-#      - grafana:/var/lib/grafana
+    volumes:
+    - grafana:/var/lib/grafana
     deploy:
       mode: replicated
       replicas: 1
@@ -77,10 +77,27 @@ services:
           memory: 128M
         reservations:
           memory: 64M
+  portainer:
+    image: portainer/portainer
+    command: -H unix:///var/run/docker.sock
+    ports:
+    - 9000:9000
+    deploy:
+      placement:
+        constraints:
+         - node.role == manager
+    volumes:
+    - "/var/run/docker.sock:/var/run/docker.sock"
+    - portainer:/data
 volumes:
   grafana:
+    name: 'noriko/s/grafana'
+    driver: cifs
   prometheus:
     name: 'noriko/s/prometheus'
+    driver: cifs
+  portainer:
+    name: 'noriko/s/portainer'
     driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
