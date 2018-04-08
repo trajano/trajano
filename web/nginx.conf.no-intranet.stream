@@ -1,9 +1,6 @@
 stream {
 
     resolver 127.0.0.11 valid=30s;
-    upstream intranet {
-        server intranet:443;
-    }
 
     upstream default_https {
         server unix:/var/run/nginx.sock;
@@ -11,7 +8,6 @@ stream {
 
     map $ssl_preread_server_name $upstream {
         default default_https;
-        i.trajano.net intranet;
     }
     server {
         listen 443;

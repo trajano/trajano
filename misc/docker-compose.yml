@@ -25,6 +25,8 @@ volumes:
   hath:
     name: 'noriko/s/hath'
     driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   host:
     external:

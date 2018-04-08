@@ -91,15 +91,18 @@ volumes:
   grafana:
     name: 'noriko/s/grafana'
     driver: cifs
-  prometheus:
-    name: 'noriko/s/prometheus'
-    driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
   portainer:
     name: 'noriko/s/portainer'
     driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
   letsencrypt:
     name: 'noriko/s/letsencrypt'
     driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   ci:
     external:

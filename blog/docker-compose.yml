@@ -47,6 +47,8 @@ volumes:
   wordpress:
     name: 'noriko/s/wordpress'
     driver: cifs
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   public:
     external:

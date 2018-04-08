@@ -34,6 +34,8 @@ volumes:
   site:
     driver: cifs
     name: 'noriko/s/site'
+    driver_opts:
+      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   public:
     external:

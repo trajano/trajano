@@ -12,7 +12,7 @@ services:
     build: ./intranet/grafana
     image: trajano.net/swarmprom-grafana
   prometheus:
-    build: ./intranet/prometheus
+    build: ./mon/prometheus
     image: trajano.net/swarmprom-prometheus
   smtp:
     build: ./smtp/smtp
