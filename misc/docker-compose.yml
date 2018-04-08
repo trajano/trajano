@@ -25,14 +25,6 @@ volumes:
   hath:
     name: 'noriko/s/hath'
     driver: cifs
-  music_auth:
-    name: 'noriko/s/googlemusic'
-    driver: cifs
-  music:
-    name: 'router/music'
-    driver: cifs
-    driver_opts:
-      cifsopts: vers=2.0
 networks:
   host:
     external:

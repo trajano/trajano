@@ -9,5 +9,5 @@ VOLUME /etc/letsencrypt
 #COPY conf.d/* /etc/nginx/conf.d/
 COPY location.d/* /usr/local/apache2/conf/location.d/
 # /etc/nginx/
-# COPY index.html /
+COPY index.html /usr/local/apache2/htdocs/index.html
 HEALTHCHECK --start-period=5s CMD wget -q http://localhost/ -O /dev/null || exit 1

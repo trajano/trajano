@@ -20,7 +20,7 @@ services:
       mode: global
       resources:
         limits:
-          memory: 128M
+          memory: 64M
         reservations:
           memory: 64M
 
@@ -48,7 +48,7 @@ services:
       mode: global
       resources:
         limits:
-          memory: 128M
+          memory: 64M
         reservations:
           memory: 64M
   prometheus:
@@ -123,8 +123,7 @@ volumes:
     name: 'noriko/s/alertmanager'
     driver: cifs
   prometheus:
-    driver_opts:
-      voluri: "store1,store2:trajano/prometheus"
+    name: trajano/prometheus
     driver: gluster
 networks:
   default:

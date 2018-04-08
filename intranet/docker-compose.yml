@@ -79,9 +79,7 @@ services:
           memory: 64M
   portainer:
     image: portainer/portainer
-    command: -H unix:///var/run/docker.sock
-    ports:
-    - 9000:9000
+    command: --no-auth -H unix:///var/run/docker.sock
     deploy:
       placement:
         constraints:

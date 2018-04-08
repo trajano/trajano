@@ -27,7 +27,7 @@ services:
         constraints:
         - node.hostname!=docker-engine
     volumes:
-    - site:/mnt
+    - site:/site
     networks:
     - public
 volumes:

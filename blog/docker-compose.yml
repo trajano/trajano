@@ -11,7 +11,7 @@ services:
         - node.role != manager
     networks: 
     - public
-    - wordpress
+    - default
     volumes:
     - wordpress:/var/www/html
   wordpress-php:
@@ -25,7 +25,7 @@ services:
         constraints:
         - node.role != manager
     networks: 
-    - wordpress
+    - default
     - db
     volumes:
     - wordpress:/var/www/html
@@ -48,8 +48,6 @@ volumes:
     name: 'noriko/s/wordpress'
     driver: cifs
 networks:
-  wordpress:
-    driver: overlay
   public:
     external:
       name: public
