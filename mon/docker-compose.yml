@@ -54,7 +54,8 @@ services:
   prometheus:
     image: trajano.net/swarmprom-prometheus
     networks:
-    - mon
+    - default
+    - local
     command:
     - '--config.file=/etc/prometheus/prometheus.yml'
     - '--web.console.libraries=/etc/prometheus/console_libraries'
@@ -68,9 +69,6 @@ services:
       target: /etc/prometheus/swarm_node.rules.yml
     - source: task_rules
       target: /etc/prometheus/swarm_task.rules.yml
-    networks:
-    - default
-    - local
     deploy:
       mode: replicated
       replicas: 1

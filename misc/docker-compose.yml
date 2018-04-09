@@ -1,7 +1,3 @@
-#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
-# docker-compose up -d --build
-# docker service create --constraint node.hostname==docker-engine --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
-# docker run --restart always --publish published=12555,target=12555,mode=host --mount type=volume,source=noriko/s/hath,destination=/var/lib/hath,volume-driver=cifs trajano.net/hath
 version: '3.4'
 services:
   hath:
@@ -19,15 +15,19 @@ services:
       published: 12555
       protocol: tcp
       mode: host
+    secrets:
+    - hath_client_login
     volumes:
     - hath:/var/lib/hath
 volumes:
   hath:
     name: 'noriko/s/hath'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   host:
     external:
       name: host
+secrets:
+  hath_client_login:
+    external:
+      name: hath_client_login

@@ -1,23 +1,17 @@
-#FROM openjdk:jre
-#RUN apt-get update && apt-get install curl unzip \
-
-FROM openjdk:jre-alpine
+FROM openjdk:8-jre-alpine
 RUN apk add --no-cache wget unzip \
  && wget -q https://repo.e-hentai.org/hath/HentaiAtHome_1.4.2.zip -O /tmp/HentaiAtHome.zip \
  && unzip /tmp/HentaiAtHome.zip HentaiAtHome.jar \
  && mkdir -p /var/lib/hath/cache \
  && mkdir -p /usr/lib/hath \
  && mkdir -p /var/lib/hath/download \
+ && mkdir -p /usr/lib/hath \
  && mkdir -p /var/log/hath \
  && mkdir -p /tmp/hath \
  && apk del wget unzip \
  && rm -rf /var/cache/apk/* \
+ && ln -s /run/secrets/hath_client_login /usr/lib/hath/client_login
 VOLUME /var/lib/hath
-COPY client_login /usr/lib/hath/
-#ENV CLIENT_ID
-#ENV CLIENT_KEY
-#  "--disable_logging" , \
-#  "--rpc-server-ip=rpc.hentaiathome.net;172.25.0.1", \
 
 CMD ["java", "-Djava.net.preferIPv4Stack=true", "-jar", "HentaiAtHome.jar", \
   "--port=12555", \
