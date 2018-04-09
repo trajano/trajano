@@ -1,10 +1,6 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 version: '3.4'
 services:
-  intranet:
-    build: ./intranet
-    restart: always
-    image: trajano.net/intranet
   grafana:
     build: ./grafana
     image: trajano.net/swarmprom-grafana

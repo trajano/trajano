@@ -5,11 +5,11 @@ services:
     build: ./web
     restart: always
   intranet:
-    build: ./intranet/intranet
+    build: ./intranet
     restart: always
     image: trajano.net/intranet
   grafana:
-    build: ./intranet/grafana
+    build: ./support/grafana
     image: trajano.net/swarmprom-grafana
   prometheus:
     build: ./mon/prometheus

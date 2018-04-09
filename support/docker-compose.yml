@@ -2,29 +2,12 @@
 #docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
 version: '3.4'
 services:
-  intranet:
-    image: trajano.net/intranet
-    deploy:
-      replicas: 2
-      restart_policy:
-        condition: any
-        delay: 10s
-      placement:
-        constraints:
-          - node.role != manager
-    volumes:
-    - letsencrypt:/etc/letsencrypt
-    environment:
-    - TZ=America/Toronto
-    - HTTPVAL=true
-    networks:
-    - public
-    - default
-    - ci
   dashboard:
     image: charypar/swarm-dashboard
     volumes:
     - "/var/run/docker.sock:/var/run/docker.sock"
+    networks:
+    - intranet
     environment:
       PORT: 8080
     deploy:
@@ -36,7 +19,7 @@ services:
     image: trajano.net/swarmprom-grafana
     networks:
     - mon
-    - default
+    - intranet
     - db
     - smtp
     - cache
@@ -77,32 +60,10 @@ services:
           memory: 128M
         reservations:
           memory: 64M
-  portainer:
-    image: portainer/portainer
-    command: --no-auth -H unix:///var/run/docker.sock
-    deploy:
-      placement:
-        constraints:
-         - node.role == manager
-    volumes:
-    - "/var/run/docker.sock:/var/run/docker.sock"
-    - portainer:/data
 volumes:
   grafana:
     name: 'noriko/s/grafana'
     driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
-  portainer:
-    name: 'noriko/s/portainer'
-    driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
-  letsencrypt:
-    name: 'noriko/s/letsencrypt'
-    driver: cifs
-    driver_opts:
-      cifsopts: vers=3.02,mfsymlinks,file_mode=0666,dir_mode=0777
 networks:
   ci:
     external:
@@ -119,6 +80,6 @@ networks:
   cache:
     external:
       name: cache_default
-  public:
+  intranet:
     external:
-      name: public
+      name: intranet

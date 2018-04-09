@@ -9,7 +9,7 @@ services:
     environment:
     - NEXUS_CONTEXT=nexus
     networks:
-    - default
+    - intranet
     - smtp
     volumes:
     - nexus-data:/nexus-data
@@ -55,3 +55,6 @@ networks:
   smtp:
     external:
       name: smtp_default
+  intranet:
+    external:
+      name: intranet
