@@ -9,8 +9,7 @@ COPY bootstrap.sh nginx.conf.stream nginx.conf.no-intranet.stream /
 RUN chmod 700 /bootstrap.sh \
  && cp /etc/nginx/nginx.conf /etc/nginx/nginx-no-intranet.conf \
  && cat nginx.conf.stream >> /etc/nginx/nginx.conf \
- && cat nginx.conf.no-intranet.stream >> /etc/nginx/nginx-no-intranet.conf \
- && rm nginx.conf.stream nginx.conf.no-intranet.stream
+ && rm nginx.conf.stream
 ENV TZ=America/Toronto
 CMD [ "/bootstrap.sh" ]
 HEALTHCHECK --start-period=30s CMD curl --fail http://localhost/ping || exit 1

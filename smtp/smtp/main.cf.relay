@@ -1,3 +1,4 @@
-relayhost = in-v3.mailjet.com
+relayhost = in-v3.mailjet.com:587
 smtp_sasl_auth_enable = yes
-smtp_sasl_password_maps = hash:/etc/postfix/sasl_passwd
+smtp_sasl_password_maps = hash:/run/secrets/sasl_passwd
+smtp_use_tls = yes

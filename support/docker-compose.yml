@@ -21,7 +21,7 @@ services:
     - mon
     - intranet
     - db
-    - smtp
+    - backend
     - cache
     environment:
     - GF_SECURITY_ADMIN_USER=${ADMIN_USER:-admin}
@@ -38,7 +38,7 @@ services:
     - GF_SESSION_PROVIDER_CONFIG=addr=redis:6379,pool_size=100,prefix=grafana
     - GF_SESSION_COOKIE_SECURE=true
     - GF_SMTP_ENABLED=true
-    - GF_SMTP_HOST=smtp
+    - GF_SMTP_HOST=smtp:25
     - GF_SMTP_FROM_ADDRESS=grafana@trajano.net
     #- GF_SERVER_ROOT_URL=${GF_SERVER_ROOT_URL:-localhost}
     #- GF_SMTP_ENABLED=${GF_SMTP_ENABLED:-false}
@@ -71,9 +71,9 @@ networks:
   mon:
     external:
       name: mon_default
-  smtp:
+  backend:
     external:
-      name: smtp_default
+      name: backend
   db:
     external:
       name: db_default
