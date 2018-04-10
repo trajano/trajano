@@ -1,10 +1,13 @@
 version: '3.4'
 services:
   smtp:
-    image: trajano.net/smtp
-    configs:
-    - source: main_cf
-      target: /etc/postfix/main.cf
+    image: namshi/smtp
+    environment:
+      RELAY_NETWORKS: ":10.0.0.0/16"
+      SMARTHOST_ALIASES: "*"
+      SMARTHOST_ADDRESS: in-v3.mailjet.com
+      SMARTHOST_USER: 8f9243877229f6204f53aae00bc9c9d8
+      SMARTHOST_PASSWORD: aa9e65721ecfbd7b0292f028e440fec2
     deploy:
       replicas: 2
       restart_policy:
@@ -13,8 +16,13 @@ services:
       placement:
         constraints:
         - node.role != manager
-    secrets:
-    - sasl_passwd
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
     networks:
     - default
     - backend
@@ -25,11 +33,3 @@ networks:
   backend:
     external:
       name: backend
-secrets:
-  sasl_passwd:
-    external:
-      name: sasl_passwd
-configs:
-  main_cf:
-    external:
-      name: postfix_main_cf
