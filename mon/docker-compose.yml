@@ -87,7 +87,7 @@ services:
     - local
     environment:
     - SLACK_URL=https://hooks.slack.com/services/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
-    - SLACK_CHANNEL=${SLACK_CHANNEL:-general}
+    - SLACK_CHANNEL=${SLACK_CHANNEL:-alerts}
     - SLACK_USER=${SLACK_USER:-alertmanager}
     command:
     - '--config.file=/etc/alertmanager/alertmanager.yml'
