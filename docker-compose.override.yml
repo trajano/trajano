@@ -23,6 +23,7 @@ services:
     build: ./blog/wordpress-php
   jenkins:
     build: ./ci/jenkins
+    image: trajano.net/jenkins
   sftpd:
     build: ./site/sftpd
   site:

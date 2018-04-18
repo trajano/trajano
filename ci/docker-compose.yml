@@ -29,7 +29,7 @@ services:
   jenkins:
     image: trajano.net/jenkins
     networks:
-    - default
+    - intranet
     - smtp
     volumes:
     - jenkins_home:/var/jenkins_home
