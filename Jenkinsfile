@@ -14,6 +14,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                dockerNode(image: 'maven:3.5.3-jdk-8') {
+                    checkout scm
+                    sh 'mvn -B clean test'
+                }
             }
         }
         stage('Deploy') {
