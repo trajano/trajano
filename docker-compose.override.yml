@@ -1,9 +1,6 @@
 #docker stack deploy -c docker-compose.yml --with-registry-auth trajano
 version: '3.4'
 services:
-  web:
-    build: ./web
-    restart: always
   intranet:
     build: ./intranet
     restart: always
@@ -30,25 +27,5 @@ services:
     build: ./site/site
   mysql:
     build: ./db/mysql
-volumes:
-  site:
-  wordpressdb:
-    name: 'noriko/s/wpdb'
-    driver: cifs
-  registry:
-    name: 'noriko/s/registry'
-    driver: cifs
-  www:
-    name: 'noriko/s/www'
-    driver: cifs
-  wordpress:
-    name: 'noriko/s/wordpress'
-    driver: cifs
-  hath:
-    name: 'noriko/s/hath'
-    driver: cifs
-  letsencrypt:
-    name: 'noriko/s/letsencrypt'
-    driver: cifs
 networks:
   hath:

@@ -1,20 +1,7 @@
-FROM jenkins/jenkins:lts
-USER root
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    software-properties-common \
-    apt-transport-https \
-    ca-certificates \
- && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
- && add-apt-repository \
-    "deb [arch=amd64] https://download.docker.com/linux/debian stretch stable"
-RUN apt-get update && apt-get install -y docker-ce
-COPY ca.pem cert.pem key.pem /etc/docker/
-RUN chown jenkins:jenkins /etc/docker \
- && chmod -R u=rwX /etc/docker
-USER jenkins
+FROM trajano/jenkins-with-docker
 RUN /usr/local/bin/install-plugins.sh \
-  docker-slaves \
-  github-branch-source
+  reverse-proxy-auth-plugin
+COPY ca.pem cert.pem key.pem /etc/docker/
 ENV JENKINS_OPTS=--prefix=/jenkins \
     DOCKER_HOST=tcp://192.168.1.113:2376 \
     DOCKER_TLS_VERIFY=1 \

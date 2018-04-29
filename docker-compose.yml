@@ -22,7 +22,7 @@ services:
     volumes:
     - registry:/var/lib/registry
   web:
-    image: trajano.net/web
+    image: trajano/nginx-letsencrypt
     deploy:
       replicas: 2
       restart_policy:
@@ -31,9 +31,6 @@ services:
       resources:
         limits:
           memory: 32M
-      placement:
-        constraints:
-        - node.hostname==docker-engine
     ports:
     - "80:80"
     - "443:443"
@@ -41,10 +38,24 @@ services:
     - letsencrypt:/etc/letsencrypt
     environment:
     - TZ=America/Toronto
-    - HTTPVAL=true
-    networks: 
+    - EMAIL=arch@trajano.net
+    - DOMAINS=trajano.net,gw.trajano.net,i.trajano.net,site.trajnao.net,ms.trajano.net
+    networks:
     - public
     - default
+    configs:
+    - source: web_trajano_net
+      target: /etc/nginx/conf.d/trajano.net.conf
+    - source: web_site
+      target: /etc/nginx/conf.d/site.trajano.net.conf
+    - source: web_stream
+      target: /etc/nginx/stream.d/stream.conf
+    secrets:
+    - source: htpasswd_registry
+      target: /etc/nginx/conf.d/registry.htpasswd
+      uid: '100'
+      gid: '0'
+      mode: 0400
   intranet:
     image: trajano.net/intranet
     deploy:
@@ -76,13 +87,13 @@ services:
 volumes:
   registry:
     name: 'noriko/s/registry'
-    driver: cifs
+    driver: cifs:latest
   letsencrypt:
     name: 'noriko/s/letsencrypt'
-    driver: cifs
+    driver: cifs:latest
   portainer:
     name: 'noriko/s/portainer'
-    driver: cifs
+    driver: cifs:latest
 networks:
   public:
     external:
@@ -90,3 +101,13 @@ networks:
   intranet:
     external:
       name: intranet
+configs:
+  web_trajano_net:
+    external: true
+  web_site:
+    external: true
+  web_stream:
+    external: true
+secrets:
+  htpasswd_registry:
+    external: true

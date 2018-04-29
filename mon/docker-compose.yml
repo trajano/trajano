@@ -1,9 +1,4 @@
 version: '3.4'
-configs:
-  node_rules:
-    file: ./prometheus/rules/swarm_node.rules.yml
-  task_rules:
-    file: ./prometheus/rules/swarm_task.rules.yml
 services:
   cadvisor:
     image: google/cadvisor
@@ -131,3 +126,11 @@ networks:
     attachable: true
   local:
     attachable: false
+
+configs:
+  node_rules:
+    external:
+      name: swarm_node.rules.yml
+  task_rules:
+    external:
+      name: swarm_task.rules.yml
