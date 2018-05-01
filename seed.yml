@@ -1,0 +1,28 @@
+version: '3.6'
+configs:
+  trajano_net:
+    name: web_trajano_net
+    file: ./web/conf.d/trajano.net.conf
+  site:
+    name: web_site
+    file: ./web/conf.d/site.trajano.net.conf
+  stream:
+    name: web_stream
+    file: ./web/stream.d/stream.conf
+secrets:
+  htpasswd_registry:
+    name: htpasswd_registry
+    file: ./web/conf.d/registry.htpasswd
+networks:
+  public:
+    name: public
+    attachable: true
+    internal: true
+  intranet:
+    name: intranet
+    attachable: true
+    internal: true
+  backend:
+    name: backend
+    attachable: true
+    internal: false

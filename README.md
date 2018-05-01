@@ -9,3 +9,7 @@
     docker config create web_stream      web/stream.d/stream.conf
 
     docker secret create htpasswd_registry web/conf.d/registry.htpasswd
+
+## Deploying
+
+    docker stack rm trajano ; docker stack deploy -c docker-compose.yml trajano

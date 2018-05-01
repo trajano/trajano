@@ -1,14 +1,9 @@
-#docker stack deploy -c docker-compose.yml --with-registry-auth trajano
-#docker run -v noriko/s/letsencrypt:/etc/letsencrypt --volume-driver cifs trajano.net/web
 version: '3.4'
 services:
   redis:
     image: redis:32bit
-    deploy:
-      placement:
-        constraints:
-        - node.role != manager
+    networks: 
+    - backend
 networks:
-  default:
-    driver: overlay
-    attachable: true
+  backend:
+    external: true

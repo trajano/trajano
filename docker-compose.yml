@@ -16,9 +16,6 @@ services:
       resources:
         limits:
           memory: 64M
-      placement:
-        constraints:
-        - node.hostname==docker-engine
     volumes:
     - registry:/var/lib/registry
   web:
