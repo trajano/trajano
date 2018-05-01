@@ -54,17 +54,24 @@ services:
       gid: '0'
       mode: 0400
   intranet:
-    image: trajano.net/intranet
+    image: httpd:2.4.33-alpine
+    ports:
+    - "443"
     deploy:
       replicas: 2
       restart_policy:
         condition: any
         delay: 10s
     volumes:
-    - letsencrypt:/etc/letsencrypt
+    - letsencrypt:/etc/letsencrypt:ro
+    - intranet:/usr/local/apache2/htdocs:ro
+    configs:
+    - source: i-httpd.conf
+      target: /usr/local/apache2/conf/httpd.conf
+    - source: ca-cert-trajano.pem
+      target: /etc/nginx/conf.d/trajano.net.conf
     environment:
     - TZ=America/Toronto
-    - HTTPVAL=true
     networks:
     - default
     - intranet
@@ -84,13 +91,16 @@ services:
 volumes:
   registry:
     name: 'noriko/s/registry'
-    driver: cifs:latest
+    driver: cifs
   letsencrypt:
     name: 'noriko/s/letsencrypt'
-    driver: cifs:latest
+    driver: cifs
   portainer:
     name: 'noriko/s/portainer'
-    driver: cifs:latest
+    driver: cifs
+  intranet:
+    name: 'noriko/s/intranet'
+    driver: cifs
 networks:
   public:
     external:
