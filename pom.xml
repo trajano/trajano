@@ -15,8 +15,8 @@
   </organization>
   <licenses>
     <license>
-      <name>Eclipse Public License 1.0</name>
-      <url>http://www.eclipse.org/legal/epl-v10.html</url>
+      <name>Eclipse Public License 2.0</name>
+      <url>http://www.eclipse.org/legal/epl-v20.html</url>
     </license>
   </licenses>
   <developers>
@@ -216,12 +216,12 @@
         </plugin>
         <plugin>
           <artifactId>maven-site-plugin</artifactId>
-          <version>3.7</version>
+          <version>3.9.0</version>
           <dependencies>
             <dependency>
               <groupId>org.apache.maven.doxia</groupId>
               <artifactId>doxia-module-markdown</artifactId>
-              <version>1.7</version>
+              <version>1.9.1</version>
             </dependency>
             <dependency>
               <groupId>org.apache.velocity</groupId>
@@ -309,9 +309,9 @@
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>versions-maven-plugin</artifactId>
           <version>2.3</version>
-          <configuration>
+          <!-- <configuration>
             <rulesUri>https://site.trajano.net/coding-standards/maven-version-rules.xml</rulesUri>
-          </configuration>
+          </configuration> -->
         </plugin>
         <plugin>
           <groupId>org.jacoco</groupId>
