@@ -75,13 +75,13 @@
   </distributionManagement>
   <properties>
     <coding-standards.version>2.2.0</coding-standards.version>
-    <jdk.version>1.8</jdk.version>
+    <jdk.version>11</jdk.version>
     <maven.site.chmod>false</maven.site.chmod>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <repo.id>trajano</repo.id>
     <sonar.organization>trajano</sonar.organization>
-    <surefire.version>2.20</surefire.version>
+    <surefire.version>2.22.2</surefire.version>
   </properties>
   <build>
     <pluginManagement>
@@ -100,7 +100,7 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>3.6.1</version>
+          <version>3.8.1</version>
           <configuration>
             <source>${jdk.version}</source>
             <target>${jdk.version}</target>
