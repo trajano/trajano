@@ -81,7 +81,7 @@
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
     <repo.id>trajano</repo.id>
     <sonar.organization>trajano</sonar.organization>
-    <surefire.version>2.22.2</surefire.version>
+    <surefire.version>3.0.0-M4</surefire.version>
   </properties>
   <build>
     <pluginManagement>
